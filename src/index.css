@@ -1,7 +1,18 @@
 html, body {
   margin: 0px;
   padding: 0px;
+  width: 100vw;
+  height: 100vh;
 }
 ::-webkit-scrollbar {
   display: none;
+}
+
+@font-face {
+  font-family: primary;
+  src: url(../public/assets/fonts/primary.ttf);
+}
+@font-face {
+  font-family: secondary;
+  src: url(../public/assets/fonts/secondary.otf);
 }
