@@ -1,0 +1,1 @@
+This is where we will keep utility functions that are not agnostic like a utlity function that relies on React hooks like useEffect or useRed

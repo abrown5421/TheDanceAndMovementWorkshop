@@ -1,0 +1,1 @@
+This is where we will keep all of our abstracted logic to communicate with database, things like addDoc getDoc etc
