@@ -2,10 +2,10 @@
 
 
 @theme {
-  --color-black: #161515;
-  --color-white: #F5F9FA;
-  --color-primary: #ea154a;
-  --color-secondary: #BF3F4D;
+  --color-black: oklch(0.2 0.0016 17.29);
+  --color-white: oklch(0.98 0.0045 214.33);
+  --color-primary: oklch(0.6 0.2327 17.28);
+  --color-secondary: oklch(0.55 0.1632 18.03);
   --font-primary: primary;
   --font-secondary: secondary;
 }
@@ -13,8 +13,6 @@
 html, body {
   margin: 0px;
   padding: 0px;
-  width: 100vw;
-  height: 100vh;
 }
 ::-webkit-scrollbar {
   display: none;

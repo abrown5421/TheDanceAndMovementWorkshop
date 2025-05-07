@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"; 
-import "animate.css";
 import type { TransitionProps } from "./transitionTypes";
+import "animate.css";
+import './transition.css';
 
 const Transition: React.FC<TransitionProps> = ({
   children,
@@ -20,7 +21,7 @@ const Transition: React.FC<TransitionProps> = ({
     }
   }, [isEntering]);
 
-  const speedClass = speed === "slow" ? "animate__slow" : speed === "fast" ? "animate__fast" : "animate__normal";
+  const speedClass = speed === "slow" ? "animate__slow" : speed === "fast" ? "animate__fast" : speed === "modal-duration" ? "modal-duration" : "animate__normal";
   
   return (
     shouldRender && (
