@@ -1,6 +1,6 @@
 function HomePage() {
   return (
-    <div>home page</div>
+    <div className="text-primary font-primary">home page</div>
   )
 }
 

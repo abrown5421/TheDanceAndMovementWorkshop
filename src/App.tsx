@@ -5,7 +5,7 @@ import HomePage from "./features/homePage/HomePage";
 function App() {
   return (
     <ViewportHook>
-      <div style={{width: '100vw', height: '100vh', backgroundColor: 'gray'}}>
+      <div style={{width: '100vw', height: '100vh'}}>
         <Routes>
           <Route path='/' element={<HomePage />} />
         </Routes>

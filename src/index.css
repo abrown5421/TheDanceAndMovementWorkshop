@@ -1,3 +1,15 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-black: #161515;
+  --color-white: #F5F9FA;
+  --color-primary: #ea154a;
+  --color-secondary: #BF3F4D;
+  --font-primary: primary;
+  --font-secondary: secondary;
+}
+
 html, body {
   margin: 0px;
   padding: 0px;
