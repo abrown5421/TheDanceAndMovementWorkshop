@@ -1,4 +1,5 @@
 import { useAppDispatch } from "../../app/store/hooks";
+import Input from "../../components/input/Input";
 import { setEntireNotification } from "../../components/notification/notificationSlice";
 
 function HomePage() {
@@ -12,7 +13,15 @@ function HomePage() {
   }
   return (
     <>
-      <div onClick={handleClick}>click</div>
+      <Input
+        className="mt-4"
+        type="password"
+        label="Password"
+        placeholder="••••••••"
+        error={false}
+        color="purple"
+        helperText="Password is required"
+      />
     </>
   )
 }
