@@ -3,6 +3,7 @@ import viewportReducer from './globalSlices/viewportSlice';
 import modalReducer from '../../components/modal/modalSlice';
 import notificationReducer from '../../components/notification/notificationSlice';
 import buttonLoadReducer from '../../components/button/buttonLoadSlice';
+import activePageReducer from '../../features/pageShell/pageShellSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     modal: modalReducer,
     notification: notificationReducer,
     buttonLoad: buttonLoadReducer,
+    activePage: activePageReducer
   },
 });
 

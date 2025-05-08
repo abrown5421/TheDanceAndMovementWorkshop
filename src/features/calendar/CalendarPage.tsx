@@ -1,4 +1,4 @@
-function CallendarPage() {
+function CalendarPage() {
   
   return (
     <>
@@ -7,4 +7,4 @@ function CallendarPage() {
   )
 }
 
-export default CallendarPage;
+export default CalendarPage;
