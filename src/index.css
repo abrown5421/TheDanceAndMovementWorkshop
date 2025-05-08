@@ -17,6 +17,9 @@ html, body {
 ::-webkit-scrollbar {
   display: none;
 }
+.main-contain {
+  height: calc(100vh - 64px);
+}
 
 @font-face {
   font-family: primary;
