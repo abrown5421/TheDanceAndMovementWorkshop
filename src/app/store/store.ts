@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import viewportReducer from './globalSlices/viewportSlice';
 import modalReducer from '../../components/modal/modalSlice';
+import notificationReducer from '../../components/notification/notificationSlice';
 
 export const store = configureStore({
   reducer: {
     viewport: viewportReducer,
     modal: modalReducer,
+    notification: notificationReducer
   },
 });
 

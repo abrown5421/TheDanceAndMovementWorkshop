@@ -1,13 +1,13 @@
 import { useAppDispatch } from "../../app/store/hooks";
-import { setEntireModal } from "../../components/modal/modalSlice";
+import { setEntireNotification } from "../../components/notification/notificationSlice";
 
 function HomePage() {
   const dispatch = useAppDispatch();
   const handleClick = () => {
-    dispatch(setEntireModal({
-      modalOpen: true,
-      modalTitle: 'My Modal Title',
-      modalContent: 'Secondary',
+    dispatch(setEntireNotification({
+      notificationOpen: true,
+      notificationSeverity: 'success',
+      notificationMessage: 'This is an Error Note',
     }));
   }
   return (

@@ -6,14 +6,14 @@ import ExampleModal from './modalContent/ExampleModal';
 
 const Modal: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { modalOpen, modalTitle, modalContent } = useAppSelector((state) => state.modal);
+  const modal = useAppSelector((state) => state.modal);
 
   const handleClose = () => {
     dispatch(setModalOpen(false))
   };
 
   const ModalContent = () => {
-    switch (modalContent) {
+    switch (modal.modalContent) {
       case 'Primary':
         return <ExampleModal />;
       default:
@@ -23,7 +23,7 @@ const Modal: React.FC = () => {
 
   return (
     <>
-      <Transition isEntering={modalOpen} speed="modal-duration">
+      <Transition isEntering={modal.modalOpen} speed="modal-duration">
         <div
           className="fixed inset-0 w-screen h-screen bg-black/80 z-40"
           onClick={handleClose} 
@@ -33,7 +33,7 @@ const Modal: React.FC = () => {
       <Transition
         entry="animate__backInUp"
         exit="animate__backOutDown"
-        isEntering={modalOpen}
+        isEntering={modal.modalOpen}
         speed="fast"
       >
         <div className="fixed inset-0 w-screen h-screen z-50 flex items-center justify-center">
@@ -49,7 +49,7 @@ const Modal: React.FC = () => {
               ×
             </button>
 
-            <div className="text-xl font-bold">{modalTitle}</div>
+            <div className="text-xl font-bold">{modal.modalTitle}</div>
             <div>{ModalContent()}</div>
           </div>
         </div>
