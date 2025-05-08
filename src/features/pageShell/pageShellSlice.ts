@@ -17,9 +17,12 @@ const activePageSlice = createSlice({
     ) => {
       state[action.payload.key] = action.payload.value;
     },
+    setEntireActivePageState(_, action: PayloadAction<ActivePageState>) {
+        return action.payload;
+    },
   },
 });
 
-export const { setActivePage } = activePageSlice.actions;
+export const { setActivePage, setEntireActivePageState } = activePageSlice.actions;
 export default activePageSlice.reducer;
 

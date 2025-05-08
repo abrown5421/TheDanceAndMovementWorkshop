@@ -10,11 +10,19 @@ import NotFoundPage from "../notFoundPage/NotFoundPage";
 import './page-shell.css';
 import Transition from "../../components/transition/Transition";
 import { useAppSelector } from "../../app/store/hooks";
+import { useEffect } from "react";
+import { setActivePage, setEntireActivePageState } from "./pageShellSlice";
+import { useDispatch } from "react-redux";
 
 function PageShell() {
+  const dispatch = useDispatch();
   const location = useLocation();
   const activePage = useAppSelector((state) => state.activePage)
   const slug = location.pathname.slice(1) as ValidSlugs | '';
+
+  useEffect(()=>{
+    dispatch(setEntireActivePageState({activePageIn: true, activePageName: slug}))
+  }, [])
 
   const getPage = () => {
     switch (activePage.activePageName) {
@@ -33,7 +41,9 @@ function PageShell() {
         case 'Gallery':
         case 'gallery':
             return <GalleryPage />;
+        case '':
         case 'Home':
+        case 'home':
             return <HomePage />;
     default:
       return <NotFoundPage />;
