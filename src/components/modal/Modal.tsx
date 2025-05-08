@@ -1,15 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
 import Transition from '../transition/Transition';
 import { setModalOpen } from './modalSlice';
+import ExampleModal from './modalContent/ExampleModal';
 
 const Modal: React.FC = () => {
   const dispatch = useAppDispatch();
-  const modal = useAppSelector((state) => state.modal)
   const { modalOpen, modalTitle, modalContent } = useAppSelector((state) => state.modal);
 
   const handleClose = () => {
     dispatch(setModalOpen(false))
+  };
+
+  const ModalContent = () => {
+    switch (modalContent) {
+      case 'Primary':
+        return <ExampleModal />;
+      default:
+        return <ExampleModal />;
+    }
   };
 
   return (
@@ -41,7 +50,7 @@ const Modal: React.FC = () => {
             </button>
 
             <div className="text-xl font-bold">{modalTitle}</div>
-            <div>{modalContent}</div>
+            <div>{ModalContent()}</div>
           </div>
         </div>
       </Transition>

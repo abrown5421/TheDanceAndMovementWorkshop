@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react';
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { ModalState } from "./modalTypes";
@@ -6,7 +5,7 @@ import type { ModalState } from "./modalTypes";
 const initialState: ModalState = {
   modalOpen: false,
   modalTitle: '',
-  modalContent: null,
+  modalContent: '',
 };
 
 const modalSlice = createSlice({
@@ -19,7 +18,7 @@ const modalSlice = createSlice({
     setModalTitle(state, action: PayloadAction<string>) {
       state.modalTitle = action.payload;
     },
-    setModalContent(state, action: PayloadAction<ReactNode>) {
+    setModalContent(state, action: PayloadAction<string>) {
       state.modalContent = action.payload;
     },
     setEntireModal(_, action: PayloadAction<ModalState>) {
@@ -28,7 +27,7 @@ const modalSlice = createSlice({
     closeAndClearModal(state) {
       state.modalOpen = false;
       state.modalTitle = '';
-      state.modalContent = null;
+      state.modalContent = '';
     },
   },
 });

@@ -7,7 +7,7 @@ function HomePage() {
     dispatch(setEntireModal({
       modalOpen: true,
       modalTitle: 'My Modal Title',
-      modalContent: <p>This is the modal content</p>,
+      modalContent: 'Secondary',
     }));
   }
   return (
