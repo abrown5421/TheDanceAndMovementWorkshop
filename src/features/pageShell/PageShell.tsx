@@ -11,7 +11,7 @@ import './page-shell.css';
 import Transition from "../../components/transition/Transition";
 import { useAppSelector } from "../../app/store/hooks";
 import { useEffect } from "react";
-import { setActivePage, setEntireActivePageState } from "./pageShellSlice";
+import { setEntireActivePageState } from "./pageShellSlice";
 import { useDispatch } from "react-redux";
 
 function PageShell() {
@@ -51,11 +51,10 @@ function PageShell() {
   }
 
   return (
-    <div className="page-shell bg-white">
+    <div className="page-shell bg-white py-2 px-4">
       <Transition isEntering={activePage.activePageIn}>
         {getPage()}
       </Transition>
-        
     </div>
   )
 }
