@@ -4,6 +4,7 @@ import { setDrawerState } from './drawerSlice';
 import type { DrawerProps } from './drawerTypes';
 import Transition from '../transition/Transition';
 import { clsx } from "clsx";
+import { X } from 'lucide-react';
 
 const Drawer: React.FC<DrawerProps> = ({ children }) => {
   const drawer = useAppSelector((state) => state.drawer);
@@ -43,6 +44,14 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
           isEntering={drawer.drawerOpen}
       >
           <div style={{width: drawer.drawerWidth, height: drawer.drawerHeight}}>
+              <div className='flex flex-row mb-5'>
+                <div className='flex flex-col flex-10/12 font-primary'>
+                  {drawer.drawerTitle}
+                </div>
+                <div className='flex flex-col flex-2/12 items-end' onClick={handleClose}>
+                  <X />
+                </div>
+              </div>
               {children}
           </div>
       </Transition>

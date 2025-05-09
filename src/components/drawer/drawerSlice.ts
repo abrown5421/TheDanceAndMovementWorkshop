@@ -4,6 +4,7 @@ import type { DrawerState } from "./drawerTypes";
 
 const initialState: DrawerState = {
   drawerOpen: false,
+  drawerTitle: '',
   drawerWidth: '450px',
   drawerHeight: '100vh',
   drawerX: 'right',
