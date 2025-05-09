@@ -1,15 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
+import { useAppSelector } from '../../app/store/hooks';
 import { useNavigationHook } from '../../hooks/NavigationHook';
-import { Menu as Hamburger } from 'lucide-react';
-import IconButton from '../../components/iconButton/IconButton';
-import { setDrawerState } from '../../components/drawer/drawerSlice';
-import { getTimeOfDay } from '../../utils/getTimeOfDay';
+import { clsx } from "clsx";
 
-function DesktopMenu() {
-  const dispatch = useAppDispatch();
+function MobileMenu() {
   const activePage = useAppSelector((state) => state.activePage);
-  const viewport = useAppSelector((state) => state.viewport);
+  const drawer = useAppSelector((state) => state.drawer);
   const handleNavigation = useNavigationHook();
 
   const links = [
@@ -37,8 +33,12 @@ function DesktopMenu() {
   }, [activePage.activePageName]);
 
   return (
-    <nav ref={containerRef} className="relative flex items-center gap-6 font-sans text-base text-gray-800">
-      {viewport.type === 'desktop' ? (
+    <nav ref={containerRef} 
+        className={clsx(
+            "relative flex items-center gap-6 font-sans text-base text-gray-800",
+            drawer.drawerPosition === 'right' || drawer.drawerPosition === 'left' ? "flex-col items-start" : "flex-row"
+        )}
+    >
         <>
           {links.map(({ path, label }) => (
             <button
@@ -53,24 +53,10 @@ function DesktopMenu() {
             </button>
           ))}
 
-          <div
-            className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300"
-            style={{
-              left: underlineStyle.left,
-              width: underlineStyle.width,
-            }}
-          />
+          
         </>
-      ) : (
-        <IconButton color="text-primary" ariaLabel="Favorite" onClick={() => {
-          dispatch(setDrawerState({ key: 'drawerOpen', value: true }))
-          dispatch(setDrawerState({ key: 'drawerTitle', value: `Good ${getTimeOfDay()}!` }))
-        }}>
-          <Hamburger />
-        </IconButton>
-      )}
     </nav>
   );
 }
 
-export default DesktopMenu;
+export default MobileMenu;

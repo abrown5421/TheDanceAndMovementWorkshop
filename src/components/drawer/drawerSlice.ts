@@ -5,10 +5,9 @@ import type { DrawerState } from "./drawerTypes";
 const initialState: DrawerState = {
   drawerOpen: false,
   drawerTitle: '',
-  drawerWidth: '450px',
+  drawerWidth: '325px',
   drawerHeight: '100vh',
-  drawerX: 'right',
-  drawerY: ['top', 'bottom'],
+  drawerPosition: 'right',
 };
 
 const modalSlice = createSlice({

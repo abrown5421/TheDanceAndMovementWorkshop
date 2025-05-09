@@ -5,8 +5,7 @@ export interface DrawerState {
     drawerWidth: string;
     drawerTitle?: string;
     drawerHeight: string;
-    drawerX: string[] | string;
-    drawerY: string[] | string;
+    drawerPosition: string;
 }
 export interface DrawerProps {
     children: ReactNode;
