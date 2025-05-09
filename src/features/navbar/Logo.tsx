@@ -2,7 +2,7 @@ import { useAppSelector } from "../../app/store/hooks"
 import Transition from "../../components/transition/Transition"
 
 export default function Logo() {
-    const showTitle = useAppSelector((state) => state.activePage.activePageName !== "")
+    const showTitle = useAppSelector((state) => state.activePage.activePageName !== "Home" && state.activePage.activePageName !== "")
     return (
     <div className='flex flex-row'>
         <div className='flex flex-col'>

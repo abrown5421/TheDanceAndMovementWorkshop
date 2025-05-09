@@ -10,8 +10,8 @@ import { useAppSelector } from "./app/store/hooks";
 import { useEffect } from "react";
 
 function App() {
-  const viewport = useAppSelector((state)=>state.viewport)
-  useEffect(()=>{console.log(viewport)}, [viewport])
+  const activePage = useAppSelector((state)=>state.activePage)
+  useEffect(()=>{console.log(activePage)}, [activePage])
 
   return (
     <ViewportHook>
