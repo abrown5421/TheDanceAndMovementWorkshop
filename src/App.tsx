@@ -5,6 +5,7 @@ import Notification from "./components/notification/Notification";
 import PageShell from "./features/pageShell/PageShell";
 import Navbar from "./features/navbar/Navbar";
 import Footer from "./features/footer/Footer";
+import Drawer from "./components/drawer/Drawer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           </Routes>
           <Modal />
           <Notification />
+          <Drawer>mobile nav here</Drawer>
           <Footer />
         </div>
       </div>

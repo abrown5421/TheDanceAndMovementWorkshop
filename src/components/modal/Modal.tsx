@@ -23,7 +23,7 @@ const Modal: React.FC = () => {
 
   return (
     <>
-      <Transition isEntering={modal.modalOpen} speed="modal-duration">
+      <Transition isEntering={modal.modalOpen} speed="overlay-duration">
         <div
           className="fixed inset-0 w-screen h-screen bg-black/80 z-40"
           onClick={handleClose} 

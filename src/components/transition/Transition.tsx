@@ -22,7 +22,7 @@ const Transition: React.FC<TransitionProps> = ({
     }
   }, [isEntering]);
 
-  const speedClass = speed === "slow" ? "animate__slow" : speed === "fast" ? "animate__fast" : speed === "modal-duration" ? "modal-duration" : "animate__normal";
+  const speedClass = speed === "slow" ? "animate__slow" : speed === "fast" ? "animate__fast" : speed === "overlay-duration" ? "overlay-duration" : "animate__normal";
   
   return (
     shouldRender && (

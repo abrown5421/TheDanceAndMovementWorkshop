@@ -3,11 +3,13 @@ import Button from "../../components/button/Button";
 import { useNavigationHook } from "../../hooks/NavigationHook";
 import Transition from "../../components/transition/Transition";
 import { clsx } from "clsx";
-import { useAppSelector } from "../../app/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/store/hooks";
 import { Instagram, Facebook } from 'lucide-react';
 import IconButton from "../../components/iconButton/IconButton";
+import { setDrawerState } from "../../components/drawer/drawerSlice";
 
 function HomePage() {
+  const dispatch = useAppDispatch();
   const handleNavigation = useNavigationHook();
   const viewport = useAppSelector((state) => state.viewport);
 
@@ -41,7 +43,9 @@ function HomePage() {
             <div className="flex flex-col flex-1/4 justify-center">
               <Button
                 text="Contact"
-                onClick={handleNavigation("/Contact", "Contact")}
+                onClick={() => {
+                  dispatch(setDrawerState({ key: 'drawerOpen', value: true }));
+                }}
                 loading={false}
                 pill={true}
                 type="button"
