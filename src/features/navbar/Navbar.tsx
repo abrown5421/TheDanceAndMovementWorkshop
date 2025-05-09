@@ -1,5 +1,5 @@
 import Transition from '../../components/transition/Transition';
-import Menu from './Menu';
+import Menu from './DesktopMenu';
 import Logo from './Logo';
 import './navbar.css';
 

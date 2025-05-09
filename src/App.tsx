@@ -6,8 +6,13 @@ import PageShell from "./features/pageShell/PageShell";
 import Navbar from "./features/navbar/Navbar";
 import Footer from "./features/footer/Footer";
 import Drawer from "./components/drawer/Drawer";
+import { useAppSelector } from "./app/store/hooks";
+import { useEffect } from "react";
 
 function App() {
+  const viewport = useAppSelector((state)=>state.viewport)
+  useEffect(()=>{console.log(viewport)}, [viewport])
+
   return (
     <ViewportHook>
       <div className="relative inset-0 w-screen h-screen">

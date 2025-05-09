@@ -6,15 +6,26 @@ const ViewportHook = ({ children }: { children: React.ReactNode }) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+  
     const handleResize = () => {
-      dispatch(setViewport({ width: window.innerWidth, height: window.innerHeight }));
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        if (typeof window !== "undefined") {
+          dispatch(setViewport({ width: window.innerWidth, height: window.innerHeight }));
+        }
+      }, 100); 
     };
-
+  
     window.addEventListener("resize", handleResize);
-    handleResize(); 
-
-    return () => window.removeEventListener("resize", handleResize);
+    handleResize();
+  
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", handleResize);
+    };
   }, [dispatch]);
+  
 
   return <>{children}</>;
 };

@@ -26,7 +26,7 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
       </Transition>
       <Transition 
           tailwindClass={clsx(
-            'absolute z-50 bg-white',
+            'absolute z-50 bg-white p-3',
             !Array.isArray(drawer.drawerX) && (drawer.drawerX === 'right' ? "right-0 top-0" : "left-0 top-0"),                 
             !Array.isArray(drawer.drawerY) && (drawer.drawerY === 'top' ? "top-0" : "bottom-0")                 
           )}
