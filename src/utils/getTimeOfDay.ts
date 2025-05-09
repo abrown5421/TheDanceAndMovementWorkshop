@@ -1,4 +1,4 @@
-export function getTimeOfDay(): 'morning' | 'afternoon' | 'evening' {
+export function getTimeOfDay(): 'Morning' | 'Afternoon' | 'Evening' {
     const hour = new Date().getHours();
   
     if (hour < 12) {
