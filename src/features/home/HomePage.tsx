@@ -4,6 +4,8 @@ import { useNavigationHook } from "../../hooks/NavigationHook";
 import Transition from "../../components/transition/Transition";
 import { clsx } from "clsx";
 import { useAppSelector } from "../../app/store/hooks";
+import { Instagram, Facebook } from 'lucide-react';
+import IconButton from "../../components/iconButton/IconButton";
 
 function HomePage() {
   const handleNavigation = useNavigationHook();
@@ -18,7 +20,7 @@ function HomePage() {
         "flex items-center",
         viewport.type !== 'desktop' ? "flex-row h-1/2" : "flex-col flex-1/2 h-full"
       )}>
-        <Transition isEntering={true} tailwindClass={viewport.type !== 'desktop' ? viewport.type !== 'tablet' ? "p-2" : "p-25" : "h-full flex flex-col px-30 justify-center"}>
+        <Transition isEntering={true} tailwindClass={viewport.type !== 'desktop' ? viewport.type === 'tablet' ? "p-25" : "p-5" : "h-full flex flex-col px-30 justify-center"}>
           <div className={clsx(
             "flex font-secondary",
             viewport.type !== 'desktop' ? "text-4xl text-center justify-center" : "text-5xl flex-row"
@@ -45,8 +47,13 @@ function HomePage() {
                 type="button"
               />
             </div>
-            <div className="flex flex-col flex-3/4 justify-center">
-              Socials here
+            <div className="flex flex-row flex-3/4 justify-around">
+              <IconButton color="text-primary" ariaLabel="Favorite" onClick={() => alert('Facebook!')}>
+                <Facebook />
+              </IconButton>
+              <IconButton color="text-primary" ariaLabel="Favorite" onClick={() => alert('Instagram!')}>
+                <Instagram />
+              </IconButton>
             </div>
           </div>
         </Transition>
