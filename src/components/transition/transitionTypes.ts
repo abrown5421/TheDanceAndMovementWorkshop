@@ -4,5 +4,5 @@ export interface TransitionProps {
     entry?: string;
     exit?: string;
     speed?: string;
-    heightClass?: string; 
+    tailwindClass?: string; 
 }

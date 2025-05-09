@@ -9,7 +9,7 @@ const Transition: React.FC<TransitionProps> = ({
   entry = "animate__fadeIn",
   exit = "animate__fadeOut",
   speed = "normal", 
-  heightClass = ""
+  tailwindClass = ""
 }) => {
   const [shouldRender, setShouldRender] = useState(isEntering);
 
@@ -27,7 +27,7 @@ const Transition: React.FC<TransitionProps> = ({
   return (
     shouldRender && (
       <div
-        className={`${heightClass} animate__animated ${speedClass} ${
+        className={`${tailwindClass} animate__animated ${speedClass} ${
           isEntering ? entry : exit
         }`}
       >

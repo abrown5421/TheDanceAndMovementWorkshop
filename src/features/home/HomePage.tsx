@@ -18,13 +18,14 @@ function HomePage() {
         "flex items-center",
         viewport.type !== 'desktop' ? "flex-row h-1/2" : "flex-col flex-1/2 h-full"
       )}>
-        <Transition isEntering={true}>
+        <Transition isEntering={true} tailwindClass={viewport.type !== 'desktop' ? viewport.type !== 'tablet' ? "p-2" : "p-25" : "h-full flex flex-col px-30 justify-center"}>
           <div className={clsx(
-            "flex font-secondary ",
-            viewport.type !== 'desktop' ? "text-4xl flex-nowrap justify-center" : "text-5xl flex-row"
+            "flex font-secondary",
+            viewport.type !== 'desktop' ? "text-4xl text-center justify-center" : "text-5xl flex-row"
           )}>
-            The Dance <span className="px-2 text-primary">&</span> Movement
-            Workshop
+            
+            The Dance <div className="text-primary contents">&</div> Movement Workshop
+            
           </div>
           <div className={clsx(viewport.type !== 'desktop' && "text-center")}>
             The Dance and Movement Workshop provides supplemental dance training
@@ -54,7 +55,7 @@ function HomePage() {
         "flex items-center ",
         viewport.type !== 'desktop' ? "flex-row h-1/2" : "flex-col flex-1/2 h-full"
       )}>
-        <Transition heightClass="h-full" isEntering={true} speed="fast" entry="animate__fadeInRight" exit="animate__fadeOutRight">
+        <Transition tailwindClass="h-full" isEntering={true} speed="fast" entry="animate__fadeInRight" exit="animate__fadeOutRight">
           <img src={headingImage} className="w-auto h-full object-contain" />
         </Transition>
       </div>
