@@ -52,7 +52,7 @@ function PageShell() {
 
   return (
     <div className="page-shell bg-white py-2 px-4">
-      <Transition isEntering={activePage.activePageIn}>
+      <Transition heightClass="h-full" isEntering={activePage.activePageIn}>
         {getPage()}
       </Transition>
     </div>

@@ -5,6 +5,7 @@ export interface ButtonProps {
   textColor?: string;
   loading?: boolean;
   disabled?: boolean;
+  pill?: boolean;
   className?: string;
   type?: "button" | "submit" | "reset";
 }

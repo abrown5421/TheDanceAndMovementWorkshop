@@ -3,5 +3,6 @@ export interface TransitionProps {
     isEntering: boolean;
     entry?: string;
     exit?: string;
-    speed?: string; 
+    speed?: string;
+    heightClass?: string; 
 }

@@ -1,10 +1,8 @@
 import Button from "../../components/button/Button";
+import { useNavigationHook } from "../../hooks/NavigationHook";
 
 function NotFoundPage() {
-
-    const handleGoHome = () => {
-        alert('jhsvdfg')
-    }
+    const handleNavigation = useNavigationHook();
 
     return (
       <div className="h-full w-full flex flex-col justify-center items-center">
@@ -13,7 +11,7 @@ function NotFoundPage() {
         <div className="mt-3">
             <Button
                 text="Back to the Dance!"
-                onClick={() => handleGoHome()}
+                onClick={handleNavigation('/', '')}
                 loading={false}
                 className=""
                 type="button"

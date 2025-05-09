@@ -1,7 +1,7 @@
-import { useHandleNavigation } from '../../hooks/handleNavigation';
+import { useNavigationHook } from '../../hooks/NavigationHook';
 
 function Menu() {
-    const handleNavigation = useHandleNavigation();
+    const handleNavigation = useNavigationHook();
     return (
       <div className="flex flex-row items-center menu gap-3 font-primary">
         <div onClick={handleNavigation('/', '')} className='flex flex-col'>Home</div>
