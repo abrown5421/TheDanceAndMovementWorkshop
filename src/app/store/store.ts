@@ -5,6 +5,7 @@ import drawerReducer from '../../components/drawer/drawerSlice';
 import notificationReducer from '../../components/notification/notificationSlice';
 import buttonLoadReducer from '../../components/button/buttonLoadSlice';
 import activePageReducer from '../../features/pageShell/pageShellSlice';
+import dashboardReducer from '../../features/dashboard/dashboardSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     notification: notificationReducer,
     buttonLoad: buttonLoadReducer,
     activePage: activePageReducer,
+    dashboard: dashboardReducer,
   },
 });
 

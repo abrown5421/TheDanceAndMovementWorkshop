@@ -7,8 +7,11 @@ import Navbar from "./features/navbar/Navbar";
 import Footer from "./features/footer/Footer";
 import Drawer from "./components/drawer/Drawer";
 import MobileMenu from "./features/navbar/MobileMenu";
+import { useAppSelector } from "./app/store/hooks";
 
 function App() {
+  const dashboard = useAppSelector((state) => state.dashboard);
+
   return (
     <ViewportHook>
       <div className="relative inset-0 w-screen h-screen">
@@ -22,7 +25,7 @@ function App() {
           <Drawer>
             <MobileMenu />
           </Drawer>
-          <Footer />
+          {!dashboard.dashboardMode && <Footer />}
         </div>
       </div>
     </ViewportHook>

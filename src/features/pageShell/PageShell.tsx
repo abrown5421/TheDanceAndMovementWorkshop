@@ -13,6 +13,8 @@ import { useAppSelector } from "../../app/store/hooks";
 import { useEffect } from "react";
 import { setEntireActivePageState } from "./pageShellSlice";
 import { useDispatch } from "react-redux";
+import Dashboard from "../dashboard/Dashboard";
+import { setDashboardMode } from "../dashboard/dashboardSlice";
 
 function PageShell() {
   const dispatch = useDispatch();
@@ -45,6 +47,10 @@ function PageShell() {
         case 'Home':
         case 'home':
             return <HomePage />;
+        case 'Dashboard':
+        case 'dashboard':
+          dispatch(setDashboardMode(true));  
+          return <Dashboard />
     default:
       return <NotFoundPage />;
     }
