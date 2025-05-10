@@ -21,7 +21,7 @@ function PageShell() {
   const slug = location.pathname.slice(1) as ValidSlugs | '';
 
   useEffect(()=>{
-    dispatch(setEntireActivePageState({activePageIn: true, activePageName: slug}))
+    dispatch(setEntireActivePageState({activePageIn: true, activePageName: slug === '' ? 'Home': slug, pageEntryAnimation: activePage.pageEntryAnimation, pageExitAnimation: activePage.pageExitAnimation}))
   }, [])
 
   const getPage = () => {
@@ -52,7 +52,7 @@ function PageShell() {
 
   return (
     <div className="page-shell bg-white py-2 px-4">
-      <Transition tailwindClass="h-full" isEntering={activePage.activePageIn}>
+      <Transition tailwindClass="h-full" entry={activePage.pageEntryAnimation} exit={activePage.pageExitAnimation} isEntering={activePage.activePageIn}>
         {getPage()}
       </Transition>
     </div>

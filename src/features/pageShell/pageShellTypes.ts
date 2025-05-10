@@ -3,4 +3,6 @@ export type ValidSlugs = 'Blog' | 'Calendar' | 'Events' | 'Contact' | 'Gallery' 
 export interface ActivePageState {
     activePageName: string;
     activePageIn: boolean;
+    pageEntryAnimation: string;
+    pageExitAnimation: string;
 }

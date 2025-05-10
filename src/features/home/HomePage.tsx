@@ -3,20 +3,14 @@ import Button from "../../components/button/Button";
 import { useNavigationHook } from "../../hooks/NavigationHook";
 import Transition from "../../components/transition/Transition";
 import { clsx } from "clsx";
-import { useAppDispatch, useAppSelector } from "../../app/store/hooks";
+import { useAppSelector } from "../../app/store/hooks";
 import { Instagram, Facebook } from 'lucide-react';
 import IconButton from "../../components/iconButton/IconButton";
-import { useEffect } from "react";
-import { setActivePage } from "../pageShell/pageShellSlice";
 
 function HomePage() {
-  const dispatch = useAppDispatch();
   const handleNavigation = useNavigationHook();
   const viewport = useAppSelector((state) => state.viewport);
 
-  useEffect(()=>{
-    dispatch(setActivePage({ key: "activePageName", value: 'Home' }));
-  }, [viewport])
 
   return (
     <div className={clsx(

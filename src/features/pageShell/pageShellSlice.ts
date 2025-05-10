@@ -5,6 +5,8 @@ import type { ActivePageState } from "./pageShellTypes";
 const initialState: ActivePageState = {
   activePageName: "Home",
   activePageIn: true,
+  pageEntryAnimation: 'animate__zoomIn',
+  pageExitAnimation: 'animate__zoomOut',
 };
 
 const activePageSlice = createSlice({
