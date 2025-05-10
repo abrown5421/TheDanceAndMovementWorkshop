@@ -1,10 +1,12 @@
 import { useAppSelector } from "../../app/store/hooks"
 import Transition from "../../components/transition/Transition"
+import { useNavigationHook } from "../../hooks/NavigationHook"
 
 export default function Logo() {
     const showTitle = useAppSelector((state) => state.activePage.activePageName !== "Home" && state.activePage.activePageName !== "")
+    const handleNavigation = useNavigationHook()
     return (
-    <div className='flex flex-row'>
+    <div onClick={handleNavigation('/','Home')} className='flex flex-row'>
         <div className='flex flex-col'>
             <svg style={{height: "50px"}} version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000.000000 1250.000000" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0.000000,1250.000000) scale(0.100000,-0.100000)"
