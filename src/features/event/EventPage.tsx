@@ -7,7 +7,7 @@ import './events.css'
 function EventPage() {
   
   return (
-    <>
+    <div className="bg-white py-2 px-4 h-full">
     <Deck cardsPerRow={3} rowHeight="h-1/2" wrap={true}>
       {[1, 2, 3, 4, 5].map((item) => (
         <Card key={item} onClick={() => console.log(item)}>
@@ -26,7 +26,7 @@ function EventPage() {
         </Card>
       ))}
     </Deck>
-    </>
+    </div>
   )
 }
 

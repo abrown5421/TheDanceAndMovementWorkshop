@@ -57,7 +57,7 @@ function PageShell() {
   }
 
   return (
-    <div className="page-shell bg-white py-2 px-4">
+    <div className="page-shell">
       <Transition tailwindClass="h-full" entry={activePage.pageEntryAnimation} exit={activePage.pageExitAnimation} isEntering={activePage.activePageIn}>
         {getPage()}
       </Transition>

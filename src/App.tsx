@@ -14,9 +14,9 @@ function App() {
 
   return (
     <ViewportHook>
-      <div className="relative inset-0 w-screen h-screen">
+      <div className="relative inset-0 w-screen h-screen bg-black">
         <Navbar />
-        <div className='overflow-scroll main-contain'>
+        <div className='overflow-scroll main-contain bg-black'>
           <Routes>
             <Route path="*" element={<PageShell />} /> 
           </Routes>

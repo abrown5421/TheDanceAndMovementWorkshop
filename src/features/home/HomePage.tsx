@@ -14,7 +14,7 @@ function HomePage() {
 
   return (
     <div className={clsx(
-        "h-full flex justify-around items-center",
+        "h-full flex justify-around items-center bg-white py-2 px-4",
         viewport.type !== 'desktop' ? "flex-col" : "flex-row"
       )}>
       <div className={clsx(
