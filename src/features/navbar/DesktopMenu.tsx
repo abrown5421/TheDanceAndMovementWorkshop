@@ -6,7 +6,7 @@ import IconButton from '../../components/iconButton/IconButton';
 import { setDrawerState } from '../../components/drawer/drawerSlice';
 import { getTimeOfDay } from '../../utils/getTimeOfDay';
 
-function DesktopMenu() {
+const DesktopMenu: React.FC = () => {
   const dispatch = useAppDispatch();
   const dashboard = useAppSelector((state) => state.dashboard)
   const activePage = useAppSelector((state) => state.activePage);

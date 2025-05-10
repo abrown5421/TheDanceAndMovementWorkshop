@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useAppSelector } from '../../app/store/hooks';
 import { useNavigationHook } from '../../hooks/NavigationHook';
 
-function Menu() {
+const Menu: React.FC = () => {
   const activePage = useAppSelector((state) => state.activePage);
   const handleNavigation = useNavigationHook();
 

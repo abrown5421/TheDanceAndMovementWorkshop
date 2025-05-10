@@ -3,7 +3,7 @@ import Menu from './DesktopMenu';
 import Logo from './Logo';
 import './navbar.css';
 
-function Navbar() {
+const Navbar: React.FC = () => {
   
     return (
       <div className="bg-white z-10 flex flex-row justify-between items-center py-2 px-4 min-h-14 relative navbar">

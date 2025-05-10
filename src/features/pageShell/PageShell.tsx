@@ -16,12 +16,12 @@ import { useDispatch } from "react-redux";
 import Dashboard from "../dashboard/Dashboard";
 import { setDashboardMode } from "../dashboard/dashboardSlice";
 import EditBlogPage from "../blog/EditBlogPage";
-import EditCalendarPage from "../calendar/EditCalendarCMSPage";
+import EditCalendarPage from "../calendar/EditCalendarPage";
 import EditContactPage from "../contact/EditContactPage";
 import EditEventPage from "../event/EditEventPage";
 import EditGalleryPage from "../gallery/EditGalleryPage";
 
-function PageShell() {
+const PageShell: React.FC = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const activePage = useAppSelector((state) => state.activePage)
@@ -46,6 +46,12 @@ function PageShell() {
           dispatch(setDashboardMode(false));   
           return <EventPage />;
         case 'Gallery':
+          dispatch(setDashboardMode(false));   
+          return <GalleryPage />;
+        case 'Privacy Policy':
+          dispatch(setDashboardMode(false));   
+          return <GalleryPage />;
+        case 'Terms Of Service':
           dispatch(setDashboardMode(false));   
           return <GalleryPage />;
         case '':

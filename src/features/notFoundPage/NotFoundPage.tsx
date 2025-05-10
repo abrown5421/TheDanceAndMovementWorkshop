@@ -1,7 +1,7 @@
 import Button from "../../components/button/Button";
 import { useNavigationHook } from "../../hooks/NavigationHook";
 
-function NotFoundPage() {
+const NotFoundPage: React.FC = () => {
     const handleNavigation = useNavigationHook();
 
     return (

@@ -3,7 +3,7 @@ import { useAppSelector } from '../../app/store/hooks';
 import { useNavigationHook } from '../../hooks/NavigationHook';
 import { clsx } from "clsx";
 
-function MobileMenu() {
+const MobileMenu: React.FC = () => {
   const dashboard = useAppSelector((state) => state.dashboard)
   const activePage = useAppSelector((state) => state.activePage);
   const drawer = useAppSelector((state) => state.drawer);

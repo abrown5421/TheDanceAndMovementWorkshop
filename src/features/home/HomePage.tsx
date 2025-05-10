@@ -6,7 +6,7 @@ import { clsx } from "clsx";
 import { useAppSelector } from "../../app/store/hooks";
 import SocialBar from "../socialBar/SocialBar";
 
-function HomePage() {
+const HomePage: React.FC = () => {
   const handleNavigation = useNavigationHook();
   const viewport = useAppSelector((state) => state.viewport);
 

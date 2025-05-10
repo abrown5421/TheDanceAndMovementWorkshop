@@ -4,7 +4,8 @@ import CardBody from "../../components/cards/CardBody";
 import CardFooter from "../../components/cards/CardFooter";
 import Deck from "../../components/cards/Deck";
 import './events.css'
-function EventPage() {
+
+const EventPage: React.FC = () => {
   
   return (
     <div className="bg-white py-2 px-4 h-full">
