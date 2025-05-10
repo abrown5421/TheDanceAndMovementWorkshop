@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useAppSelector } from '../../app/store/hooks';
 import { useNavigationHook } from '../../hooks/NavigationHook';
 import { clsx } from "clsx";
@@ -19,19 +19,10 @@ function MobileMenu() {
   
   const containerRef = useRef(null);
   const linkRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({});
-  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
 
   const setRef = (label: string) => (el: HTMLButtonElement | null) => {
     linkRefs.current[label] = el;
   };
-
-  useEffect(() => {
-    const activeRef = linkRefs.current[activePage.activePageName];
-    if (activeRef && containerRef.current) {
-      const { offsetLeft, offsetWidth } = activeRef;
-      setUnderlineStyle({ left: offsetLeft, width: offsetWidth });
-    }
-  }, [activePage.activePageName]);
 
   return (
     <nav ref={containerRef} 
