@@ -1,4 +1,5 @@
 import Transition from '../../components/transition/Transition';
+import SocialBar from '../socialBar/SocialBar';
 import './footer.css';
 import Menu from './Menu';
 
@@ -13,7 +14,7 @@ function Footer() {
         </div>
         <div className="flex flex-col max-h-full">
             <Transition entry="animate__fadeInLeft" exit="animate__fadeOutLeft" isEntering={true}>
-                socials here
+                <SocialBar />
             </Transition>
         </div>
       </div>

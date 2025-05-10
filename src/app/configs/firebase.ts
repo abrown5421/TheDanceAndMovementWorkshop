@@ -3,17 +3,17 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 
-// const firebaseConfig = {
-//     apiKey: "AIzaSyBp0OeujkD5EJfc-zwQaPhg1pmjPaBosaw",
-//     authDomain: "dance-and--movement-workshop.firebaseapp.com",
-//     projectId: "dance-and--movement-workshop",
-//     storageBucket: "dance-and--movement-workshop.appspot.com",
-//     messagingSenderId: "390256085706",
-//     appId: "1:390256085706:web:6c5afda8bfd14bf90e0233",
-//     measurementId: "G-GX95C28DJ3"
-// };
+const firebaseConfig = {
+  apiKey: "AIzaSyDxonEIElVKeZXzidBtiiAkcQohD3qnUJA",
+  authDomain: "thedanceandmovementstudio.firebaseapp.com",
+  projectId: "thedanceandmovementstudio",
+  storageBucket: "thedanceandmovementstudio.firebasestorage.app",
+  messagingSenderId: "471128297959",
+  appId: "1:471128297959:web:6bc2323be7c4ed08d2ad42",
+  measurementId: "G-ZKRPZ2W7Y8"
+};
 
-// firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 const storage = firebase.storage(); 
