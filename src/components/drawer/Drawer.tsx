@@ -17,9 +17,9 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
 
   return (
     <>
-      <Transition isEntering={drawer.drawerOpen} speed="overlay-duration">
+      <Transition isEntering={drawer.drawerOpen} tailwindClass="relative z-40" speed="overlay-duration">
         <div
-          className="fixed inset-0 w-screen h-screen bg-black/80 z-40"
+          className="fixed inset-0 w-screen h-screen bg-black/80 z-50"
           onClick={handleClose} 
         />
       </Transition>

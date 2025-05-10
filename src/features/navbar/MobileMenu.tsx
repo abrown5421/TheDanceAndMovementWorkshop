@@ -4,16 +4,17 @@ import { useNavigationHook } from '../../hooks/NavigationHook';
 import { clsx } from "clsx";
 
 function MobileMenu() {
+  const dashboard = useAppSelector((state) => state.dashboard)
   const activePage = useAppSelector((state) => state.activePage);
   const drawer = useAppSelector((state) => state.drawer);
   const handleNavigation = useNavigationHook();
 
   const links = [
-    { path: '/', label: 'Home' },
-    { path: '/Events', label: 'Events' },
-    { path: '/Calendar', label: 'Calendar' },
-    { path: '/Gallery', label: 'Gallery' },
-    { path: '/Contact', label: 'Contact' },
+    { path: dashboard.dashboardMode ? '/Dashboard' : '/', label: dashboard.dashboardMode ? 'Dashboard' : 'Home' },
+    { path: dashboard.dashboardMode ? '/Dashboard/Events' : '/Events', label: dashboard.dashboardMode ? 'Edit Events' : 'Events' },
+    { path: dashboard.dashboardMode ? '/Dashboard/Calendar' : '/Calendar', label: dashboard.dashboardMode ? 'Edit Calendar' : 'Calendar' },
+    { path: dashboard.dashboardMode ? '/Dashboard/Gallery' : '/Gallery', label: dashboard.dashboardMode ? 'Edit Gallery' : 'Gallery' },
+    { path: dashboard.dashboardMode ? '/Dashboard/Contact' : '/Contact', label: dashboard.dashboardMode ? 'Edit Contact' : 'Contact' },
   ];
   
   const containerRef = useRef(null);

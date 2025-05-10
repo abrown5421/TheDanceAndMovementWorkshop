@@ -1,11 +1,10 @@
-
-function Dashboard() {
+function EditBlogPage() {
   
   return (
     <div className="bg-white py-2 px-4 h-full">
-      This the Dashboard page
+      This the blog page
     </div>
   )
 }
 
-export default Dashboard;
+export default EditBlogPage;

@@ -3,6 +3,7 @@ import Transition from "../../components/transition/Transition"
 import { useNavigationHook } from "../../hooks/NavigationHook"
 
 export default function Logo() {
+    const dashboard = useAppSelector((state) => state.dashboard)
     const showTitle = useAppSelector((state) => state.activePage.activePageName !== "Home" && state.activePage.activePageName !== "")
     const handleNavigation = useNavigationHook()
     return (
@@ -208,7 +209,9 @@ export default function Logo() {
         </div>
         <div className='flex flex-col font-primary justify-center text-2xl'>
             <Transition isEntering={showTitle}>
-                <div className='flex flex-row'>The Dance <span className="px-2 text-primary">&</span> Movement Workshop</div>
+                <div className='flex flex-row'>
+                    {dashboard.dashboardMode ? "TDAMW Dashboard" : (<>The Dance <span className="px-2 text-primary">&</span> Movement Workshop</>)}
+                </div>
             </Transition>
         </div>
     </div>

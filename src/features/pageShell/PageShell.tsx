@@ -15,6 +15,11 @@ import { setEntireActivePageState } from "./pageShellSlice";
 import { useDispatch } from "react-redux";
 import Dashboard from "../dashboard/Dashboard";
 import { setDashboardMode } from "../dashboard/dashboardSlice";
+import EditBlogPage from "../blog/EditBlogPage";
+import EditCalendarPage from "../calendar/EditCalendarCMSPage";
+import EditContactPage from "../contact/EditContactPage";
+import EditEventPage from "../event/EditEventPage";
+import EditGalleryPage from "../gallery/EditGalleryPage";
 
 function PageShell() {
   const dispatch = useDispatch();
@@ -29,28 +34,37 @@ function PageShell() {
   const getPage = () => {
     switch (activePage.activePageName) {
         case 'Blog':
-        case 'blog':
-            return <BlogPage />;
+          dispatch(setDashboardMode(false));   
+          return <BlogPage />;
         case 'Calendar':
-        case 'calendar':
-            return <CalendarPage />;
+          dispatch(setDashboardMode(false));   
+          return <CalendarPage />;
         case 'Contact':
-        case 'contact':
-            return <ContactPage />;
+          dispatch(setDashboardMode(false));   
+          return <ContactPage />;
         case 'Events':
-        case 'events':
-            return <EventPage />;
+          dispatch(setDashboardMode(false));   
+          return <EventPage />;
         case 'Gallery':
-        case 'gallery':
-            return <GalleryPage />;
+          dispatch(setDashboardMode(false));   
+          return <GalleryPage />;
         case '':
         case 'Home':
-        case 'home':
-            return <HomePage />;
+          dispatch(setDashboardMode(false));   
+          return <HomePage />;
         case 'Dashboard':
-        case 'dashboard':
           dispatch(setDashboardMode(true));  
           return <Dashboard />
+        case 'Edit Blog': 
+          return <EditBlogPage />;
+        case 'Edit Calendar':  
+          return <EditCalendarPage />;
+        case 'Edit Contact':
+          return <EditContactPage />;
+        case 'Edit Events': 
+          return <EditEventPage />;
+        case 'Edit Gallery': 
+          return <EditGalleryPage />;
     default:
       return <NotFoundPage />;
     }

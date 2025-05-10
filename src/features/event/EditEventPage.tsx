@@ -1,11 +1,10 @@
-
-function Dashboard() {
+function EditEventPage() {
   
   return (
     <div className="bg-white py-2 px-4 h-full">
-      This the Dashboard page
+    Edit Events
     </div>
   )
 }
 
-export default Dashboard;
+export default EditEventPage;
