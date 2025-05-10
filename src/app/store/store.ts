@@ -6,6 +6,7 @@ import notificationReducer from '../../components/notification/notificationSlice
 import buttonLoadReducer from '../../components/button/buttonLoadSlice';
 import activePageReducer from '../../features/pageShell/pageShellSlice';
 import dashboardReducer from '../../features/dashboard/dashboardSlice';
+import socialBarReducer from '../../features/socialBar/socialBarSlice';
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     buttonLoad: buttonLoadReducer,
     activePage: activePageReducer,
     dashboard: dashboardReducer,
+    socialBar: socialBarReducer,
   },
 });
 
