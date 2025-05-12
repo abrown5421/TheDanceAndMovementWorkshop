@@ -13,6 +13,7 @@ import Cookies from 'js-cookie';
 
 const Drawer: React.FC<DrawerProps> = ({ children }) => {
   const drawer = useAppSelector((state) => state.drawer);
+  const dashboard = useAppSelector((state) => state.dashboard);
 
   const dispatch = useAppDispatch();
 
@@ -21,6 +22,7 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
   };
 
   const handleLogout = () => {
+    dispatch(setDrawerState({ key: 'drawerOpen', value: false }));
     deauthenticate();
     Cookies.remove('authentication')
     dispatch(setAuthMode(true))
@@ -64,7 +66,7 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
                 </div>
               </div>
               {children}
-              <div className='absolute bottom-5 w-full pt-3 logout-area'>
+              {dashboard.dashboardMode && (<div className='absolute bottom-5 w-full pt-3 logout-area'>
                 <Button
                   text="Logout"
                   onClick={handleLogout}
@@ -72,7 +74,7 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
                   textColor="text-white"
                   className='w-full'
                 />
-              </div>
+              </div>)}
           </div>
 
       </Transition>

@@ -14,6 +14,7 @@ const MobileMenu: React.FC = () => {
     { path: dashboard.dashboardMode ? '/Dashboard/Events' : '/Events', label: dashboard.dashboardMode ? 'Edit Events' : 'Events' },
     { path: dashboard.dashboardMode ? '/Dashboard/Calendar' : '/Calendar', label: dashboard.dashboardMode ? 'Edit Calendar' : 'Calendar' },
     { path: dashboard.dashboardMode ? '/Dashboard/Gallery' : '/Gallery', label: dashboard.dashboardMode ? 'Edit Gallery' : 'Gallery' },
+    { path: dashboard.dashboardMode ? '/Dashboard/Blog' : '/Blog', label: dashboard.dashboardMode ? 'Edit Blog' : 'Blog' },
     { path: dashboard.dashboardMode ? '/Dashboard/Contact' : '/Contact', label: dashboard.dashboardMode ? 'Edit Contact' : 'Contact' },
   ];
   
