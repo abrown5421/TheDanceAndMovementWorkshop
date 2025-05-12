@@ -78,10 +78,11 @@ const PageShell: React.FC = () => {
 
   return (
     <div className="page-shell overflow-scroll">
-      <Transition tailwindClass="h-full" entry={activePage.pageEntryAnimation} exit={activePage.pageExitAnimation} isEntering={activePage.activePageIn}>
+      <Transition tailwindClass="h-full overflow-scroll" entry={activePage.pageEntryAnimation} exit={activePage.pageExitAnimation} isEntering={activePage.activePageIn}>
         {getPage()}
+        {!dashboard.dashboardMode && <Footer />}
       </Transition>
-      {!dashboard.dashboardMode && <Footer />}
+      
     </div>
   )
 }
