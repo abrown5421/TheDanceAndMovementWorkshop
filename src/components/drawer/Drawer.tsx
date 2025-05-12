@@ -5,6 +5,9 @@ import type { DrawerProps } from './drawerTypes';
 import Transition from '../transition/Transition';
 import { clsx } from "clsx";
 import { X } from 'lucide-react';
+import './drawer.css';
+import Button from '../button/Button';
+import { deauthenticate } from '../../services/auth/authenticate';
 
 const Drawer: React.FC<DrawerProps> = ({ children }) => {
   const drawer = useAppSelector((state) => state.drawer);
@@ -14,6 +17,10 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
   const handleClose = () => {
     dispatch(setDrawerState({ key: 'drawerOpen', value: false }));
   };
+
+  const handleLogout = () => {
+    deauthenticate()
+  }
 
   return (
     <>
@@ -43,9 +50,9 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
           }
           isEntering={drawer.drawerOpen}
       >
-          <div style={{width: drawer.drawerWidth, height: drawer.drawerHeight}}>
-              <div className='flex flex-row mb-5'>
-                <div className='flex flex-col flex-10/12 font-primary text-2xl'>
+          <div className='relative' style={{width: drawer.drawerWidth, height: drawer.drawerHeight}}>
+              <div className='flex flex-row mb-5 pb-5 drawer-title'>
+                <div className='flex flex-col flex-10/12 font-primary text-xl'>
                   {drawer.drawerTitle}
                 </div>
                 <div className='flex flex-col flex-2/12 items-end justify-center' onClick={handleClose}>
@@ -53,7 +60,17 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
                 </div>
               </div>
               {children}
+              <div className='absolute bottom-5 w-full pt-3 logout-area'>
+                <Button
+                  text="Logout"
+                  onClick={handleLogout}
+                  bgColor="bg-primary"
+                  textColor="text-white"
+                  className='w-full'
+                />
+              </div>
           </div>
+
       </Transition>
     </>
   );

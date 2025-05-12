@@ -4,3 +4,7 @@ import firebase from "firebase/compat/app";
 export async function authenticate(email: string, password: string): Promise<firebase.auth.UserCredential> {
   return await auth.signInWithEmailAndPassword(email, password);
 }
+
+export async function deauthenticate(): Promise<void> {
+  return await auth.signOut();
+}
