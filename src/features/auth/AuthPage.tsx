@@ -13,6 +13,7 @@ import { setAuthMode, setUser } from "./authSlice";
 import { clsx } from "clsx";
 import { getDocumentById } from "../../services/db/getData";
 import { setEntireButtonLoadState } from "../../components/button/buttonLoadSlice";
+import Cookies from "js-cookie";
 
 const AuthPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -67,6 +68,7 @@ const AuthPage: React.FC = () => {
             })
           );
           dispatch(setAuthMode(false));
+          Cookies.set('authentication', userCredential.user.uid)
         }
       }
     } catch (err: any) {

@@ -10,6 +10,8 @@ import { useClickAway } from 'react-use';
 import { deauthenticate } from '../../services/auth/authenticate';
 import './navbar.css';
 import Button from '../../components/button/Button';
+import { setAuthMode } from '../auth/authSlice';
+import Cookies from 'js-cookie';
 
 const DesktopMenu: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -49,6 +51,8 @@ const DesktopMenu: React.FC = () => {
 
   const handleLogout = () => {
     deauthenticate();
+    Cookies.remove('authentication')
+    dispatch(setAuthMode(true))
   }
 
   return (

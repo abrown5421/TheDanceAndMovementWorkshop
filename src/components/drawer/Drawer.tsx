@@ -8,6 +8,8 @@ import { X } from 'lucide-react';
 import './drawer.css';
 import Button from '../button/Button';
 import { deauthenticate } from '../../services/auth/authenticate';
+import { setAuthMode } from '../../features/auth/authSlice';
+import Cookies from 'js-cookie';
 
 const Drawer: React.FC<DrawerProps> = ({ children }) => {
   const drawer = useAppSelector((state) => state.drawer);
@@ -19,7 +21,9 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
   };
 
   const handleLogout = () => {
-    deauthenticate()
+    deauthenticate();
+    Cookies.remove('authentication')
+    dispatch(setAuthMode(true))
   }
 
   return (
