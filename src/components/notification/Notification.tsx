@@ -9,11 +9,12 @@ const Notification: React.FC = () => {
   const notification = useAppSelector((state) => state.notification);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      handleCloseNotif()
-    }, 4000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (notification.notificationOpen) {
+      setTimeout(() => {
+        handleCloseNotif();
+      }, 4000)
+    }
+  }, [notification.notificationOpen]);
 
   const handleCloseNotif = () => {
     dispatch(setNotificationOpen(false))
@@ -25,11 +26,11 @@ const Notification: React.FC = () => {
   return (
     <div className='absolute bottom-4 right-4'>
         <Transition entry="animate__fadeInRight" exit="animate__fadeOutRight" speed="fast" isEntering={notification.notificationOpen}>
-            <div className={notification.notificationSeverity === 'error' ? "bg-red-300 border border-red-500 p-2 rounded relative min-w-80" : "bg-green-200 border border-green-500 p-2 rounded relative min-w-80"}>
-                <div onClick={() => handleCloseNotif()} className='absolute right-2 cursor-pointer text-black'>
-                  <X />
-                </div>
-                <div className={notification.notificationSeverity === 'error' ? 'text-red-800' : 'text-green-800'}>{notification.notificationMessage}</div>
+            <div className={notification.notificationSeverity === 'error' ? "bg-red-300 border border-red-500 p-2 rounded relative w-lg flex justify-between" : "bg-green-200 border border-green-500 p-2 rounded relative w-lg flex justify-between"}>
+              <div className={notification.notificationSeverity === 'error' ? 'text-red-800' : 'text-green-800'}>{notification.notificationMessage}</div>
+              <div onClick={() => handleCloseNotif()} className='absolute right-2 cursor-pointer text-black'>
+                <X />
+              </div>
             </div>
         </Transition>
     </div>

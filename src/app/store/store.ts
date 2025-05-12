@@ -7,6 +7,7 @@ import buttonLoadReducer from '../../components/button/buttonLoadSlice';
 import activePageReducer from '../../features/pageShell/pageShellSlice';
 import dashboardReducer from '../../features/dashboard/dashboardSlice';
 import socialBarReducer from '../../features/socialBar/socialBarSlice';
+import authReducer from '../../features/auth/authSlice';
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     activePage: activePageReducer,
     dashboard: dashboardReducer,
     socialBar: socialBarReducer,
+    auth: authReducer,
   },
 });
 

@@ -22,12 +22,16 @@ import EditEventPage from "../event/EditEventPage";
 import EditGalleryPage from "../gallery/EditGalleryPage";
 import PrivacyPolicyPage from "../privacyPolicy/PrivacyPolicyPage";
 import Footer from "../footer/Footer";
+import { setAuthMode } from "../auth/authSlice";
+import AuthPage from "../auth/AuthPage";
+import { clsx } from "clsx";
 
 const PageShell: React.FC = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const activePage = useAppSelector((state) => state.activePage)
   const slug = location.pathname.slice(1) as ValidSlugs | '';
+  const auth = useAppSelector((state) => state.auth)
   const dashboard = useAppSelector((state)=> state.dashboard)
 
   useEffect(()=>{
@@ -59,8 +63,13 @@ const PageShell: React.FC = () => {
           dispatch(setDashboardMode(false));   
           return <HomePage />;
         case 'Dashboard':
-          dispatch(setDashboardMode(true));  
-          return <Dashboard />
+          if (auth.authMode) {
+            return <AuthPage />
+          } else {
+            dispatch(setDashboardMode(true));   
+            return <Dashboard />
+          }
+          
         case 'Edit Blog': 
           return <EditBlogPage />;
         case 'Edit Calendar':  
@@ -78,9 +87,12 @@ const PageShell: React.FC = () => {
 
   return (
     <div className="page-shell overflow-scroll">
-      <Transition tailwindClass="h-full overflow-scroll" entry={activePage.pageEntryAnimation} exit={activePage.pageExitAnimation} isEntering={activePage.activePageIn}>
+      <Transition tailwindClass={clsx(
+          "h-full overflow-scroll",
+          auth.authMode ? "flex justify-center items-center" : ""
+        )} entry={activePage.pageEntryAnimation} exit={activePage.pageExitAnimation} isEntering={activePage.activePageIn}>
         {getPage()}
-        {!dashboard.dashboardMode && <Footer />}
+        {!dashboard.dashboardMode && !auth.authMode && <Footer />}
       </Transition>
       
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import type { InputProps } from "./inputTypes";
 
@@ -21,7 +21,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const [focused, setFocused] = useState(false);
     const [value, setValue] = useState(rest.value ?? "");
 
-    const isActive = focused || value;
+    const isActive = focused || (rest.value && rest.value !== '');
 
     const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
       setFocused(true);
@@ -37,9 +37,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       setValue(e.target.value);
       rest.onChange?.(e);
     };
-
+    
     return (
-      <div className="w-full relative bg-inherit">
+      <div className="w-full relative bg-inherit mb-5">
         <div
           className={clsx(
             "relative flex items-center rounded border px-3 pb-2 pt-2 w-full transition-all",
@@ -54,7 +54,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               className={clsx(
                 "absolute text-sm transition-all duration-200 px-1",
                 isActive
-                  ? "bg-inherit text-xs -top-3 left-2 text-blue-400"
+                  ? "bg-white text-xs -top-3 left-2 text-blue-400"
                   : "bg-inherit text-sm top-2.5 left-3 text-gray-500"
               )}
             >
