@@ -4,13 +4,13 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDxonEIElVKeZXzidBtiiAkcQohD3qnUJA",
-  authDomain: "thedanceandmovementstudio.firebaseapp.com",
-  projectId: "thedanceandmovementstudio",
-  storageBucket: "thedanceandmovementstudio.firebasestorage.app",
-  messagingSenderId: "471128297959",
-  appId: "1:471128297959:web:6bc2323be7c4ed08d2ad42",
-  measurementId: "G-ZKRPZ2W7Y8"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -18,4 +18,4 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const storage = firebase.storage(); 
 
-export { db, storage }
+export { db, storage };
