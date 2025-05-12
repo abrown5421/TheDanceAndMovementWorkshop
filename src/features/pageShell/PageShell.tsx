@@ -20,12 +20,15 @@ import EditCalendarPage from "../calendar/EditCalendarPage";
 import EditContactPage from "../contact/EditContactPage";
 import EditEventPage from "../event/EditEventPage";
 import EditGalleryPage from "../gallery/EditGalleryPage";
+import PrivacyPolicyPage from "../privacyPolicy/PrivacyPolicyPage";
+import Footer from "../footer/Footer";
 
 const PageShell: React.FC = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const activePage = useAppSelector((state) => state.activePage)
   const slug = location.pathname.slice(1) as ValidSlugs | '';
+  const dashboard = useAppSelector((state)=> state.dashboard)
 
   useEffect(()=>{
     dispatch(setEntireActivePageState({activePageIn: true, activePageName: slug === '' ? 'Home': slug, pageEntryAnimation: activePage.pageEntryAnimation, pageExitAnimation: activePage.pageExitAnimation}))
@@ -50,10 +53,7 @@ const PageShell: React.FC = () => {
           return <GalleryPage />;
         case 'Privacy Policy':
           dispatch(setDashboardMode(false));   
-          return <GalleryPage />;
-        case 'Terms Of Service':
-          dispatch(setDashboardMode(false));   
-          return <GalleryPage />;
+          return <PrivacyPolicyPage />;
         case '':
         case 'Home':
           dispatch(setDashboardMode(false));   
@@ -77,10 +77,11 @@ const PageShell: React.FC = () => {
   }
 
   return (
-    <div className="page-shell">
+    <div className="page-shell overflow-scroll">
       <Transition tailwindClass="h-full" entry={activePage.pageEntryAnimation} exit={activePage.pageExitAnimation} isEntering={activePage.activePageIn}>
         {getPage()}
       </Transition>
+      {!dashboard.dashboardMode && <Footer />}
     </div>
   )
 }

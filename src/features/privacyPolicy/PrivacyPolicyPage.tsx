@@ -87,8 +87,8 @@ const PrivacyPolicyPage: React.FC = () => {
       <section>
         <h3 className="text-2xl font-semibold mb-2">7. Contact Us</h3>
         <p className="mb-1">If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
-        <p className="mb-1">Email: <a href="mailto:studio@example.com" className="text-primary underline">studio@example.com</a></p>
-        <p>Address: [Dance Studio Address]</p>
+        <p className="mb-1">Email: <a href="mailto:thedanceandmovementworkshop@gmail.com" className="text-primary underline">thedanceandmovementworkshop@gmail.com</a></p>
+        
       </section>
     </div>
   );

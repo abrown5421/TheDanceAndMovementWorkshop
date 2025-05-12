@@ -4,19 +4,16 @@ import Modal from "./components/modal/Modal";
 import Notification from "./components/notification/Notification";
 import PageShell from "./features/pageShell/PageShell";
 import Navbar from "./features/navbar/Navbar";
-import Footer from "./features/footer/Footer";
 import Drawer from "./components/drawer/Drawer";
 import MobileMenu from "./features/navbar/MobileMenu";
-import { useAppSelector } from "./app/store/hooks";
 
 function App() {
-  const dashboard = useAppSelector((state) => state.dashboard);
 
   return (
     <ViewportHook>
-      <div className="relative inset-0 w-screen h-screen bg-black">
+      <div className="relative inset-0 w-screen h-screen overflow-scroll bg-black">
         <Navbar />
-        <div className='overflow-scroll main-contain bg-black'>
+        <div className='main-contain bg-black'>
           <Routes>
             <Route path="*" element={<PageShell />} /> 
           </Routes>
@@ -25,7 +22,7 @@ function App() {
           <Drawer>
             <MobileMenu />
           </Drawer>
-          {!dashboard.dashboardMode && <Footer />}
+          
         </div>
       </div>
     </ViewportHook>
