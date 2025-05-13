@@ -4,10 +4,7 @@ import modalReducer from '../../components/modal/modalSlice';
 import drawerReducer from '../../components/drawer/drawerSlice';
 import notificationReducer from '../../components/notification/notificationSlice';
 import buttonLoadReducer from '../../components/button/buttonLoadSlice';
-import activePageReducer from '../../features/pageShell/pageShellSlice';
-import dashboardReducer from '../../features/dashboard/dashboardSlice';
 import socialBarReducer from '../../features/socialBar/socialBarSlice';
-import authReducer from '../../features/auth/authSlice';
 
 export const store = configureStore({
   reducer: {
@@ -16,10 +13,7 @@ export const store = configureStore({
     drawer: drawerReducer,
     notification: notificationReducer,
     buttonLoad: buttonLoadReducer,
-    activePage: activePageReducer,
-    dashboard: dashboardReducer,
     socialBar: socialBarReducer,
-    auth: authReducer,
   },
 });
 

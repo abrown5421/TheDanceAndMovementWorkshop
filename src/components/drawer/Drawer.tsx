@@ -6,27 +6,15 @@ import Transition from '../transition/Transition';
 import { clsx } from "clsx";
 import { X } from 'lucide-react';
 import './drawer.css';
-import Button from '../button/Button';
-import { deauthenticate } from '../../services/auth/authenticate';
-import { setAuthMode } from '../../features/auth/authSlice';
-import Cookies from 'js-cookie';
 
 const Drawer: React.FC<DrawerProps> = ({ children }) => {
   const drawer = useAppSelector((state) => state.drawer);
-  const dashboard = useAppSelector((state) => state.dashboard);
 
   const dispatch = useAppDispatch();
 
   const handleClose = () => {
     dispatch(setDrawerState({ key: 'drawerOpen', value: false }));
   };
-
-  const handleLogout = () => {
-    dispatch(setDrawerState({ key: 'drawerOpen', value: false }));
-    deauthenticate();
-    Cookies.remove('authentication')
-    dispatch(setAuthMode(true))
-  }
 
   return (
     <>
@@ -66,15 +54,6 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
                 </div>
               </div>
               {children}
-              {dashboard.dashboardMode && (<div className='absolute bottom-5 w-full pt-3 logout-area'>
-                <Button
-                  text="Logout"
-                  onClick={handleLogout}
-                  bgColor="bg-primary"
-                  textColor="text-white"
-                  className='w-full'
-                />
-              </div>)}
           </div>
 
       </Transition>
