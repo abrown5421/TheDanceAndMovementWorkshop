@@ -1,8 +1,6 @@
 import Transition from '../../components/transition/Transition';
 import SocialBar from '../socialBar/SocialBar';
-import AuxilaryMenu from './AuxilaryMenu';
 import './footer.css';
-import Menu from './Menu';
 
 const Footer: React.FC = () => {
   
@@ -10,8 +8,8 @@ const Footer: React.FC = () => {
       <div className="bg-white flex flex-row justify-between items-center py-2 px-4 min-h-14 relative footer">
         <div className="flex flex-col h-full">
             <Transition entry="animate__fadeInRight" exit="animate__fadeOutRight" isEntering={true} tailwindClass='flex flex-col h-full justify-around'>
-                <Menu />
-                <AuxilaryMenu />
+                <div>links here</div>
+                <div>aux menu here</div>
             </Transition>
         </div>
         <div className="flex flex-col max-h-full">

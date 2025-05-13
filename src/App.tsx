@@ -4,8 +4,6 @@ import Modal from "./components/modal/Modal";
 import Notification from "./components/notification/Notification";
 import PageShell from "./features/pageShell/PageShell";
 import Navbar from "./features/navbar/Navbar";
-import Drawer from "./components/drawer/Drawer";
-import MobileMenu from "./features/navbar/MobileMenu";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { getDocumentById } from "./services/db/getData";
@@ -47,9 +45,6 @@ function App() {
           </Routes>
           <Modal />
           <Notification />
-          <Drawer>
-            <MobileMenu />
-          </Drawer>
         </div>
       </div>
     </ViewportHook>
