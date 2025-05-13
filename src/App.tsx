@@ -4,6 +4,7 @@ import Notification from "./components/notification/Notification";
 import Row from "./components/row/Row";
 import Column from "./components/column/Column";
 import Text from "./components/text/Text";
+import Image from "./components/image/Image";
 function App() {
   
   return (
@@ -16,7 +17,11 @@ function App() {
               <Text tailwindClasses="">The Dance and Movement Workshop provides supplemental dance training to dancers who seek to better their technical rolodex. We help dancers focus on their skills in tandem with their current dance studio/company commitments by hosting workshops, classes, and camps.</Text>
             </Column>
             <Column tailwindClasses="h-full w-full bg-white justify-center">
-              test2
+              <Image 
+                src="../../../public/assets/images/hero.png" 
+                alt="Lead Instructor Julia Watkins" 
+                tailwindClasses="h-full"
+              />
             </Column>
           </Row>
           <Modal />
