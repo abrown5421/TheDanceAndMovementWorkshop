@@ -1,12 +1,10 @@
-import { useAppSelector } from '../../app/store/hooks';
 import Transition from '../../components/transition/Transition';
 import DesktopMenu from './DesktopMenu';
 import Logo from './Logo';
 import './navbar.css';
 
 const Navbar: React.FC = () => {
-    const auth = useAppSelector((state) => state.auth);
-
+    
     return (
       <div className="bg-white z-10 flex flex-row justify-between items-center py-2 px-4 min-h-14 relative navbar">
         <div className="flex flex-col max-h-full">
@@ -16,7 +14,7 @@ const Navbar: React.FC = () => {
         </div>
         <div className="flex flex-col">
             <Transition entry="animate__fadeInRight" exit="animate__fadeOutRight" isEntering={true}>
-                {!auth.authMode && <DesktopMenu />}
+                <DesktopMenu />
             </Transition>
         </div>
       </div>

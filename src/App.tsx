@@ -50,7 +50,6 @@ function App() {
           <Drawer>
             <MobileMenu />
           </Drawer>
-          
         </div>
       </div>
     </ViewportHook>
