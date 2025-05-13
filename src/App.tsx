@@ -10,6 +10,7 @@ function App() {
       <div className="relative inset-0 w-screen h-screen overflow-scroll bg-black">
         <div className='main-contain bg-black'>
           <Navbar />
+          
           <Modal />
           <Notification />
         </div>
