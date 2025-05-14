@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from "./app/store/hooks";
 
 function App() {
   const dispatch = useAppDispatch();
-  const pages = useAppSelector((state) => state.pages); 
+  const activePage = useAppSelector((state) => state.activePage); 
 
   useEffect(() => {
     async function fetchData() {
@@ -24,7 +24,7 @@ function App() {
     fetchData();
   }, [dispatch]);
 
-  useEffect(()=>{console.log(pages)}, [pages])
+  useEffect(()=>{console.log(activePage)}, [activePage])
 
   return (
     <ViewportHook>
