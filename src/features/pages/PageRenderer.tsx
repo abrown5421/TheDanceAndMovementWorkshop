@@ -1,15 +1,6 @@
 import React from 'react';
 import { componentsMap } from './pageComponentMap';
-
-type PageNode = {
-  type: string;
-  props?: any;
-  children?: PageNode[] | string;
-};
-
-interface PageRendererProps {
-  node: PageNode;
-}
+import type { PageRendererProps } from './pagesTypes';
 
 const PageRenderer: React.FC<PageRendererProps> = ({ node }) => {
   const Component = componentsMap[node.type];
