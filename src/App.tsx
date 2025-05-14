@@ -11,6 +11,7 @@ import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import Row from "./components/row/Row";
 import MarginEditor from "./components/marginEditor/MarginEditor";
+import PaddingEditor from "./components/paddingEditor/PaddingEditor";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -37,7 +38,7 @@ function App() {
             <Route path="*" element={<PageShell />} /> 
           </Routes> */}
           <Row tailwindClasses="h-full w-full bg-white">
-            <MarginEditor />
+            <PaddingEditor />
           </Row>
           <Modal />
           <Notification />
