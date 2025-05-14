@@ -9,6 +9,8 @@ import { useAppDispatch } from "./app/store/hooks";
 import PageShell from "./features/pages/pageShell";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
+import Row from "./components/row/Row";
+import MarginEditor from "./components/marginEditor/MarginEditor";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -31,9 +33,12 @@ function App() {
       <div className="relative inset-0 w-screen h-screen bg-black">
         <Navbar />
         <div className='overflow-scroll main-contain bg-black'>
-          <Routes>
+          {/* <Routes>
             <Route path="*" element={<PageShell />} /> 
-          </Routes>
+          </Routes> */}
+          <Row tailwindClasses="h-full w-full bg-white">
+            <MarginEditor />
+          </Row>
           <Modal />
           <Notification />
         </div>

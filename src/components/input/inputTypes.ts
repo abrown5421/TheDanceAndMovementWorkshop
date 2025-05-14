@@ -7,4 +7,6 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   onStartAdornmentClick?: () => void;
   onEndAdornmentClick?: () => void;
   className?: string;
+  min?: number;
+  max?: number;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import type { InputProps } from "./inputTypes";
 
@@ -14,6 +14,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       onEndAdornmentClick,
       type = "text",
       className = "",
+      min = 0,
+      max = 0,
       ...rest
     },
     ref
@@ -78,6 +80,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             value={value}
             className="flex-1 bg-transparent outline-none text-gray-900 placeholder-transparent text-sm pt-1"
             placeholder={label}
+            min={min}
+            max={max}
+            onKeyDown={(e) => {
+            if (
+            type === "number" &&
+              !["ArrowUp", "ArrowDown", "Tab", "Shift", "Control"].includes(e.key)
+              ) {
+              e.preventDefault();
+            }
+            }}
             {...rest}
           />
           {endAdornment && (
