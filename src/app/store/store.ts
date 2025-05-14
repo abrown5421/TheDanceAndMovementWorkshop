@@ -7,6 +7,7 @@ import buttonLoadReducer from '../../components/button/buttonLoadSlice';
 import socialBarReducer from '../../features/socialBar/socialBarSlice';
 import activePageReducer from '../../features/activePage/activePageSlice';
 import pageReducer from '../../features/pages/pagesSlice';
+import loaderReducer from '../../components/circularLoader/circularLoaderSlice';
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     socialBar: socialBarReducer,
     activePage: activePageReducer,    
     pages: pageReducer,
+    loader: loaderReducer,
   },
 });
 

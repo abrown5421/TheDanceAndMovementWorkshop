@@ -6,9 +6,9 @@ import { useEffect } from "react";
 import { getEntireCollection } from "./services/db/getData";
 import { setPages } from "./features/pages/pagesSlice";
 import { useAppDispatch } from "./app/store/hooks";
+import PageShell from "./features/pages/pageShell";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
-import PageShell from "./features/pages/pageShell";
 
 function App() {
   const dispatch = useAppDispatch();
