@@ -26,7 +26,6 @@ const TextEditor: React.FC = () => {
     marginClass: ''
   });
 
-  useEffect(()=>{console.log(textStyles)}, [textStyles])
   return (
     <div className='flex flex-col w-full'>
         <div className='flex flex-row w-full'>
