@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import Input from '../input/Input';
-import type { PaddingValues } from './paddingEditortypes';
+import type { PaddingValues, PaddingEditorProps } from './paddingEditortypes';
 import Text from '../text/Text';
 
 const suffixes = [
@@ -22,51 +22,54 @@ const getPaddingClass = (side: keyof PaddingValues, value: number): string => {
   return `${sign}${prefixMap[side]}${suffix}`;
 };
 
-const PaddingEditor: React.FC = () => {
-  const [margins, setPaddings] = useState<PaddingValues>({
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-  });
-
+const PaddingEditor: React.FC<PaddingEditorProps> = ({ paddings, setTextStyles }) => {
   const handleInputChange = (side: keyof PaddingValues) => (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = parseInt(event.target.value, 10) || 0;
-    setPaddings((prev) => ({
+    const clamped = Math.max(-18, Math.min(18, value));
+
+    setTextStyles(prev => ({
       ...prev,
-      [side]: Math.max(-18, Math.min(18, value)), 
+      paddings: {
+        ...prev.paddings,
+        [side]: clamped,
+      },
     }));
   };
 
   const finalClass = [
-    getPaddingClass('top', margins.top),
-    getPaddingClass('right', margins.right),
-    getPaddingClass('bottom', margins.bottom),
-    getPaddingClass('left', margins.left),
+    getPaddingClass('top', paddings.top),
+    getPaddingClass('right', paddings.right),
+    getPaddingClass('bottom', paddings.bottom),
+    getPaddingClass('left', paddings.left),
   ]
     .filter(Boolean)
     .join(' ');
 
+    useEffect(()=>{
+      setTextStyles(prev => ({
+      ...prev,
+      paddingClass: finalClass
+    }));
+    }, [finalClass])
+    
+
   return (
-    <div className="flex flex-col gap-4 mt-5">
-      <div className="flex gap-4">
+    <div className="flex flex-col gap-4 w-full">
+      <div className="flex gap-4 w-full">
         {(['top', 'right', 'bottom', 'left'] as const).map((side) => (
-          <div key={side} className="flex flex-col">
+          <div key={side} className="flex flex-col flex-1">
             <Text tailwindClasses="text-xs capitalize">{side}</Text>
             <Input
               type="number"
-              value={margins[side]}
+              value={paddings[side]}
               onChange={handleInputChange(side)}
               min={-18}
               max={18}
             />
           </div>
         ))}
-      </div>
-      <div>
-        Resulting Class: <code className="bg-gray-100 px-2 py-1 rounded">{finalClass}</code>
       </div>
     </div>
   );

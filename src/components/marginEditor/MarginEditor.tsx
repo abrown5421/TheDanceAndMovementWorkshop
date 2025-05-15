@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import Input from '../input/Input';
-import type { MarginValues } from './marginEditortypes';
+import type { MarginValues, MarginEditorProps } from './marginEditortypes';
 import Text from '../text/Text';
 
 const suffixes = [
@@ -22,21 +22,19 @@ const getMarginClass = (side: keyof MarginValues, value: number): string => {
   return `${sign}${prefixMap[side]}${suffix}`;
 };
 
-const MarginEditor: React.FC = () => {
-  const [margins, setMargins] = useState<MarginValues>({
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-  });
-
+const MarginEditor: React.FC<MarginEditorProps> = ({ margins, setTextStyles }) => {
   const handleInputChange = (side: keyof MarginValues) => (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = parseInt(event.target.value, 10) || 0;
-    setMargins((prev) => ({
+    const clampedValue = Math.max(-18, Math.min(18, value));
+
+    setTextStyles(prev => ({
       ...prev,
-      [side]: Math.max(-18, Math.min(18, value)), 
+      margins: {
+        ...prev.margins,
+        [side]: clampedValue,
+      },
     }));
   };
 
@@ -49,11 +47,19 @@ const MarginEditor: React.FC = () => {
     .filter(Boolean)
     .join(' ');
 
+    useEffect(()=>{
+      setTextStyles(prev => ({
+        ...prev,
+        marginClass: finalClass
+      }));
+    }, [finalClass])
+    
+
   return (
-    <div className="flex flex-col gap-4 mt-5">
-      <div className="flex gap-4">
+    <div className="flex flex-col gap-4 mt-5 w-full">
+      <div className="flex gap-4 w-full">
         {(['top', 'right', 'bottom', 'left'] as const).map((side) => (
-          <div key={side} className="flex flex-col">
+          <div key={side} className="flex flex-col flex-1">
             <Text tailwindClasses="text-xs capitalize">{side}</Text>
             <Input
               type="number"
@@ -62,11 +68,9 @@ const MarginEditor: React.FC = () => {
               min={-18}
               max={18}
             />
+            
           </div>
         ))}
-      </div>
-      <div>
-        Resulting Class: <code className="bg-gray-100 px-2 py-1 rounded">{finalClass}</code>
       </div>
     </div>
   );
