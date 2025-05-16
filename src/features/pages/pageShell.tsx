@@ -5,7 +5,7 @@ import PageRenderer from './PageRenderer';
 import { useEffect } from 'react';
 import { setEntireLoaderLoadState } from '../../components/circularLoader/circularLoaderSlice';
 import CircularLoader from '../../components/circularLoader/CircularLoader';
-import Row from '../../components/row/Row';
+import Block from '../../components/block/Block';
 
 function PageShell() {
   const dispatch = useAppDispatch();
@@ -26,9 +26,9 @@ function PageShell() {
   return (
     <div className="page-shell">
       {loader.loaderLoad && loader.loaderIdentify === 'pageShell' ? (
-        <Row tailwindClasses='h-full w-full justify-center items-center'>
+        <Block tailwindClasses='flex flex-col lg:flex-row h-full w-full justify-center items-center'>
           <CircularLoader />
-        </Row>
+        </Block>
       ) : (
         <Transition tailwindClass="h-full bg-white py-2 px-4" isEntering={activePage.activePageIn}>
           {currentPage?.PageContent ? (

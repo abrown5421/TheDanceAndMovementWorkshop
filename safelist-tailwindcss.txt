@@ -7,6 +7,24 @@ font-serif
 h-full
 h-1/2
 w-full
+lg:h-full
+lg:items-start
+lg: flex-row 
+bg-primary 
+text-white 
+px-4 
+py-2 
+rounded-xl 
+cursor-pointer 
+hover:bg-secondary 
+transition 
+mb-5 
+lg:mb-0"
+h-full 
+w-auto 
+object-contain
+w-full
+flex-1/2
 
 text-xs 
 text-sm
@@ -51,6 +69,7 @@ p-24
 p-32
 p-40
 p-48
+lg:p-48
 p-56
 p-64
 pb-0

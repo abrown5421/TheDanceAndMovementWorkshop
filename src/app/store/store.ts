@@ -3,7 +3,6 @@ import viewportReducer from './globalSlices/viewportSlice';
 import modalReducer from '../../components/modal/modalSlice';
 import drawerReducer from '../../components/drawer/drawerSlice';
 import notificationReducer from '../../components/notification/notificationSlice';
-import buttonLoadReducer from '../../components/button/buttonLoadSlice';
 import socialBarReducer from '../../features/socialBar/socialBarSlice';
 import activePageReducer from '../../features/activePage/activePageSlice';
 import pageReducer from '../../features/pages/pagesSlice';
@@ -15,7 +14,6 @@ export const store = configureStore({
     modal: modalReducer,
     drawer: drawerReducer,
     notification: notificationReducer,
-    buttonLoad: buttonLoadReducer,
     socialBar: socialBarReducer,
     activePage: activePageReducer,    
     pages: pageReducer,

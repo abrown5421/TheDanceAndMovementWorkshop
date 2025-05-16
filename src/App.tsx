@@ -10,6 +10,8 @@ import PageShell from "./features/pages/pageShell";
 import { Route, useLocation } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import { useNavigationHook } from './hooks/NavigationHook';
+import Block from "./components/block/Block";
+import SocialBar from "./features/socialBar/SocialBar";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -43,6 +45,8 @@ function App() {
           <Routes>
             <Route path="*" element={<PageShell />} /> 
           </Routes>
+        
+          
           <Modal />
           <Notification />
         </div>
