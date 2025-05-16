@@ -4,7 +4,7 @@ import modalReducer from '../../components/modal/modalSlice';
 import drawerReducer from '../../components/drawer/drawerSlice';
 import notificationReducer from '../../components/notification/notificationSlice';
 import socialBarReducer from '../../features/socialBar/socialBarSlice';
-import activePageReducer from '../../features/activePage/activePageSlice';
+import activePageReducer from '../../features/pages/activePageSlice';
 import pageReducer from '../../features/pages/pagesSlice';
 import loaderReducer from '../../components/circularLoader/circularLoaderSlice';
 

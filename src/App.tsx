@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from "./app/store/hooks";
 import PageShell from "./features/pages/pageShell";
 import { Navigate, Route, useLocation } from "react-router-dom";
 import { Routes } from "react-router-dom";
-import { setActivePage } from "./features/activePage/activePageSlice";
+import { setActivePage } from "./features/pages/activePageSlice";
 import Block from "./components/block/Block";
 import CircularLoader from "./components/circularLoader/CircularLoader";
 

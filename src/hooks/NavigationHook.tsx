@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/store/hooks";
-import { setActivePage } from "../features/activePage/activePageSlice";
+import { setActivePage } from "../features/pages/activePageSlice";
 
 export const useNavigationHook = () => {
   const dispatch = useAppDispatch();
