@@ -21,6 +21,8 @@ function PageShell() {
     }
   }, [, PageNotFound])
 
+  useEffect(()=>{console.log(activePage)}, [activePage])
+
   return (
     <div className="page-shell">
       {loader.loaderLoad && loader.loaderIdentify === 'pageShell' ? (

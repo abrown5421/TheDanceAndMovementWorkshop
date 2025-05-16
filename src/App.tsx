@@ -7,11 +7,14 @@ import { getEntireCollection } from "./services/db/getData";
 import { setPages } from "./features/pages/pagesSlice";
 import { useAppDispatch } from "./app/store/hooks";
 import PageShell from "./features/pages/pageShell";
-import { Route } from "react-router-dom";
+import { Route, useLocation } from "react-router-dom";
 import { Routes } from "react-router-dom";
+import { useNavigationHook } from './hooks/NavigationHook';
 
 function App() {
   const dispatch = useAppDispatch();
+  const handleNavigation = useNavigationHook();
+  const location = useLocation();
 
   useEffect(() => {
     async function fetchData() {
@@ -24,7 +27,13 @@ function App() {
     }
 
     fetchData();
+    
   }, [dispatch]);
+
+  useEffect(() => {
+    const path = location.pathname.replace('/', '');
+    handleNavigation(location.pathname, path)
+  }, []);
 
   return (
     <ViewportHook>

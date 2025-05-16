@@ -8,6 +8,8 @@ export const useNavigationHook = () => {
 
   const handleNavigation = (path: string, pageName: string) => () => {
     dispatch(setActivePage({ key: "activePageIn", value: false }));
+    console.log(path)
+    console.log(pageName)
 
     setTimeout(() => {
       dispatch(setActivePage({ key: "activePageName", value: pageName }));
