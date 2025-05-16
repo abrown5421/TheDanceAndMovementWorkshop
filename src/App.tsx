@@ -2,6 +2,7 @@ import ViewportHook from "./hooks/ViewportHook";
 import Modal from "./components/modal/Modal";
 import Notification from "./components/notification/Notification";
 import Navbar from "./features/navbar/Navbar";
+import Menu from "./features/navbar/Menu";
 import { useEffect, useState } from "react";
 import { getEntireCollection } from "./services/db/getData";
 import { setPages } from "./features/pages/pagesSlice";
@@ -13,11 +14,14 @@ import { setActivePage } from "./features/pages/activePageSlice";
 import Block from "./components/block/Block";
 import CircularLoader from "./components/circularLoader/CircularLoader";
 import { setNavbar } from "./features/navbar/navbarSlice";
+import Drawer from "./components/drawer/Drawer";
 
 function App() {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const pages = useAppSelector((state) => state.pages);
+  const viewport = useAppSelector((state) => state.viewport);
+  const drawer = useAppSelector((state) => state.drawer);
   const [loadingPages, setLoadingPages] = useState(true);
 
   useEffect(() => {
@@ -68,7 +72,9 @@ function App() {
             <Route path="*" element={<Navigate to="/PageNotFound" />} />
           </Routes>
           
-          
+          <Drawer>
+            <Menu />
+          </Drawer>
           <Modal />
           <Notification />
         </div>

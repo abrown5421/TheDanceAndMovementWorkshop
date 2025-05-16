@@ -6,6 +6,7 @@ import './navbar.css';
 
 const Menu: React.FC = () => {
     const handleNavigation = useNavigationHook();
+    const viewport = useAppSelector((state) => state.viewport);
     const pages = useAppSelector((state) => state.pages.pages);
     const activePage = useAppSelector((state) => state.activePage);
     const navbar = useAppSelector((state) => state.navbar);
@@ -34,11 +35,11 @@ const Menu: React.FC = () => {
     const menuItems = [...visiblePages, ...visibleLinks].sort((a, b) => a.order - b.order);
 
     return (
-        <div className='flex flex-row'>
+        <div className='flex flex-col lg:flex-row'>
             {menuItems.map((item) => (
                 <Transition key={item.key} delay={100 * item.order} isEntering={true} tailwindClass='cursor-pointer'>
                     <div
-                        className={clsx("mx-5", item.isActive ? "text-primary" : "text-black")}
+                        className={clsx(item.isActive ? "text-primary" : "text-black", viewport.type !== 'desktop' ? "m-5" : "mx-5")}
                         onClick={item.onClick}
                     >
                         {item.label}
