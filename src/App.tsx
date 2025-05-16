@@ -2,21 +2,22 @@ import ViewportHook from "./hooks/ViewportHook";
 import Modal from "./components/modal/Modal";
 import Notification from "./components/notification/Notification";
 import Navbar from "./features/navbar/Navbar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getEntireCollection } from "./services/db/getData";
 import { setPages } from "./features/pages/pagesSlice";
-import { useAppDispatch } from "./app/store/hooks";
+import { useAppDispatch, useAppSelector } from "./app/store/hooks";
 import PageShell from "./features/pages/pageShell";
-import { Route, useLocation } from "react-router-dom";
+import { Navigate, Route, useLocation } from "react-router-dom";
 import { Routes } from "react-router-dom";
-import { useNavigationHook } from './hooks/NavigationHook';
+import { setActivePage } from "./features/activePage/activePageSlice";
 import Block from "./components/block/Block";
-import SocialBar from "./features/socialBar/SocialBar";
+import CircularLoader from "./components/circularLoader/CircularLoader";
 
 function App() {
   const dispatch = useAppDispatch();
-  const handleNavigation = useNavigationHook();
   const location = useLocation();
+  const pages = useAppSelector((state) => state.pages);
+  const [loadingPages, setLoadingPages] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -26,6 +27,7 @@ function App() {
       } else {
         dispatch(setPages([]));
       }
+      setLoadingPages(false);
     }
 
     fetchData();
@@ -34,8 +36,17 @@ function App() {
 
   useEffect(() => {
     const path = location.pathname.replace('/', '');
-    handleNavigation(location.pathname, path)
-  }, []);
+    console.log(location.pathname)
+    if (location.pathname !== '/') {
+      dispatch(setActivePage({ key: "activePageName", value: path || "Home" }));
+      dispatch(setActivePage({ key: "activePageIn", value: true }));
+    }
+    
+  }, [location.pathname, dispatch]);
+
+  if (loadingPages) {
+    return <Block tailwindClasses='flex flex-col lg:flex-row h-full w-full justify-center items-center'><CircularLoader /></Block>;
+  }
 
   return (
     <ViewportHook>
@@ -43,9 +54,13 @@ function App() {
         <Navbar />
         <div className='overflow-scroll main-contain bg-black'>
           <Routes>
-            <Route path="*" element={<PageShell />} /> 
+            {pages.pages.map((page) => (
+              <Route key={page.PageName} path={page.PageSlug} element={<PageShell />} />
+            ))}
+            <Route path="/PageNotFound" element={<PageShell />} />
+            <Route path="*" element={<Navigate to="/PageNotFound" />} />
           </Routes>
-        
+          
           
           <Modal />
           <Notification />

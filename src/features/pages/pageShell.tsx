@@ -19,9 +19,7 @@ function PageShell() {
     if (PageNotFound && currentPage) {
       dispatch(setEntireLoaderLoadState({loaderLoad: false, loaderIdentify: ''}))
     }
-  }, [, PageNotFound])
-
-  useEffect(()=>{console.log(activePage)}, [activePage])
+  }, [currentPage, PageNotFound])
 
   return (
     <div className="page-shell">

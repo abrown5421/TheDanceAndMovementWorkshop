@@ -1,8 +1,4 @@
-font-primary
-font-secondary 
-font-mono
-font-sans
-font-serif
+
 
 h-full
 h-1/2
@@ -25,6 +21,12 @@ w-auto
 object-contain
 w-full
 flex-1/2
+
+font-primary
+font-secondary 
+font-mono
+font-sans
+font-serif
 
 text-xs 
 text-sm
