@@ -7,18 +7,41 @@ import './navbar.css';
 const Menu: React.FC = () => {
     const handleNavigation = useNavigationHook();
     const pages = useAppSelector((state) => state.pages.pages);
-    const activePage = useAppSelector((state) => state.activePage)
-    
+    const activePage = useAppSelector((state) => state.activePage);
+    const navbar = useAppSelector((state) => state.navbar);
+
     const visiblePages = pages
         .filter((page) => page.PageNavConfig?.Show)
-        .sort((a, b) => a.PageNavConfig.Order - b.PageNavConfig.Order);
+        .map((page) => ({
+            key: `page-${page.PageName}`,
+            label: page.PageName,
+            order: page.PageNavConfig.Order,
+            isActive: activePage.activePageName === page.PageName,
+            onClick: handleNavigation(page.PageSlug, page.PageName),
+        }));
+
+
+    const visibleLinks = navbar.links
+        .filter((link) => link.LinkNavConfig?.Show)
+        .map((link) => ({
+            key: `link-${link.id}`,
+            label: link.LinkName,
+            order: link.LinkNavConfig.Order,
+            isActive: false, 
+            onClick: () => window.open(link.LinkURL, '_blank'),
+        }));
+
+    const menuItems = [...visiblePages, ...visibleLinks].sort((a, b) => a.order - b.order);
 
     return (
         <div className='flex flex-row'>
-            {visiblePages.map((page) => (
-                <Transition delay={100 * page.PageNavConfig.Order} isEntering={true} tailwindClass='cursor-pointer'>
-                    <div className={clsx("mx-5", activePage.activePageName === page.PageName ? "text-primary" : "text-black")} onClick={handleNavigation(page.PageSlug, page.PageName)}>
-                        {page.PageName}
+            {menuItems.map((item) => (
+                <Transition key={item.key} delay={100 * item.order} isEntering={true} tailwindClass='cursor-pointer'>
+                    <div
+                        className={clsx("mx-5", item.isActive ? "text-primary" : "text-black")}
+                        onClick={item.onClick}
+                    >
+                        {item.label}
                     </div>
                 </Transition>
             ))}

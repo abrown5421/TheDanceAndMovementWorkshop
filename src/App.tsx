@@ -12,6 +12,7 @@ import { Routes } from "react-router-dom";
 import { setActivePage } from "./features/pages/activePageSlice";
 import Block from "./components/block/Block";
 import CircularLoader from "./components/circularLoader/CircularLoader";
+import { setNavbar } from "./features/navbar/navbarSlice";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -21,11 +22,17 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getEntireCollection("Pages");
-      if (data) {
-        dispatch(setPages(data));
+      const pageData = await getEntireCollection("Pages");
+      if (pageData) {
+        dispatch(setPages(pageData));
       } else {
         dispatch(setPages([]));
+      }
+      const linkData = await getEntireCollection("Links");
+      if (linkData) {
+        dispatch(setNavbar(linkData));
+      } else {
+        dispatch(setNavbar([]));
       }
       setLoadingPages(false);
     }
@@ -45,7 +52,7 @@ function App() {
   }, [location.pathname, dispatch]);
 
   if (loadingPages) {
-    return <Block tailwindClasses='flex flex-col lg:flex-row h-full w-full justify-center items-center'><CircularLoader /></Block>;
+    return <Block tailwindClasses='flex flex-col lg:flex-row h-screen w-full justify-center items-center'><CircularLoader /></Block>;
   }
 
   return (
