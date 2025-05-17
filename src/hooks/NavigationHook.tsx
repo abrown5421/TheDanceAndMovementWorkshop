@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/store/hooks";
 import { setActivePage } from "../features/pages/activePageSlice";
+import { setDrawerState } from "../components/drawer/drawerSlice";
 
 export const useNavigationHook = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleNavigation = (path: string, pageName: string) => () => {
+    dispatch(setDrawerState({ key: 'drawerOpen', value: false }))
     dispatch(setActivePage({ key: "activePageIn", value: false }));
 
     setTimeout(() => {
