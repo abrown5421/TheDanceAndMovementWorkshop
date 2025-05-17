@@ -15,6 +15,7 @@ import Block from "./components/block/Block";
 import CircularLoader from "./components/circularLoader/CircularLoader";
 import { setNavbar } from "./features/navbar/navbarSlice";
 import Drawer from "./components/drawer/Drawer";
+import { setStaff } from "./features/staff/staffSlice";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -38,6 +39,12 @@ function App() {
       } else {
         dispatch(setNavbar([]));
       }
+      const staffData = await getEntireCollection("Staff");
+      if (staffData) {
+        dispatch(setStaff(staffData));
+      } else {
+        dispatch(setStaff([]));
+      }
       setLoadingPages(false);
     }
 
@@ -47,7 +54,6 @@ function App() {
 
   useEffect(() => {
     const path = location.pathname.replace('/', '');
-    console.log(location.pathname)
     if (location.pathname !== '/') {
       dispatch(setActivePage({ key: "activePageName", value: path || "Home" }));
       dispatch(setActivePage({ key: "activePageIn", value: true }));

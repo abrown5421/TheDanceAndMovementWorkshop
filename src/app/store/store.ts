@@ -8,6 +8,7 @@ import activePageReducer from '../../features/pages/activePageSlice';
 import pageReducer from '../../features/pages/pagesSlice';
 import loaderReducer from '../../components/circularLoader/circularLoaderSlice';
 import navbarReducer from '../../features/navbar/navbarSlice';
+import staffReducer from '../../features/staff/staffSlice';
 
 export const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
     pages: pageReducer,
     loader: loaderReducer,
     navbar: navbarReducer,
+    staff: staffReducer,
   },
 });
 
