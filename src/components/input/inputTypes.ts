@@ -9,4 +9,5 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   className?: string;
   min?: number;
   max?: number;
+  fillSpace?: boolean;
 }

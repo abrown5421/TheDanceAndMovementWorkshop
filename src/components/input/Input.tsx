@@ -16,6 +16,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       className = "",
       min = 0,
       max = 0,
+      fillSpace = false,
       ...rest
     },
     ref
@@ -41,7 +42,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     };
     
     return (
-      <div className="w-full relative bg-inherit mb-5">
+      <div className={clsx(
+        "w-full relative bg-inherit",
+        fillSpace ? "flex flex-1" : "mb-5"
+      )}>
         <div
           className={clsx(
             "relative flex items-center rounded border px-3 pb-2 pt-2 w-full transition-all",
