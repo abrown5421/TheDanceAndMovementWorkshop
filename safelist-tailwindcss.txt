@@ -21,6 +21,7 @@ w-auto
 object-contain
 w-full
 flex-1/2
+gap-8 
 
 font-primary
 font-secondary 
