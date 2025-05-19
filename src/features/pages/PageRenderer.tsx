@@ -5,6 +5,20 @@ import type { ExtendedPageRendererProps, FunctionDescriptor } from './pagesTypes
 const PageRenderer: React.FC<ExtendedPageRendererProps> = ({ node, functionMap = {} }) => {
   const Component = componentsMap[node.type];
 
+  if (isFunctionDescriptor(node)) {
+    const func = functionMap[node.name];
+    if (func) {
+      const result = func(...(node.args || []));
+      if (Array.isArray(result)) {
+        return result.map((childNode, index) => (
+          <PageRenderer key={index} node={childNode} functionMap={functionMap} />
+        ));
+      }
+      return <PageRenderer node={result} functionMap={functionMap} />;
+    }
+    return null;
+  }
+  
   if (!Component) {
     console.warn(`Component type "${node.type}" not found.`);
     return null;
@@ -32,15 +46,15 @@ const PageRenderer: React.FC<ExtendedPageRendererProps> = ({ node, functionMap =
   const props = { ...node.props };
 
   for (const [key, value] of Object.entries(props)) {
-  if (isFunctionDescriptor(value)) {
-    const actualFunc = functionMap[value.name];
-    if (actualFunc) {
-      props[key] = actualFunc(...(value.args || []));
-    } else {
-      console.warn(`Function "${value.name}" not found in functionMap.`);
+    if (isFunctionDescriptor(value)) {
+      const actualFunc = functionMap[value.name];
+      if (actualFunc) {
+        props[key] = actualFunc(...(value.args || []));
+      } else {
+        console.warn(`Function "${value.name}" not found in functionMap.`);
+      }
     }
   }
-}
 
   if (typeof node.props?.children === 'string') {
     children = node.props.children;
