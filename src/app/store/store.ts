@@ -9,6 +9,7 @@ import pageReducer from '../../features/pages/pagesSlice';
 import loaderReducer from '../../components/circularLoader/circularLoaderSlice';
 import navbarReducer from '../../features/navbar/navbarSlice';
 import staffReducer from '../../features/staff/staffSlice';
+import blogReducer from '../../features/blog/blogSlice';
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
     loader: loaderReducer,
     navbar: navbarReducer,
     staff: staffReducer,
+    blog: blogReducer,
   },
 });
 

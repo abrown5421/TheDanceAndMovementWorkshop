@@ -16,13 +16,12 @@ import CircularLoader from "./components/circularLoader/CircularLoader";
 import { setNavbar } from "./features/navbar/navbarSlice";
 import Drawer from "./components/drawer/Drawer";
 import { setStaff } from "./features/staff/staffSlice";
+import { setBlog } from "./features/blog/blogSlice";
 
 function App() {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const pages = useAppSelector((state) => state.pages);
-  const viewport = useAppSelector((state) => state.viewport);
-  const drawer = useAppSelector((state) => state.drawer);
   const [loadingPages, setLoadingPages] = useState(true);
 
   useEffect(() => {
@@ -44,6 +43,12 @@ function App() {
         dispatch(setStaff(staffData));
       } else {
         dispatch(setStaff([]));
+      }
+      const blogData = await getEntireCollection("BlogPosts");
+      if (blogData) {
+        dispatch(setBlog(blogData));
+      } else {
+        dispatch(setBlog([]));
       }
       setLoadingPages(false);
     }
