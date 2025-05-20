@@ -206,7 +206,7 @@ export default function Logo() {
         </div>
         <div className='flex flex-col font-primary justify-center text-2xl'>
             <Transition isEntering={showTitle}>
-                <div className='flex flex-row'>The Dance <span className="px-2 text-primary">&</span> Movement Workshop</div>
+                <div className='flex flex-row text-sm md:text-xl lg:text-xl'>The Dance & Movement Workshop</div>
             </Transition>
         </div>
     </div>
