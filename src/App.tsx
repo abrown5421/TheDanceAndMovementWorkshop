@@ -17,6 +17,8 @@ import { setNavbar } from "./features/navbar/navbarSlice";
 import Drawer from "./components/drawer/Drawer";
 import { setStaff } from "./features/staff/staffSlice";
 import { setBlog } from "./features/blog/blogSlice";
+import AdminPage from "./features/admin/AdminPage";
+import { setAdmin } from "./features/admin/adminSlice";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -25,6 +27,10 @@ function App() {
   const [loadingPages, setLoadingPages] = useState(true);
 
   useEffect(() => {
+    if (location.pathname !== '/Admin') {
+      dispatch(setAdmin({adminMode: false}));
+    }
+
     async function fetchData() {
       const pageData = await getEntireCollection("Pages");
       if (pageData) {
@@ -76,6 +82,7 @@ function App() {
         <Navbar />
         <div className='overflow-scroll main-contain bg-black'>
           <Routes>
+            <Route path="/Admin" element={<AdminPage />} />
             {pages.pages.map((page) => (
               <Route key={page.PageName} path={page.PageSlug} element={<PageShell />} />
             ))}

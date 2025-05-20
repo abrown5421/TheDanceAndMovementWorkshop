@@ -10,6 +10,7 @@ import loaderReducer from '../../components/circularLoader/circularLoaderSlice';
 import navbarReducer from '../../features/navbar/navbarSlice';
 import staffReducer from '../../features/staff/staffSlice';
 import blogReducer from '../../features/blog/blogSlice';
+import adminReducer from '../../features/admin/adminSlice';
 
 export const store = configureStore({
   reducer: {
@@ -24,6 +25,7 @@ export const store = configureStore({
     navbar: navbarReducer,
     staff: staffReducer,
     blog: blogReducer,
+    admin: adminReducer,
   },
 });
 
