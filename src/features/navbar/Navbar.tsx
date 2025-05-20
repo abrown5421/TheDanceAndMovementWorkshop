@@ -11,6 +11,7 @@ import { getTimeOfDay } from '../../utils/getTimeOfDay';
 const Navbar: React.FC = () => {
   const dispatch = useAppDispatch();
   const viewport = useAppSelector((state) => state.viewport)
+  const admin = useAppSelector((state) => state.admin)
     return (
       <div className="bg-white flex flex-row justify-between items-center py-2 px-4 min-h-14 relative navbar z-40">
         <div className="flex flex-col max-h-full">
@@ -18,18 +19,24 @@ const Navbar: React.FC = () => {
             <Logo />
           </Transition>
         </div>
-        <div className="flex flex-col">
-          {viewport.type === 'desktop' ? (
-            <Menu />
-          ) : (
-            <IconButton color="text-primary" ariaLabel="navigation-menu" onClick={() => {
-              dispatch(setDrawerState({ key: 'drawerOpen', value: true }))
-              dispatch(setDrawerState({ key: 'drawerTitle', value: `Good ${getTimeOfDay()}!` }))
-            }}>
-                <Hamburger />
-            </IconButton>
-          )}
-        </div>
+        {!admin.adminMode ? (
+          <div className="flex flex-col">
+            {viewport.type === 'desktop' ? (
+              <Menu />
+            ) : (
+              <IconButton color="text-primary" ariaLabel="navigation-menu" onClick={() => {
+                dispatch(setDrawerState({ key: 'drawerOpen', value: true }))
+                dispatch(setDrawerState({ key: 'drawerTitle', value: `Good ${getTimeOfDay()}!` }))
+              }}>
+                  <Hamburger />
+              </IconButton>
+            )}
+          </div>
+        ) : (
+          <div className="flex flex-col">
+            admin navbar
+          </div>
+        )}
       </div>
     )
   }

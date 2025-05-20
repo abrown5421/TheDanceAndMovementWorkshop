@@ -18,7 +18,7 @@ import Drawer from "./components/drawer/Drawer";
 import { setStaff } from "./features/staff/staffSlice";
 import { setBlog } from "./features/blog/blogSlice";
 import AdminPage from "./features/admin/AdminPage";
-import { setAdmin } from "./features/admin/adminSlice";
+import { setAdminMode } from "./features/admin/adminSlice";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -28,7 +28,7 @@ function App() {
 
   useEffect(() => {
     if (location.pathname !== '/Admin') {
-      dispatch(setAdmin({adminMode: false}));
+      dispatch(setAdminMode(false));
     }
 
     async function fetchData() {

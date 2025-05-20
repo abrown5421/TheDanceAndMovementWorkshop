@@ -1,12 +1,15 @@
 import { useAppSelector } from "../../app/store/hooks"
 import Transition from "../../components/transition/Transition"
+import { getTimeOfDay } from "../../utils/getTimeOfDay"
 
 export default function Logo() {
     const showTitle = useAppSelector((state) => state.activePage.activePageName !== "Home")
+    const admin = useAppSelector((state) => state.admin)
+    const viewport = useAppSelector((state) => state.viewport)
     return (
     <div className='flex flex-row'>
         <div className='flex flex-col'>
-            <svg style={{height: "50px"}} version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000.000000 1250.000000" preserveAspectRatio="xMidYMid meet">
+            <svg style={{height: "48px"}} version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000.000000 1250.000000" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0.000000,1250.000000) scale(0.100000,-0.100000)"
                 className='fill-primary justify-center' stroke="none">
                 <path d="M6710 12111 c-38 -4 -88 -24 -164 -64 -60 -31 -114 -57 -122 -57 -7
@@ -206,7 +209,9 @@ export default function Logo() {
         </div>
         <div className='flex flex-col font-primary justify-center text-2xl'>
             <Transition isEntering={showTitle}>
-                <div className='flex flex-row text-sm md:text-xl lg:text-xl'>The Dance & Movement Workshop</div>
+                <div className='flex flex-row text-sm md:text-xl lg:text-xl'>
+                    {admin.adminMode ? (viewport.type === 'desktop' && `Good ${getTimeOfDay()}`) : "The Dance & Movement Workshop"}
+                </div>
             </Transition>
         </div>
     </div>
