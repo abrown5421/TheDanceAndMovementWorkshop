@@ -8,6 +8,7 @@ import { setEntireLoaderLoadState } from '../../components/circularLoader/circul
 import CircularLoader from '../../components/circularLoader/CircularLoader';
 import Block from '../../components/block/Block';
 import { useNavigationHook } from '../../hooks/NavigationHook';
+import { useDynamicFormState } from '../../hooks/DynamicFormHook';
 
 function PageShell() {
   const dispatch = useAppDispatch();
@@ -60,10 +61,21 @@ function PageShell() {
     });
   };
 
+  const contactFormHandler = () => {
+    return useDynamicFormState(['name', 'email', 'message']);
+  };
+
+  const contactForm = contactFormHandler();
+
   const functionMap = {
     handleNavigation,
     renderCollection,
-    renderStaffCards
+    renderStaffCards,
+    contactFormHandler,
+    getFormValue: (key: string) => contactForm.formValues[key],
+    handleFormChange: (key: string) => (e: React.ChangeEvent<HTMLInputElement>) => contactForm.handleChange(key, e.target.value),
+    getFormError: (key: string) => contactForm.formErrors[key],
+    getFormHelperText: (key: string) => contactForm.formHelperText[key]
   };
 
   useEffect(()=>{
