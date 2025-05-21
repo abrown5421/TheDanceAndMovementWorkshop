@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Block from '../../components/block/Block';
-import { useDispatch } from 'react-redux';
-import { setAdminPage } from './adminSlice';
+import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
+import { useAppSelector } from '../../app/store/hooks';
  
  const AdminAuth: React.FC = () => {
-    const dispatch = useDispatch()
+    const handleAdminNavigation = useAdminNavigationHook();
+    const admin = useAppSelector((state) => state.admin)
+
     const handleAuth = () => {
-        dispatch(setAdminPage({ key: "activePageIn", value: false }));
-        
-        setTimeout(() => {
-            dispatch(setAdminPage({ key: "activePageName", value: 'Dash' }));
-            dispatch(setAdminPage({ key: "activePageIn", value: true }));
-        }, 500);
+        handleAdminNavigation('Dash');
     }
 
-     return (
+    useEffect(()=>{console.log(admin)}, [admin])
+
+    return (
         <Block tailwindClasses="h-1/2 w-1/3 rounded-xl p-5 shadow flex flex-col lg:flex-row bg-white">
+            login form
             <Block
                 as="button"
                 children="Login"
@@ -23,6 +23,6 @@ import { setAdminPage } from './adminSlice';
                 onClick={handleAuth}
             />
         </Block>
-     );
+    );
  };
  export default AdminAuth;
