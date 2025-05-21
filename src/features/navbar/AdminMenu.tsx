@@ -4,12 +4,10 @@ import Cookies from 'js-cookie';
 import { deauthenticate } from '../../services/auth/authenticate';
 import { useAppDispatch } from '../../app/store/hooks';
 import { setDrawerState } from '../../components/drawer/drawerSlice';
-import { initializeAdmin } from '../admin/store/adminSlice';
-import { useNavigationHook } from '../../hooks/NavigationHook';
+import { initializeAdmin } from '../admin/adminSlice';
  
  const AdminMenu: React.FC = () => {
     const dispatch = useAppDispatch();
-    const handleNavigation = useNavigationHook();
 
     const handleLogout = () => {
         dispatch(setDrawerState({ key: 'drawerOpen', value: false }));

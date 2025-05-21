@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import Block from '../../../components/block/Block';
-import Input from '../../../components/input/Input';
-import { useAdminNavigationHook } from '../../../hooks/AdminNavigationHook';
-import { authenticate, getAuthUID } from '../../../services/auth/authenticate';
+import React, { useState } from 'react';
+import Block from '../../components/block/Block';
+import Input from '../../components/input/Input';
+import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
+import { authenticate, getAuthUID } from '../../services/auth/authenticate';
 import { Eye, EyeClosed } from 'lucide-react';
-import { setEntireNotification } from '../../../components/notification/notificationSlice';
-import { useAppDispatch } from '../../../app/store/hooks';
-import { setAdminAuth, setAdminUser, setAdminUserStaffDoc } from '../store/adminSlice';
-import { getDocumentById } from '../../../services/db/getData';
-import type { AdminUser, AdminUserStaffDoc } from '../types/adminTypes';
+import { setEntireNotification } from '../../components/notification/notificationSlice';
+import { useAppDispatch } from '../../app/store/hooks';
+import { setAdminAuth, setAdminUser, setAdminUserStaffDoc } from './adminSlice';
+import { getDocumentById } from '../../services/db/getData';
+import type { AdminUser, AdminUserStaffDoc } from './adminTypes';
 import Cookies from 'js-cookie';
 
 const AdminAuth: React.FC = () => {
   const dispatch = useAppDispatch();
   const handleAdminNavigation = useAdminNavigationHook();
-  const AdminUserPersist = Cookies.get('authentication');
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,36 +23,6 @@ const AdminAuth: React.FC = () => {
     email: '',
     password: ''
   });
-
-  useEffect(() => {
-    const fetchData = async () => {
-        if (AdminUserPersist !== null && AdminUserPersist !== undefined) {
-        try {
-            const userDoc = await getDocumentById("Users", AdminUserPersist);
-            const staffDoc = await getDocumentById("Staff", AdminUserPersist);
-
-            if (userDoc) {
-            dispatch(setAdminUser(userDoc as AdminUser));
-            } else {
-                console.warn(`No user document found for UID: ${AdminUserPersist}`);
-            }
-
-            if (staffDoc) {
-            dispatch(setAdminUserStaffDoc(staffDoc as AdminUserStaffDoc));
-            } else {
-                console.warn(`No staff document found for UID: ${AdminUserPersist}`);
-            }
-
-            dispatch(setAdminAuth(true));
-            handleAdminNavigation('Dash');
-        } catch (error) {
-            console.error("Error fetching documents:", error);
-        }
-        }
-    };
-
-    fetchData();
-  }, [AdminUserPersist]);
 
   const validateFields = () => {
     const newErrors = { email: '', password: '' };

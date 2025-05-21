@@ -10,7 +10,8 @@ import loaderReducer from '../../components/circularLoader/circularLoaderSlice';
 import navbarReducer from '../../features/navbar/navbarSlice';
 import staffReducer from '../../features/staff/staffSlice';
 import blogReducer from '../../features/blog/blogSlice';
-import adminReducer from '../../features/admin/store/adminSlice';
+import adminReducer from '../../features/admin/adminSlice';
+import timecardReducer from '../../features/admin/features/timecard/timecardSlice';
 
 export const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ export const store = configureStore({
     staff: staffReducer,
     blog: blogReducer,
     admin: adminReducer,
+    timecard: timecardReducer,
   },
 });
 

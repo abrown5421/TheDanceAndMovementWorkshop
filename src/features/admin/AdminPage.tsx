@@ -1,17 +1,53 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
-import { setAdminMode } from './store/adminSlice';
+import { setAdminAuth, setAdminMode, setAdminUser, setAdminUserStaffDoc } from './adminSlice';
 import Transition from '../../components/transition/Transition';
-import AdminAuth from './subPages/AdminAuth';
-import AdminDash from './subPages/AdminDash';
-import './styles/admin-page.css';
+import AdminAuth from './AdminAuth';
+import AdminDash from './AdminDash';
+import './admin-page.css';
+import Cookies from 'js-cookie';
+import type { AdminUser, AdminUserStaffDoc } from './adminTypes';
+import { getDocumentById } from '../../services/db/getData';
+import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
 
  const AdminPage: React.FC = () => {
     const dispatch = useAppDispatch();
+    const handleAdminNavigation = useAdminNavigationHook();
     const admin = useAppSelector((state) => state.admin)
+    const timecard = useAppSelector((state) => state.timecard)
+    const AdminUserPersist = Cookies.get('authentication');
+
+    useEffect(()=>{console.log(timecard)}, [timecard])
 
     useEffect(()=>{
         dispatch(setAdminMode(true));
+        const fetchData = async () => {
+        if (AdminUserPersist !== null && AdminUserPersist !== undefined) {
+        try {
+            const userDoc = await getDocumentById("Users", AdminUserPersist);
+            const staffDoc = await getDocumentById("Staff", AdminUserPersist);
+
+            if (userDoc) {
+            dispatch(setAdminUser(userDoc as AdminUser));
+            } else {
+                console.warn(`No user document found for UID: ${AdminUserPersist}`);
+            }
+
+            if (staffDoc) {
+            dispatch(setAdminUserStaffDoc(staffDoc as AdminUserStaffDoc));
+            } else {
+                console.warn(`No staff document found for UID: ${AdminUserPersist}`);
+            }
+
+            dispatch(setAdminAuth(true));
+            handleAdminNavigation('Dash');
+        } catch (error) {
+            console.error("Error fetching documents:", error);
+        }
+        }
+    };
+
+    fetchData();
     }, [])
     
     return (

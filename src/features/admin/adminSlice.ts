@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { AdminSliceConfig, AdminUser, AdminUserStaffDoc, AdminPageState } from "../types/adminTypes";
+import type { AdminSliceConfig, AdminUser, AdminUserStaffDoc, AdminPageState } from "./adminTypes";
 
 const initialState: AdminSliceConfig = {
   adminMode: false,
@@ -15,6 +15,7 @@ const initialState: AdminSliceConfig = {
     StaffImage: "",
     StaffName: "",
     StaffTitle: "",
+    StaffRate: 0,
   },
   AdminPageState: {
     activePageName: "Auth",
