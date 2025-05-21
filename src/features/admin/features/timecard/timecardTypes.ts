@@ -1,4 +1,5 @@
 export interface Timecard {
+  docId: string | null;
   UserID: string;
   TimecardInfo: TimecardInfo
   Active: boolean;

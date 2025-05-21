@@ -3,6 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import type { Locale, Timecard } from './timecardTypes';
 
 const initialState: Timecard = {
+  docId: null, 
   UserID: '',
   TimecardInfo: {
     ClockIn: '',
@@ -12,17 +13,20 @@ const initialState: Timecard = {
     IPAddress: '',
     Location: {
       Lat: 0,
-      Lng: 0
-    }
+      Lng: 0,
+    },
   },
   Active: false,
-  Complete: false
+  Complete: false,
 };
 
 const timecardSlice = createSlice({
   name: 'timecard',
   initialState,
   reducers: {
+    setTimecardDocId(state, action: PayloadAction<string | null>) {
+      state.docId = action.payload;
+    },
     setUserID(state, action: PayloadAction<string>) {
       state.UserID = action.payload;
     },
@@ -52,11 +56,12 @@ const timecardSlice = createSlice({
     },
     resetTimecard(state) {
       Object.assign(state, initialState);
-    }
-  }
+    },
+  },
 });
 
 export const {
+  setTimecardDocId,
   setUserID,
   setClockIn,
   setClockOut,
@@ -66,7 +71,7 @@ export const {
   setLocation,
   setActive,
   setComplete,
-  resetTimecard
+  resetTimecard,
 } = timecardSlice.actions;
 
 export default timecardSlice.reducer;
