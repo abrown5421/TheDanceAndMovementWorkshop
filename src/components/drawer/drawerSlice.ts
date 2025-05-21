@@ -6,7 +6,7 @@ const initialState: DrawerState = {
   drawerOpen: false,
   drawerTitle: '',
   drawerWidth: '325px',
-  drawerHeight: '100vh',
+  drawerHeight: 'calc(100vh - 24px)',
   drawerPosition: 'right',
 };
 

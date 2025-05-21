@@ -19,11 +19,13 @@ import { setStaff } from "./features/staff/staffSlice";
 import { setBlog } from "./features/blog/blogSlice";
 import AdminPage from "./features/admin/AdminPage";
 import { setAdminMode } from "./features/admin/adminSlice";
+import AdminMenu from "./features/navbar/AdminMenu";
 
 function App() {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const pages = useAppSelector((state) => state.pages);
+  const admin = useAppSelector((state) => state.admin);
   const [loadingPages, setLoadingPages] = useState(true);
 
   useEffect(() => {
@@ -78,7 +80,7 @@ function App() {
 
   return (
     <ViewportHook>
-      <div className="relative inset-0 w-screen h-screen bg-black">
+      <div className="relative inset-0 w-screen h-screen bg-black overflow-hidden">
         <Navbar />
         <div className='overflow-scroll main-contain bg-black'>
           <Routes>
@@ -91,7 +93,11 @@ function App() {
           </Routes>
           
           <Drawer>
-            <Menu />
+            {admin.adminMode ? (
+              <AdminMenu />
+            ) : (
+              <Menu />
+            )}
           </Drawer>
           <Modal />
           <Notification />

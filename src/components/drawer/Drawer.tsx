@@ -44,7 +44,7 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
           }
           isEntering={drawer.drawerOpen}
       >
-          <div className='relative' style={{width: drawer.drawerWidth, height: drawer.drawerHeight}}>
+          <div className='relative flex flex-col' style={{width: drawer.drawerWidth, height: drawer.drawerHeight}}>
               <div className='flex flex-row mb-5 pb-5 drawer-title'>
                 <div className='flex flex-col flex-10/12 font-primary text-xl'>
                   {drawer.drawerTitle}

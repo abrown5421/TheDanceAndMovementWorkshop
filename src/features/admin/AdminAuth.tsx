@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Block from '../../components/block/Block';
 import Input from '../../components/input/Input';
 import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
@@ -9,10 +9,12 @@ import { useAppDispatch } from '../../app/store/hooks';
 import { setAdminAuth, setAdminUser, setAdminUserStaffDoc } from './adminSlice';
 import { getDocumentById } from '../../services/db/getData';
 import type { AdminUser, AdminUserStaffDoc } from './adminTypes';
+import Cookies from 'js-cookie';
 
 const AdminAuth: React.FC = () => {
   const dispatch = useAppDispatch();
   const handleAdminNavigation = useAdminNavigationHook();
+  const AdminUserPersist = Cookies.get('authentication');
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,6 +24,36 @@ const AdminAuth: React.FC = () => {
     email: '',
     password: ''
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+        if (AdminUserPersist !== null && AdminUserPersist !== undefined) {
+        try {
+            const userDoc = await getDocumentById("Users", AdminUserPersist);
+            const staffDoc = await getDocumentById("Staff", AdminUserPersist);
+
+            if (userDoc) {
+            dispatch(setAdminUser(userDoc as AdminUser));
+            } else {
+                console.warn(`No user document found for UID: ${AdminUserPersist}`);
+            }
+
+            if (staffDoc) {
+            dispatch(setAdminUserStaffDoc(staffDoc as AdminUserStaffDoc));
+            } else {
+                console.warn(`No staff document found for UID: ${AdminUserPersist}`);
+            }
+
+            dispatch(setAdminAuth(true));
+            handleAdminNavigation('Dash');
+        } catch (error) {
+            console.error("Error fetching documents:", error);
+        }
+        }
+    };
+
+    fetchData();
+  }, [AdminUserPersist]);
 
   const validateFields = () => {
     const newErrors = { email: '', password: '' };
@@ -64,9 +96,7 @@ const AdminAuth: React.FC = () => {
         const uid = await getAuthUID();
         const userDoc = await getDocumentById("Users", uid);
         const staffDoc = await getDocumentById("Staff", uid);
-        console.log(uid)
-        console.log(userDoc)
-        console.log(staffDoc)
+        Cookies.set('authentication', uid, { expires: 1 })
         
         if (userDoc) {
             dispatch(setAdminUser(userDoc as AdminUser));

@@ -47,6 +47,7 @@ const adminSlice = createSlice({
     ) => {
       state.AdminPageState[action.payload.key] = action.payload.value;
     },
+    initializeAdmin: () => initialState
   },
 });
 
@@ -57,6 +58,7 @@ export const {
   setAdminUser,
   setAdminUserStaffDoc,
   setAdminState,
+  initializeAdmin
 } = adminSlice.actions;
 
 export default adminSlice.reducer;
