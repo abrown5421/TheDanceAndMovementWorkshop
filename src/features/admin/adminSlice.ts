@@ -6,7 +6,6 @@ const initialState: AdminSliceConfig = {
   adminMode: false,
   adminAuth: false,
   adminUser: {
-    StaffDocId: "",
     UserEmail: "",
     UserFName: "",
     UserLName: "",

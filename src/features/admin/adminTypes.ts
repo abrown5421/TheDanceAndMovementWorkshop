@@ -7,7 +7,6 @@ export interface AdminSliceConfig {
 }
 
 export interface AdminUser {
-  StaffDocId: string;
   UserEmail: string;
   UserFName: string;
   UserLName: string;
