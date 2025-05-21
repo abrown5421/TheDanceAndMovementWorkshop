@@ -54,6 +54,7 @@ const adminSlice = createSlice({
 export const {
   setAdminMode,
   setAdminAuth,
+  setAdminPage,
   setAdminUser,
   setAdminUserStaffDoc,
   setAdminState,
