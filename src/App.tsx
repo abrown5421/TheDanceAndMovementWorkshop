@@ -18,7 +18,7 @@ import Drawer from "./components/drawer/Drawer";
 import { setStaff } from "./features/staff/staffSlice";
 import { setBlog } from "./features/blog/blogSlice";
 import AdminPage from "./features/admin/AdminPage";
-import { setAdminMode } from "./features/admin/adminSlice";
+import { setAdminMode } from "./features/admin/store/adminSlice";
 import AdminMenu from "./features/navbar/AdminMenu";
 
 function App() {

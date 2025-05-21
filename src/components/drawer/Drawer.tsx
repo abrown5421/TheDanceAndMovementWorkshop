@@ -49,7 +49,7 @@ const Drawer: React.FC<DrawerProps> = ({ children }) => {
                 <div className='flex flex-col flex-10/12 font-primary text-xl'>
                   {drawer.drawerTitle}
                 </div>
-                <div className='flex flex-col flex-2/12 items-end justify-center' onClick={handleClose}>
+                <div className='flex flex-col flex-2/12 items-end justify-center cursor-pointer' onClick={handleClose}>
                   <X />
                 </div>
               </div>

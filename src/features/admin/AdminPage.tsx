@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
-import { setAdminMode } from './adminSlice';
+import { setAdminMode } from './store/adminSlice';
 import Transition from '../../components/transition/Transition';
-import AdminAuth from './AdminAuth';
-import AdminDash from './AdminDash';
-import './admin-page.css';
+import AdminAuth from './subPages/AdminAuth';
+import AdminDash from './subPages/AdminDash';
+import './styles/admin-page.css';
 
  const AdminPage: React.FC = () => {
     const dispatch = useAppDispatch();

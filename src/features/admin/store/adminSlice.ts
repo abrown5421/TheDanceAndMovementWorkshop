@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { AdminSliceConfig, AdminUser, AdminUserStaffDoc, AdminPageState } from "./adminTypes";
+import type { AdminSliceConfig, AdminUser, AdminUserStaffDoc, AdminPageState } from "../types/adminTypes";
 
 const initialState: AdminSliceConfig = {
   adminMode: false,

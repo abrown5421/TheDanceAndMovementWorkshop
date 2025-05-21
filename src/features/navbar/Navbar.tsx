@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
         <div className="flex flex-col items-end">
           <button
             onClick={handleAvatarClick}
-            className="rounded-full overflow-hidden w-10 h-10 border border-gray-300 hover:ring-2 ring-primary focus:outline-none"
+            className="rounded-full overflow-hidden w-10 h-10 border border-gray-300 hover:ring-2 ring-primary focus:outline-none cursor-pointer"
           >
             <img
               src={admin.adminUserStaffDoc?.StaffImage || "../../../public/assets/images/placeholder-headshot.jpg"}

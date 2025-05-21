@@ -1,5 +1,5 @@
 import { useAppDispatch } from "../app/store/hooks";
-import { setAdminPage } from "../features/admin/adminSlice";
+import { setAdminPage } from "../features/admin/store/adminSlice";
 
 export const useAdminNavigationHook = () => {
   const dispatch = useAppDispatch();

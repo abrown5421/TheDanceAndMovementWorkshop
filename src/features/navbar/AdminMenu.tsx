@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import { deauthenticate } from '../../services/auth/authenticate';
 import { useAppDispatch } from '../../app/store/hooks';
 import { setDrawerState } from '../../components/drawer/drawerSlice';
-import { initializeAdmin } from '../admin/adminSlice';
+import { initializeAdmin } from '../admin/store/adminSlice';
 import { useNavigationHook } from '../../hooks/NavigationHook';
  
  const AdminMenu: React.FC = () => {
