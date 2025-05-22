@@ -5,6 +5,7 @@ import { setNavbar } from "../features/navbar/navbarSlice";
 import { setStaff } from "../features/staff/staffSlice";
 import { setBlog } from "../features/blog/blogSlice";
 import { listenToCollection } from "../services/db/listenToCollection";
+import { setGallery } from "../features/gallery/gallerySlice";
 
 export const useInitializeAppData = () => {
   const [loading, setLoading] = useState(true);
@@ -35,6 +36,13 @@ export const useInitializeAppData = () => {
       listenToCollection("Staff", (data) => {
         const sortedStaff = data.sort((a, b) => a.StaffCardOrder - b.StaffCardOrder);
         dispatch(setStaff(sortedStaff));
+        setLoading(false);
+      })
+    );
+
+    unsubscribers.push(
+      listenToCollection("Gallery", (data) => {
+        dispatch(setGallery(data));
         setLoading(false);
       })
     );

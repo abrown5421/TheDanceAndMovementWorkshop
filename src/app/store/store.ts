@@ -12,6 +12,7 @@ import staffReducer from '../../features/staff/staffSlice';
 import blogReducer from '../../features/blog/blogSlice';
 import adminReducer from '../../features/admin/adminSlice';
 import timecardReducer from '../../features/admin/features/timecard/timecardSlice';
+import galleryReducer from '../../features/gallery/gallerySlice';
 
 export const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ export const store = configureStore({
     navbar: navbarReducer,
     staff: staffReducer,
     blog: blogReducer,
+    gallery: galleryReducer,
     admin: adminReducer,
     timecard: timecardReducer,
   },

@@ -10,6 +10,7 @@ import Block from '../../components/block/Block';
 import { useNavigationHook } from '../../hooks/NavigationHook';
 import { useDynamicFormState } from '../../hooks/DynamicFormHook';
 import Footer from '../footer/Footer';
+import type { GalleryState } from '../gallery/galleryTypes';
 
 function PageShell() {
   const dispatch = useAppDispatch();
@@ -20,10 +21,17 @@ function PageShell() {
   const currentPage = pages.pages.find(page => page.PageName === activePage.activePageName);
   const PageNotFound = pages.pages.find(page => page.PageName === "PageNotFound");
   const staff: StaffState[] = useAppSelector((state) => state.staff.staff);
-  
+  const gallery: GalleryState[] = useAppSelector((state) => state.gallery.gallery);
+
+  useEffect(()=>{console.log(gallery)}, [gallery])
+  useEffect(()=>{console.log(staff)}, [staff])
+
   const renderStaffCards = (templateNode: any) => 
     renderCollection<StaffState>(staff, templateNode);
   
+  const renderGalleryImages = (templateNode: any) =>
+    renderCollection<GalleryState>(gallery, templateNode);
+
   const renderCollection = <T extends Record<string, any>>(
     collection: T[],
     templateNode: any,
@@ -72,6 +80,7 @@ function PageShell() {
     handleNavigation,
     renderCollection,
     renderStaffCards,
+    renderGalleryImages,
     contactFormHandler,
     getFormValue: (key: string) => contactForm.formValues[key],
     handleFormChange: (key: string) => (e: React.ChangeEvent<HTMLInputElement>) => contactForm.handleChange(key, e.target.value),
