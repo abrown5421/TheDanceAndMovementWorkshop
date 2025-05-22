@@ -3,9 +3,7 @@ import Modal from "./components/modal/Modal";
 import Notification from "./components/notification/Notification";
 import Navbar from "./features/navbar/Navbar";
 import Menu from "./features/navbar/Menu";
-import { useEffect, useState } from "react";
-import { getEntireCollection } from "./services/db/getData";
-import { setPages } from "./features/pages/pagesSlice";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "./app/store/hooks";
 import PageShell from "./features/pages/pageShell";
 import { Navigate, Route, useLocation } from "react-router-dom";
@@ -13,62 +11,23 @@ import { Routes } from "react-router-dom";
 import { setActivePage } from "./features/pages/activePageSlice";
 import Block from "./components/block/Block";
 import CircularLoader from "./components/circularLoader/CircularLoader";
-import { setNavbar } from "./features/navbar/navbarSlice";
 import Drawer from "./components/drawer/Drawer";
-import { setStaff } from "./features/staff/staffSlice";
-import { setBlog } from "./features/blog/blogSlice";
 import AdminPage from "./features/admin/AdminPage";
 import { setAdminMode } from "./features/admin/adminSlice";
 import AdminMenu from "./features/navbar/AdminMenu";
+import { useInitializeAppData } from "./hooks/InitializeAppData";
 
 function App() {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const pages = useAppSelector((state) => state.pages);
   const admin = useAppSelector((state) => state.admin);
-  const [loadingPages, setLoadingPages] = useState(true);
+  const loadingPages = useInitializeAppData();
 
   useEffect(() => {
     if (location.pathname !== '/Admin') {
       dispatch(setAdminMode(false));
     }
-
-    async function fetchData() {
-      const pageData = await getEntireCollection("Pages");
-      if (pageData) {
-        const pagesWithDocId = pageData.map(({ id, ...rest }) => ({
-          PageID: id,
-          ...rest,
-        }));
-
-        dispatch(setPages(pagesWithDocId));
-      } else {
-        dispatch(setPages([]));
-      }
-      const linkData = await getEntireCollection("Links");
-      if (linkData) {
-        dispatch(setNavbar(linkData));
-      } else {
-        dispatch(setNavbar([]));
-      }
-      const staffData = await getEntireCollection("Staff");
-      if (staffData) {
-        const sortedStaff = staffData.sort((a, b) => a.StaffCardOrder - b.StaffCardOrder);
-        dispatch(setStaff(sortedStaff));
-      } else {
-        dispatch(setStaff([]));
-      }
-      const blogData = await getEntireCollection("BlogPosts");
-      if (blogData) {
-        dispatch(setBlog(blogData));
-      } else {
-        dispatch(setBlog([]));
-      }
-      setLoadingPages(false);
-    }
-
-    fetchData();
-    
   }, [dispatch]);
 
   useEffect(() => {
