@@ -98,7 +98,7 @@ function PageShell() {
           ) : (
             <PageRenderer node={PageNotFound!.PageContent} functionMap={functionMap} /> 
           )}
-          {/* <Footer /> */}
+          <Footer />
         </Transition>
       )}
     </div>
