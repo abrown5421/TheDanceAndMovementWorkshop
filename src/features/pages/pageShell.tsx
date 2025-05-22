@@ -9,6 +9,7 @@ import CircularLoader from '../../components/circularLoader/CircularLoader';
 import Block from '../../components/block/Block';
 import { useNavigationHook } from '../../hooks/NavigationHook';
 import { useDynamicFormState } from '../../hooks/DynamicFormHook';
+import Footer from '../footer/Footer';
 
 function PageShell() {
   const dispatch = useAppDispatch();
@@ -91,12 +92,13 @@ function PageShell() {
           <CircularLoader />
         </Block>
       ) : (
-        <Transition tailwindClass="h-full bg-white py-2 px-4" isEntering={activePage.activePageIn}>
+        <Transition tailwindClass="h-full bg-white overflow-scroll" isEntering={activePage.activePageIn}>
           {currentPage?.PageContent ? (
             <PageRenderer node={currentPage.PageContent} functionMap={functionMap} /> 
           ) : (
             <PageRenderer node={PageNotFound!.PageContent} functionMap={functionMap} /> 
           )}
+          {/* <Footer /> */}
         </Transition>
       )}
     </div>
