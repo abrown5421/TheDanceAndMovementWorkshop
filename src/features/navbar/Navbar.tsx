@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
 
       {!admin.adminMode ? (
         <div className="flex flex-col">
-          {viewport.type === 'desktop' ? (
+          {viewport.type !== 'mobile' ? (
             <Menu />
           ) : (
             <IconButton color="text-primary" ariaLabel="navigation-menu" onClick={handleAvatarClick}>

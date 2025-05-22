@@ -44,7 +44,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={clsx(
         "w-full relative bg-inherit",
-        fillSpace ? "flex flex-1" : "mb-5"
+        fillSpace ? "flex flex-1" : "mb-2 lg:mb-5"
       )}>
         <div
           className={clsx(

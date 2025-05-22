@@ -17,7 +17,7 @@ const viewportSlice = createSlice({
       state.width = width;
       state.height = height;
 
-      if (width <= 600) {
+      if (width <= 640) {
         state.type = "mobile";
       } else if (width <= 1023) {
         state.type = "tablet";

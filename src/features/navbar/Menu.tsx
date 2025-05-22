@@ -35,11 +35,11 @@ const Menu: React.FC = () => {
     const menuItems = [...visiblePages, ...visibleLinks].sort((a, b) => a.order - b.order);
 
     return (
-        <div className='flex flex-col lg:flex-row'>
+        <div className='flex flex-col sm:flex-row'>
             {menuItems.map((item) => (
                 <Transition key={item.key} delay={100 * item.order} isEntering={true} tailwindClass='cursor-pointer'>
                     <div
-                        className={clsx(item.isActive ? "text-primary" : "text-black", viewport.type !== 'desktop' ? "m-5" : "mx-5")}
+                        className={clsx(item.isActive ? "text-primary" : "text-black", "mx-5 my-3 md:my-5")}
                         onClick={item.onClick}
                     >
                         {item.label}

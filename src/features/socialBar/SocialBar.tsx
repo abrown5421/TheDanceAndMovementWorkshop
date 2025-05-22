@@ -21,7 +21,7 @@ import { setSocialBar } from './socialBarSlice';
 
     
     return (
-        <div className="flex flex-row flex-3/4 justify-around">
+        <div className="flex flex-row flex-3/4 justify-around mx-auto sm:mx-0">
             {SocialBar.socials.map((social) => (
                 <IconButton key={social.socialName} color="text-primary" ariaLabel={social.socialName} onClick={() => window.open(social.socialLink, "_blank")}>
                     {social.socialName === "Facebook" && <Facebook />}
