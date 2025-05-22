@@ -89,7 +89,7 @@ function PageShell() {
     <div className="page-shell">
       {loader.loaderLoad && loader.loaderIdentify === 'pageShell' ? (
         <Block tailwindClasses='flex flex-col lg:flex-row h-full w-full justify-center items-center'>
-          <CircularLoader />
+          <CircularLoader className="text-gray-500" />
         </Block>
       ) : (
         <Transition tailwindClass="h-full bg-white overflow-scroll" isEntering={activePage.activePageIn}>

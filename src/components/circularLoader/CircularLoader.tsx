@@ -29,7 +29,7 @@ const CircularLoader: React.FC<CircularLoaderProps> = ({ icon, className }) => {
 
   return (
     <div className="flex items-center justify-center">
-      <IconComponent className={clsx('animate-spin h-6 w-6 text-gray-500', className)} />
+      <IconComponent className={clsx('animate-spin h-6 w-6', className)} />
     </div>
   );
 };

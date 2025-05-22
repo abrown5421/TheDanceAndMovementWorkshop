@@ -1,25 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import Block from '../../../../components/block/Block';
 import { useAppSelector } from '../../../../app/store/hooks';
 import { updateDataInCollection } from '../../../../services/db/insertData';
+import CircularLoader from '../../../../components/circularLoader/CircularLoader';
 
 const PageManager: React.FC = () => {
   const pages = useAppSelector((state) => state.pages.pages);
-
-  useEffect(()=>{console.log(pages)}, [pages])
+  
+  const [loadingPageId, setLoadingPageId] = useState<string | null>(null);
 
   const sortedPages = [...pages].sort(
     (a, b) => a.PageNavConfig.Order - b.PageNavConfig.Order
   );
 
   const handleToggleShow = async (PageID: string, newShowValue: boolean) => {
+    setLoadingPageId(PageID);
     try {
-        await updateDataInCollection('Pages', PageID, {
-            'PageNavConfig.Show': newShowValue
-        });
-        console.log(`Show updated to ${newShowValue} for page ${PageID}`);
+      await updateDataInCollection('Pages', PageID, {
+        'PageNavConfig.Show': newShowValue
+      });
     } catch (error) {
-        console.error('Failed to update Show:', error);
+      console.error('Error updating page visibility:', error);
+    } finally {
+      setLoadingPageId(null);
     }
   };
 
@@ -33,11 +36,16 @@ const PageManager: React.FC = () => {
           >
             <Block tailwindClasses="flex flex-col flex-8">{page.PageName}</Block>
             <Block tailwindClasses="flex flex-col flex-3 items-end">
-              <input
-                type="checkbox"
-                checked={page.PageNavConfig.Show}
-                onChange={(e) => handleToggleShow(page.PageID, e.target.checked)}
-              />
+              {loadingPageId === page.PageID ? (
+                <CircularLoader className="text-primary" />
+              ) : ( 
+                <input
+                    type="checkbox"
+                    className="w-5 h-5 accent-primary text-primary rounded cursor-pointer transition duration-200 ease-in-out"
+                    checked={page.PageNavConfig.Show}
+                    onChange={(e) => handleToggleShow(page.PageID, e.target.checked)}
+                />
+              )}
             </Block>
           </Block>
         ))

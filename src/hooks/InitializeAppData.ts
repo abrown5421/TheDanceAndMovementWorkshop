@@ -1,42 +1,54 @@
 import { useEffect, useState } from "react";
-import { getEntireCollection } from "../services/db/getData";
 import { useAppDispatch } from "../app/store/hooks";
 import { setPages } from "../features/pages/pagesSlice";
 import { setNavbar } from "../features/navbar/navbarSlice";
 import { setStaff } from "../features/staff/staffSlice";
 import { setBlog } from "../features/blog/blogSlice";
+import { listenToCollection } from "../services/db/listenToCollection";
 
 export const useInitializeAppData = () => {
   const [loading, setLoading] = useState(true);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    async function fetchData() {
-      const pageData = await getEntireCollection("Pages");
-      if (pageData) {
-        const pagesWithDocId = pageData.map(({ id, ...rest }) => ({
+    const unsubscribers: (() => void)[] = [];
+
+    unsubscribers.push(
+      listenToCollection("Pages", (data) => {
+        const pagesWithDocId = data.map(({ id, ...rest }) => ({
           PageID: id,
           ...rest,
         }));
         dispatch(setPages(pagesWithDocId));
-      } else {
-        dispatch(setPages([]));
-      }
+        setLoading(false); 
+      })
+    );
 
-      const linkData = await getEntireCollection("Links");
-      dispatch(setNavbar(linkData || []));
+    unsubscribers.push(
+      listenToCollection("Links", (data) => {
+        dispatch(setNavbar(data));
+        setLoading(false);
+      })
+    );
 
-      const staffData = await getEntireCollection("Staff");
-      const sortedStaff = staffData?.sort((a, b) => a.StaffCardOrder - b.StaffCardOrder);
-      dispatch(setStaff(sortedStaff || []));
+    unsubscribers.push(
+      listenToCollection("Staff", (data) => {
+        const sortedStaff = data.sort((a, b) => a.StaffCardOrder - b.StaffCardOrder);
+        dispatch(setStaff(sortedStaff));
+        setLoading(false);
+      })
+    );
 
-      const blogData = await getEntireCollection("BlogPosts");
-      dispatch(setBlog(blogData || []));
+    unsubscribers.push(
+      listenToCollection("BlogPosts", (data) => {
+        dispatch(setBlog(data));
+        setLoading(false);
+      })
+    );
 
-      setLoading(false);
-    }
-
-    fetchData();
+    return () => {
+      unsubscribers.forEach((unsubscribe) => unsubscribe());
+    };
   }, [dispatch]);
 
   return loading;
