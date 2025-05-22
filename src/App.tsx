@@ -48,7 +48,8 @@ function App() {
       }
       const staffData = await getEntireCollection("Staff");
       if (staffData) {
-        dispatch(setStaff(staffData));
+        const sortedStaff = staffData.sort((a, b) => a.StaffCardOrder - b.StaffCardOrder);
+        dispatch(setStaff(sortedStaff));
       } else {
         dispatch(setStaff([]));
       }
