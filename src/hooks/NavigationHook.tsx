@@ -8,6 +8,7 @@ export const useNavigationHook = () => {
   const navigate = useNavigate();
 
   const handleNavigation = (path: string, pageName: string) => () => {
+        console.log('from the nav')
     dispatch(setDrawerState({ key: 'drawerOpen', value: false }))
     dispatch(setActivePage({ key: "activePageIn", value: false }));
 

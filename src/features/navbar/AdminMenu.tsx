@@ -5,15 +5,21 @@ import { deauthenticate } from '../../services/auth/authenticate';
 import { useAppDispatch } from '../../app/store/hooks';
 import { setDrawerState } from '../../components/drawer/drawerSlice';
 import { initializeAdmin } from '../admin/adminSlice';
+import { useNavigationHook } from '../../hooks/NavigationHook';
+import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
  
  const AdminMenu: React.FC = () => {
     const dispatch = useAppDispatch();
+    const handleNavigation = useNavigationHook();
+    const handleAdminNavigation = useAdminNavigationHook();
 
     const handleLogout = () => {
+        handleNavigation('/', 'Home')()
         dispatch(setDrawerState({ key: 'drawerOpen', value: false }));
         deauthenticate();
         dispatch(initializeAdmin());
         Cookies.remove('authentication')  
+        handleAdminNavigation('Dash');
     }
 
     return (

@@ -195,7 +195,7 @@ const Timecard: React.FC = () => {
 
   if (timecard.Active) {
     return (
-      <Block tailwindClasses="flex flex-col items-center justify-center p-6 bg-gray-100 rounded-2xl shadow-xl w-full max-w-md mx-auto mt-10">
+      <Block tailwindClasses="flex flex-col items-center justify-center p-6 bg-gray-100 rounded-2xl shadow-xl w-full">
         <Block tailwindClasses="text-black text-2xl">Clocked In</Block>
         <Block tailwindClasses="text-4xl font-mono text-primary mb-2">
           {localTime}

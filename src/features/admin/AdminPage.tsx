@@ -14,10 +14,7 @@ import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
     const dispatch = useAppDispatch();
     const handleAdminNavigation = useAdminNavigationHook();
     const admin = useAppSelector((state) => state.admin)
-    const timecard = useAppSelector((state) => state.timecard)
     const AdminUserPersist = Cookies.get('authentication');
-
-    useEffect(()=>{console.log(timecard)}, [timecard])
 
     useEffect(()=>{
         dispatch(setAdminMode(true));
