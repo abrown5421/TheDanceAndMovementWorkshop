@@ -210,7 +210,7 @@ export default function Logo() {
         <div className='flex flex-col font-primary justify-center text-2xl'>
             <Transition isEntering={showTitle}>
                 <div className='flex flex-row text-sm md:text-xl lg:text-xl'>
-                    {admin.adminMode ? (viewport.type === 'desktop' && `Good ${getTimeOfDay()} ${admin.adminUser.UserFName && admin.adminUser.UserFName}`) : "The Dance & Movement Workshop"}
+                    {admin.adminMode ? (viewport.type === 'desktop' && `Good ${getTimeOfDay()} ${admin.adminUser.UserFName && admin.adminUser.UserFName}`) : viewport.type !== 'tablet' && "The Dance & Movement Workshop"}
                 </div>
             </Transition>
         </div>
