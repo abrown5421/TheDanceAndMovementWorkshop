@@ -1,4 +1,5 @@
 export interface PagesState {
+  PageID: string;
   PageName: string;
   PageSlug: string;
   PageContent: PageNode;

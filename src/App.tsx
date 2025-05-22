@@ -36,7 +36,12 @@ function App() {
     async function fetchData() {
       const pageData = await getEntireCollection("Pages");
       if (pageData) {
-        dispatch(setPages(pageData));
+        const pagesWithDocId = pageData.map(({ id, ...rest }) => ({
+          PageID: id,
+          ...rest,
+        }));
+
+        dispatch(setPages(pagesWithDocId));
       } else {
         dispatch(setPages([]));
       }
