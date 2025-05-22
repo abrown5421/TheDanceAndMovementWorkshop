@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
 import Transition from '../transition/Transition';
 import { setModalOpen } from './modalSlice';
 import ExampleModal from './modalContent/ExampleModal';
+import GalleryModal from './modalContent/GalleryModal';
 
 const Modal: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -14,8 +15,9 @@ const Modal: React.FC = () => {
 
   const ModalContent = () => {
     switch (modal.modalContent) {
+      case 'Gallery':
+        return <GalleryModal />;
       case 'Primary':
-        return <ExampleModal />;
       default:
         return <ExampleModal />;
     }
@@ -23,9 +25,10 @@ const Modal: React.FC = () => {
 
   return (
     <>
-      <Transition isEntering={modal.modalOpen} speed="overlay-duration">
+      <Transition isEntering={modal.modalOpen} speed="overlay-duration" tailwindClass='absolute top-0 bottom-0 right-0 left-0 w-screen h-screen bg-black/80 z-40'>
         <div
-          className="fixed inset-0 w-screen h-screen bg-black/80 z-40"
+          className="absolute top-0 bottom-0 right-0 left-0 w-screen h-screen"
+          style={{zIndex: 1000}}
           onClick={handleClose} 
         />
       </Transition>
@@ -35,23 +38,20 @@ const Modal: React.FC = () => {
         exit="animate__backOutDown"
         isEntering={modal.modalOpen}
         speed="fast"
+        tailwindClass="fixed inset-0 z-50 flex items-center justify-center"
       >
-        <div className="fixed inset-0 w-screen h-screen z-50 flex items-center justify-center">
-          <div
-            className="bg-white p-8 rounded shadow-lg relative"
-            onClick={(e) => e.stopPropagation()} 
+        <div
+          className="bg-white p-8 rounded shadow-lg relative"
+          onClick={(e) => e.stopPropagation()} 
+        >
+          <button
+            onClick={handleClose}
+            className="absolute top-2 right-2 text-gray-500 hover:text-black text-xl"
+            aria-label="Close modal"
           >
-            <button
-              onClick={handleClose}
-              className="absolute top-2 right-2 text-gray-500 hover:text-black text-xl"
-              aria-label="Close modal"
-            >
-              ×
-            </button>
-
-            <div className="text-xl font-bold">{modal.modalTitle}</div>
-            <div>{ModalContent()}</div>
-          </div>
+            ×
+          </button>
+          <div>{ModalContent()}</div>
         </div>
       </Transition>
     </>

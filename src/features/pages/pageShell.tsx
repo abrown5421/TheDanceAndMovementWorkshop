@@ -10,6 +10,7 @@ import Block from '../../components/block/Block';
 import { useNavigationHook } from '../../hooks/NavigationHook';
 import { useDynamicFormState } from '../../hooks/DynamicFormHook';
 import Footer from '../footer/Footer';
+import { setModalContent, setModalTitle, setModalImageUrl, setModalOpen } from '../../components/modal/modalSlice';
 import type { GalleryState } from '../gallery/galleryTypes';
 
 function PageShell() {
@@ -22,9 +23,6 @@ function PageShell() {
   const PageNotFound = pages.pages.find(page => page.PageName === "PageNotFound");
   const staff: StaffState[] = useAppSelector((state) => state.staff.staff);
   const gallery: GalleryState[] = useAppSelector((state) => state.gallery.gallery);
-
-  useEffect(()=>{console.log(gallery)}, [gallery])
-  useEffect(()=>{console.log(staff)}, [staff])
 
   const renderStaffCards = (templateNode: any) => 
     renderCollection<StaffState>(staff, templateNode);
@@ -53,14 +51,28 @@ function PageShell() {
           return node.map(replacePlaceholders);
         }
         if (typeof node === 'object' && node !== null) {
+          const isImageBlock = node.type === 'Block' && node.props?.as === 'img';
+
           if (node.children) {
             node.children = replacePlaceholders(node.children);
           }
+
           if (node.props) {
             for (const [k, v] of Object.entries(node.props)) {
               node.props[k] = replacePlaceholders(v);
             }
+
+            if (isImageBlock) {
+              node.props.onClick = () => {
+                dispatch(setModalTitle(item.ImageDescription || ''));
+                dispatch(setModalContent('Gallery'));
+                dispatch(setModalImageUrl(item.ImageLink || ''));
+                dispatch(setModalOpen(true));
+              };
+              
+            }
           }
+
           return node;
         }
         return node;

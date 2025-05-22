@@ -64,9 +64,9 @@ function App() {
               <Menu />
             )}
           </Drawer>
-          <Modal />
           <Notification />
         </div>
+          <Modal />
       </div>
     </ViewportHook>
   )

@@ -6,6 +6,7 @@ const initialState: ModalState = {
   modalOpen: false,
   modalTitle: '',
   modalContent: '',
+  modalImageUrl: '',
 };
 
 const modalSlice = createSlice({
@@ -21,6 +22,9 @@ const modalSlice = createSlice({
     setModalContent(state, action: PayloadAction<string>) {
       state.modalContent = action.payload;
     },
+    setModalImageUrl(state, action: PayloadAction<string>) {
+      state.modalImageUrl = action.payload;
+    },
     setEntireModal(_, action: PayloadAction<ModalState>) {
       return action.payload;
     },
@@ -28,6 +32,7 @@ const modalSlice = createSlice({
       state.modalOpen = false;
       state.modalTitle = '';
       state.modalContent = '';
+      state.modalImageUrl = '';
     },
   },
 });
@@ -36,6 +41,7 @@ export const {
     setModalOpen,
     setModalTitle,
     setModalContent,
+    setModalImageUrl,
     setEntireModal,
     closeAndClearModal,
 } = modalSlice.actions;
