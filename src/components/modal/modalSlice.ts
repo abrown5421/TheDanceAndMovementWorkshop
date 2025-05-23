@@ -25,6 +25,12 @@ const modalSlice = createSlice({
     setModalImageUrl(state, action: PayloadAction<string>) {
       state.modalImageUrl = action.payload;
     },
+    setModalCallback(state, action: PayloadAction<() => void>) {
+      state.modalCallback = action.payload;
+    },
+    clearModalCallback(state) {
+      state.modalCallback = undefined;
+    },
     setEntireModal(_, action: PayloadAction<ModalState>) {
       return action.payload;
     },
@@ -42,6 +48,8 @@ export const {
     setModalTitle,
     setModalContent,
     setModalImageUrl,
+    setModalCallback,
+    clearModalCallback,
     setEntireModal,
     closeAndClearModal,
 } = modalSlice.actions;

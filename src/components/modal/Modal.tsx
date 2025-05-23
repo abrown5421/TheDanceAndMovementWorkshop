@@ -1,17 +1,19 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
 import Transition from '../transition/Transition';
-import { setModalOpen } from './modalSlice';
+import { clearModalCallback, setModalOpen } from './modalSlice';
 import ExampleModal from './modalContent/ExampleModal';
 import GalleryModal from './modalContent/GalleryModal';
 import NewPageModal from './modalContent/NewPageModal';
+import ConfirmOrDenyModal from './modalContent/ConfirmOrDenyModal';
 
 const Modal: React.FC = () => {
   const dispatch = useAppDispatch();
   const modal = useAppSelector((state) => state.modal);
 
   const handleClose = () => {
-    dispatch(setModalOpen(false))
+    dispatch(setModalOpen(false));
+    dispatch(clearModalCallback());
   };
 
   const ModalContent = () => {
@@ -20,6 +22,15 @@ const Modal: React.FC = () => {
         return <GalleryModal />;
       case 'AddNewPage':
         return <NewPageModal />
+      case 'deletePage':
+        return (
+          <ConfirmOrDenyModal
+            onConfirm={() => {
+              modal.modalCallback?.(); 
+              dispatch(clearModalCallback());
+            }}
+          />
+        );
       case 'Primary':
       default:
         return <ExampleModal />;

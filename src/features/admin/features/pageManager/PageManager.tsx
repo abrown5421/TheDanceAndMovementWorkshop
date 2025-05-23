@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Block from '../../../../components/block/Block';
+import { Trash2 } from 'lucide-react';
+import { deleteDocument } from '../../../../services/db/removeData';
+import IconButton from '../../../../components/iconButton/IconButton';
 import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks';
 import { updateDataInCollection } from '../../../../services/db/insertData';
 import CircularLoader from '../../../../components/circularLoader/CircularLoader';
-import { setModalContent, setModalOpen, setModalTitle } from '../../../../components/modal/modalSlice';
+import { setModalCallback, setModalContent, setModalOpen, setModalTitle } from '../../../../components/modal/modalSlice';
+import { setEntireNotification } from '../../../../components/notification/notificationSlice';
 
 const PageManager: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -49,9 +53,34 @@ const PageManager: React.FC = () => {
   const handleAddNewPage = () => {
     dispatch(setModalTitle('Add New Page'));
     dispatch(setModalContent('AddNewPage'));
-    dispatch(setModalOpen(true));setModalTitle
+    dispatch(setModalOpen(true));
   }
-  
+
+  const handleDeletePage = async (docID: string) => {
+    dispatch(setModalCallback(async () => {
+      try {
+        await deleteDocument('Pages', docID);
+
+        dispatch(setEntireNotification({
+          notificationOpen: true,
+          notificationSeverity: 'success',
+          notificationMessage: 'Page deleted successfully!',
+        }));
+      } catch {
+        dispatch(setEntireNotification({
+          notificationOpen: true,
+          notificationSeverity: 'error',
+          notificationMessage: 'There was a problem deleting your page, please try again later.',
+        }));
+      }
+    }));
+
+    dispatch(setModalTitle('Are You Sure?'));
+    dispatch(setModalContent('deletePage'));
+    dispatch(setModalOpen(true));
+  };
+
+
   return (
     <Block tailwindClasses="flex flex-col items-center justify-center bg-gray-100 rounded-2xl shadow-xl w-full">
       {sortedPages.length > 0 ? (
@@ -94,7 +123,16 @@ const PageManager: React.FC = () => {
                     onChange={(e) => handleToggleShow(page.PageID, e.target.checked)}
                   />
                 )}
+
+                <IconButton
+                  ariaLabel={`Delete ${page.PageName}`}
+                  color="text-primary"
+                  onClick={() => handleDeletePage(page.PageID)}
+                >
+                  <Trash2 />
+                </IconButton>
               </Block>
+
             </Block>
           );
         })
