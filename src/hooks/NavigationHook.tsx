@@ -7,14 +7,15 @@ export const useNavigationHook = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleNavigation = (path: string, pageName: string) => () => {
-        console.log('from the nav')
+  const handleNavigation = (path: string, pageName: string, pageId: string) => () => {
     dispatch(setDrawerState({ key: 'drawerOpen', value: false }))
     dispatch(setActivePage({ key: "activePageIn", value: false }));
+    dispatch(setActivePage({ key: "activePageId", value: '' }));
 
     setTimeout(() => {
       dispatch(setActivePage({ key: "activePageName", value: pageName }));
       dispatch(setActivePage({ key: "activePageIn", value: true }));
+      dispatch(setActivePage({ key: "activePageId", value: pageId }));
       navigate(path);
     }, 500);
   };

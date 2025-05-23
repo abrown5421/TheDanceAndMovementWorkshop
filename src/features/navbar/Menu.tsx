@@ -6,7 +6,6 @@ import './navbar.css';
 
 const Menu: React.FC = () => {
     const handleNavigation = useNavigationHook();
-    const viewport = useAppSelector((state) => state.viewport);
     const pages = useAppSelector((state) => state.pages.pages);
     const activePage = useAppSelector((state) => state.activePage);
     const navbar = useAppSelector((state) => state.navbar);
@@ -18,7 +17,7 @@ const Menu: React.FC = () => {
             label: page.PageName,
             order: page.PageNavConfig.Order,
             isActive: activePage.activePageName === page.PageName,
-            onClick: handleNavigation(page.PageSlug, page.PageName),
+            onClick: handleNavigation(page.PageSlug, page.PageName, page.PageID),
         }));
 
 

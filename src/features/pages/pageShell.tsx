@@ -19,11 +19,17 @@ function PageShell() {
   const activePage = useAppSelector((state) => state.activePage);
   const pages = useAppSelector((state) => state.pages);
   const loader = useAppSelector((state) => state.loader);
-  const currentPage = pages.pages.find(page => page.PageName === activePage.activePageName);
+  const currentPage = pages.pages.find(page => page.PageID === activePage.activePageId);
   const PageNotFound = pages.pages.find(page => page.PageName === "PageNotFound");
   const staff: StaffState[] = useAppSelector((state) => state.staff.staff);
   const gallery: GalleryState[] = useAppSelector((state) => state.gallery.gallery);
 
+  useEffect(()=>{
+    console.log(pages)
+  console.log(activePage.activePageName)
+  console.log(currentPage)
+  }, [])
+  
   const renderStaffCards = (templateNode: any) => 
     renderCollection<StaffState>(staff, templateNode);
   

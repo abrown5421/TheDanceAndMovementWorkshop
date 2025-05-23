@@ -206,7 +206,7 @@ const Timecard: React.FC = () => {
         <Block
           as="button"
           children="Clock Out"
-          tailwindClasses="mt-5 bg-red-600 text-white px-4 py-2 rounded-xl cursor-pointer hover:bg-red-700 transition"
+          tailwindClasses="mt-5 bg-red-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-red-700 transition"
           onClick={handleClockOut}
         />
       </Block>
@@ -222,7 +222,7 @@ const Timecard: React.FC = () => {
       <Block
         as="button"
         children="Clock In"
-        tailwindClasses="mt-5 bg-primary text-white px-4 py-2 rounded-xl cursor-pointer hover:bg-secondary transition"
+        tailwindClasses="mt-5 bg-primary text-white px-4 py-2 rounded cursor-pointer hover:bg-secondary transition"
         onClick={handleClockIn}
       />
     </Block>

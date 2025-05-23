@@ -5,6 +5,7 @@ import type { ActivePageState } from "./activePageType";
 const initialState: ActivePageState = {
   activePageName: "Home",
   activePageIn: true,
+  activePageId: 'KFPPkE3kWYrsWUSpHqF6'
 };
 
 const activePageSlice = createSlice({

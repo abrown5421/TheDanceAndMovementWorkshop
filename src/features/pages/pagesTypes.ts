@@ -1,3 +1,7 @@
+export interface PagesSliceState {
+  pages: PagesState[];
+}
+
 export interface PagesState {
   PageActive: boolean;
   PageID: string;

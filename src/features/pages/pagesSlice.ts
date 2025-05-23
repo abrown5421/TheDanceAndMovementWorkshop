@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { PagesState } from "./pagesTypes";
-
-interface PagesSliceState {
-  pages: PagesState[];
-}
+import type { PagesState, PagesSliceState } from "./pagesTypes";
 
 const initialState: PagesSliceState = {
   pages: [],

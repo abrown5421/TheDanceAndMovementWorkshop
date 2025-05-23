@@ -14,7 +14,7 @@ import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
     const handleAdminNavigation = useAdminNavigationHook();
 
     const handleLogout = () => {
-        handleNavigation('/', 'Home')()
+        handleNavigation('/', 'Home', 'KFPPkE3kWYrsWUSpHqF6')()
         dispatch(setDrawerState({ key: 'drawerOpen', value: false }));
         deauthenticate();
         dispatch(initializeAdmin());
@@ -31,7 +31,7 @@ import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
                 <Block
                     as="button"
                     children="Logout"
-                    tailwindClasses="mt-5 bg-primary text-white px-4 py-2 rounded-xl cursor-pointer hover:bg-secondary transition"
+                    tailwindClasses="mt-5 bg-primary text-white px-4 py-2 rounded cursor-pointer hover:bg-secondary transition"
                     onClick={handleLogout}
                 />
             </div>

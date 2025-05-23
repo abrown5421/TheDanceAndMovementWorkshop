@@ -4,6 +4,7 @@ import Transition from '../transition/Transition';
 import { setModalOpen } from './modalSlice';
 import ExampleModal from './modalContent/ExampleModal';
 import GalleryModal from './modalContent/GalleryModal';
+import NewPageModal from './modalContent/NewPageModal';
 
 const Modal: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -17,6 +18,8 @@ const Modal: React.FC = () => {
     switch (modal.modalContent) {
       case 'Gallery':
         return <GalleryModal />;
+      case 'AddNewPage':
+        return <NewPageModal />
       case 'Primary':
       default:
         return <ExampleModal />;
@@ -41,7 +44,7 @@ const Modal: React.FC = () => {
         tailwindClass="fixed inset-0 z-50 flex items-center justify-center"
       >
         <div
-          className="bg-white p-8 rounded shadow-lg relative"
+          className="bg-white p-8 rounded shadow-lg relative min-w-1/3"
           onClick={(e) => e.stopPropagation()} 
         >
           <button

@@ -92,7 +92,7 @@ const AdminAuth: React.FC = () => {
     };
 
   return (
-    <Block tailwindClasses="w-11/12 md:w-2/3 lg:w-1/3 rounded-xl p-5 shadow flex flex-col justify-between bg-white">
+    <Block tailwindClasses="w-11/12 md:w-2/3 lg:w-1/3 rounded p-5 shadow flex flex-col justify-between bg-white">
       <Block tailwindClasses='flex flex-row flex-1 w-full justify-center items-center'>
         <Block tailwindClasses='font-primary text-4xl text-black'>TDAMW Login</Block>
       </Block>
@@ -118,7 +118,7 @@ const AdminAuth: React.FC = () => {
       <Block
           as="button"
           children="Login"
-          tailwindClasses="mt-5 bg-primary text-white px-4 py-2 rounded-xl cursor-pointer hover:bg-secondary transition"
+          tailwindClasses="mt-5 bg-primary text-white px-4 py-2 rounded cursor-pointer hover:bg-secondary transition"
           onClick={handleAuth}
       />
     </Block>

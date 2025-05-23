@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Block from '../../../../components/block/Block';
-import { useAppSelector } from '../../../../app/store/hooks';
+import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks';
 import { updateDataInCollection } from '../../../../services/db/insertData';
 import CircularLoader from '../../../../components/circularLoader/CircularLoader';
+import { setModalContent, setModalOpen, setModalTitle } from '../../../../components/modal/modalSlice';
 
 const PageManager: React.FC = () => {
+  const dispatch = useAppDispatch();
   const pages = useAppSelector((state) => state.pages.pages);
   const [loadingPageId, setLoadingPageId] = useState<string | null>(null);
   const [editedNames, setEditedNames] = useState<Record<string, string>>({});
@@ -44,6 +46,12 @@ const PageManager: React.FC = () => {
     }
   };
 
+  const handleAddNewPage = () => {
+    dispatch(setModalTitle('Add New Page'));
+    dispatch(setModalContent('AddNewPage'));
+    dispatch(setModalOpen(true));setModalTitle
+  }
+  
   return (
     <Block tailwindClasses="flex flex-col items-center justify-center bg-gray-100 rounded-2xl shadow-xl w-full">
       {sortedPages.length > 0 ? (
@@ -93,6 +101,12 @@ const PageManager: React.FC = () => {
       ) : (
         <div className="text-gray-500">No pages available.</div>
       )}
+      <Block
+          as="button"
+          onClick={handleAddNewPage}
+          children="Add New Page"
+          tailwindClasses="mt-5 bg-primary text-white px-4 py-2 rounded cursor-pointer hover:bg-secondary transition"
+      />
     </Block>
   );
 };
