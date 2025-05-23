@@ -11,6 +11,7 @@ export interface PagesState {
   PageNavConfig: {
     Order: number;
     Show: boolean;
+    Aux: boolean;
   };
 }
 
