@@ -32,12 +32,17 @@ function App() {
 
   useEffect(() => {
     const path = location.pathname.replace('/', '');
-    if (location.pathname !== '/') {
+    const pageRef = pages.pages.find((page) => page.PageName === path);
+    console.log(path)
+    console.log(pageRef)
+    if (location.pathname !== '/' && pageRef) {
       dispatch(setActivePage({ key: "activePageName", value: path || "Home" }));
       dispatch(setActivePage({ key: "activePageIn", value: true }));
+      dispatch(setActivePage({ key: "activePageId", value: pageRef.PageID }));
     }
-    
-  }, [location.pathname, dispatch]);
+
+  }, [loadingPages, location.pathname, dispatch]);
+
 
   if (loadingPages) {
     return <Block tailwindClasses='flex flex-col lg:flex-row h-screen w-full justify-center items-center'><CircularLoader /></Block>;

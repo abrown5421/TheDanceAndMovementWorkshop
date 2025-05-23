@@ -23,12 +23,6 @@ function PageShell() {
   const PageNotFound = pages.pages.find(page => page.PageName === "PageNotFound");
   const staff: StaffState[] = useAppSelector((state) => state.staff.staff);
   const gallery: GalleryState[] = useAppSelector((state) => state.gallery.gallery);
-
-  useEffect(()=>{
-    console.log(pages)
-  console.log(activePage.activePageName)
-  console.log(currentPage)
-  }, [])
   
   const renderStaffCards = (templateNode: any) => 
     renderCollection<StaffState>(staff, templateNode);

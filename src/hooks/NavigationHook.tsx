@@ -10,7 +10,6 @@ export const useNavigationHook = () => {
   const handleNavigation = (path: string, pageName: string, pageId: string) => () => {
     dispatch(setDrawerState({ key: 'drawerOpen', value: false }))
     dispatch(setActivePage({ key: "activePageIn", value: false }));
-    dispatch(setActivePage({ key: "activePageId", value: '' }));
 
     setTimeout(() => {
       dispatch(setActivePage({ key: "activePageName", value: pageName }));
