@@ -1,0 +1,39 @@
+{
+    "props": {
+        "tailwindClasses": "bg-white flex h-auto flex-col p-5 sm:p-8 min-h-full"
+    },
+    "children": [
+        {
+            "type": "Block",
+            "props": {
+                "children": "Gallery",
+                "tailwindClasses": "text-black text-3xl lg:text-6xl font-secondary mb-5"
+            }
+        },
+        {
+            "children": [
+                {
+                    "args": [
+                        {
+                            "props": {
+                                "tailwindClasses": "mb-4 w-full break-inside-avoid rounded object-contain cursor-pointer",
+                                "alt": "{{ImageDescription}}",
+                                "type": "Block",
+                                "as": "img",
+                                "src": "{{ImageLink}}"
+                            },
+                            "type": "Block"
+                        }
+                    ],
+                    "type": "function",
+                    "name": "renderGalleryImages"
+                }
+            ],
+            "type": "Block",
+            "props": {
+                "tailwindClasses": "columns-1 sm:columns-2 lg:columns-4 gap-4"
+            }
+        }
+    ],
+    "type": "Block"
+}

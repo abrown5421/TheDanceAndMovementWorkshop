@@ -24,6 +24,8 @@ function App() {
   const admin = useAppSelector((state) => state.admin);
   const loadingPages = useInitializeAppData();
 
+  useEffect(()=>{console.log(pages)}, [pages])
+
   useEffect(() => {
     if (location.pathname !== '/Admin') {
       dispatch(setAdminMode(false));
@@ -33,8 +35,6 @@ function App() {
   useEffect(() => {
     const path = location.pathname.replace('/', '');
     const pageRef = pages.pages.find((page) => page.PageName === path);
-    console.log(path)
-    console.log(pageRef)
     if (location.pathname !== '/' && pageRef) {
       dispatch(setActivePage({ key: "activePageName", value: path || "Home" }));
       dispatch(setActivePage({ key: "activePageIn", value: true }));

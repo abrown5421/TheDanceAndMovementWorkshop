@@ -1,0 +1,39 @@
+{
+    "props": {
+        "tailwindClasses": "bg-white flex flex-col h-full justify-center items-center"
+    },
+    "type": "Block",
+    "children": [
+        {
+            "type": "Block",
+            "props": {
+                "tailwindClasses": "text-primary text-9xl font-primary",
+                "children": "404"
+            }
+        },
+        {
+            "props": {
+                "tailwindClasses": "text-black font-primary",
+                "children": "Looks like you took a wrong turn on the dancefloor."
+            },
+            "type": "Block"
+        },
+        {
+            "props": {
+                "as": "button",
+                "onClick": {
+                    "args": [
+                        "/",
+                        "Home",
+                        "KFPPkE3kWYrsWUSpHqF6"
+                    ],
+                    "name": "handleNavigation",
+                    "type": "function"
+                },
+                "tailwindClasses": "bg-primary text-white px-4 py-2 mt-5 rounded-xl cursor-pointer hover:bg-secondary transition",
+                "children": "Back Home"
+            },
+            "type": "Block"
+        }
+    ]
+}

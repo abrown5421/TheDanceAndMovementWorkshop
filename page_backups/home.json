@@ -1,0 +1,96 @@
+{
+    "children": [
+        {
+            "type": "Block",
+            "children": [
+                {
+                    "props": {
+                        "children": "The Dance & Movement Workshop",
+                        "tailwindClasses": "text-3xl lg:text-6xl font-secondary"
+                    },
+                    "type": "Block"
+                },
+                {
+                    "props": {
+                        "children": "The Dance and Movement Workshop is a community-focused studio offering classes for all ages. We foster a love of dance while building strong technical foundations—and on weekends, we host inclusive workshops that welcome students from all studios, creating a shared space for growth, connection, and collaboration.",
+                        "tailwindClasses": "mb-5 text-sm md:text-base"
+                    },
+                    "type": "Block"
+                },
+                {
+                    "props": {
+                        "tailwindClasses": "flex flex-col lg:flex-row"
+                    },
+                    "children": [
+                        {
+                            "props": {
+                                "tailwindClasses": "flex flex-col flex-1/2"
+                            },
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Block",
+                                    "props": {
+                                        "children": "Contact",
+                                        "onClick": {
+                                            "args": [
+                                                "/Contact",
+                                                "Contact",
+                                                "3nXwEr7eW6Jl38Ks1ZCw"
+                                            ],
+                                            "name": "handleNavigation",
+                                            "type": "function"
+                                        },
+                                        "tailwindClasses": "bg-primary text-white px-4 py-2 rounded-xl cursor-pointer hover:bg-secondary transition",
+                                        "as": "button"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "SocialBar",
+                            "props": {}
+                        }
+                    ],
+                    "type": "Block"
+                }
+            ],
+            "props": {
+                "tailwindClasses": "flex flex-col flex-1 justify-center h-1/2 lg:h-full box-border p-5 md:p-16 lg:p-32"
+            }
+        },
+        {
+            "type": "Block",
+            "props": {
+                "tailwindClasses": "flex flex-col flex-1 justify-center h-1/2 lg:h-full"
+            },
+            "children": [
+                {
+                    "children": [
+                        {
+                            "type": "Block",
+                            "props": {
+                                "src": "https://firebasestorage.googleapis.com/v0/b/thedanceandmovementstudio.firebasestorage.app/o/images%2Fhome-page-image.png?alt=media&token=79086b93-04a4-4696-b238-8c834ad82abd\n",
+                                "alt": "Owner Julia Watkins",
+                                "tailwindClasses": "h-full w-auto object-contain",
+                                "as": "img"
+                            }
+                        }
+                    ],
+                    "type": "Transition",
+                    "props": {
+                        "entry": "animate__fadeInRight",
+                        "speed": "overlay-duration",
+                        "tailwindClass": "flex flex-col flex-1 justify-center h-1/2 lg:h-full",
+                        "isEntering": true,
+                        "exit": "animate__fadeOutRight"
+                    }
+                }
+            ]
+        }
+    ],
+    "props": {
+        "tailwindClasses": "h-full flex flex-col lg:flex-row bg-white"
+    },
+    "type": "Block"
+}

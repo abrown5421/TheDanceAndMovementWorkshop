@@ -1,0 +1,175 @@
+{
+    "type": "Block",
+    "children": [
+        {
+            "props": {
+                "tailwindClasses": "flex flex-col flex-1 justify-center box-border h-1/2 lg:h-full p-5 lg:p-16"
+            },
+            "type": "Block",
+            "children": [
+                {
+                    "props": {
+                        "children": "We'd Love To Hear From You!",
+                        "tailwindClasses": "text-black text-3xl lg:text-6xl font-secondary mb-5"
+                    },
+                    "type": "Block"
+                },
+                {
+                    "props": {
+                        "value": {
+                            "args": [
+                                "name"
+                            ],
+                            "name": "getFormValue",
+                            "type": "function"
+                        },
+                        "helperText": {
+                            "args": [
+                                "name"
+                            ],
+                            "type": "function",
+                            "name": "getFormHelperText"
+                        },
+                        "error": {
+                            "args": [
+                                "name"
+                            ],
+                            "name": "getFormError",
+                            "type": "function"
+                        },
+                        "onChange": {
+                            "name": "handleFormChange",
+                            "type": "function",
+                            "args": [
+                                "name"
+                            ]
+                        },
+                        "label": "Name"
+                    },
+                    "type": "Input"
+                },
+                {
+                    "type": "Input",
+                    "props": {
+                        "helperText": {
+                            "name": "getFormHelperText",
+                            "args": [
+                                "email"
+                            ],
+                            "type": "function"
+                        },
+                        "error": {
+                            "type": "function",
+                            "name": "getFormError",
+                            "args": [
+                                "email"
+                            ]
+                        },
+                        "onChange": {
+                            "args": [
+                                "email"
+                            ],
+                            "type": "function",
+                            "name": "handleFormChange"
+                        },
+                        "value": {
+                            "name": "getFormValue",
+                            "args": [
+                                "email"
+                            ],
+                            "type": "function"
+                        },
+                        "label": "Email"
+                    }
+                },
+                {
+                    "props": {
+                        "fillSpace": true,
+                        "error": {
+                            "args": [
+                                "message"
+                            ],
+                            "name": "getFormError",
+                            "type": "function"
+                        },
+                        "value": {
+                            "name": "getFormValue",
+                            "args": [
+                                "message"
+                            ],
+                            "type": "function"
+                        },
+                        "helperText": {
+                            "name": "getFormHelperText",
+                            "type": "function",
+                            "args": [
+                                "message"
+                            ]
+                        },
+                        "onChange": {
+                            "name": "handleFormChange",
+                            "args": [
+                                "message"
+                            ],
+                            "type": "function"
+                        },
+                        "label": "Message"
+                    },
+                    "type": "Input"
+                },
+                {
+                    "children": [
+                        {
+                            "props": {
+                                "tailwindClasses": "flex flex-col flex-1/2flex flex-col flex-1/2"
+                            },
+                            "children": [
+                                {
+                                    "type": "Block",
+                                    "props": {
+                                        "as": "button",
+                                        "children": "Submit",
+                                        "tailwindClasses": "mt-5 bg-primary text-white px-4 py-2 rounded-xl cursor-pointer hover:bg-secondary transition"
+                                    }
+                                }
+                            ],
+                            "type": "Block"
+                        },
+                        {
+                            "props": {},
+                            "type": "SocialBar"
+                        }
+                    ],
+                    "props": {
+                        "tailwindClasses": "flex flex-col lg:flex-row w-full"
+                    },
+                    "type": "Block"
+                }
+            ]
+        },
+        {
+            "children": [
+                {
+                    "props": {
+                        "alt": "Owner Julia Watkins",
+                        "as": "img",
+                        "src": "https://firebasestorage.googleapis.com/v0/b/thedanceandmovementstudio.firebasestorage.app/o/images%2Fcontact-page-image.png?alt=media&token=4791807e-1bfc-4167-a3dd-0d58260f5cfa",
+                        "tailwindClasses": "h-full w-auto object-contain"
+                    },
+                    "type": "Block"
+                }
+            ],
+            "type": "Transition",
+            "props": {
+                "entry": "animate__fadeInLeft",
+                "speed": "overlay-duration",
+                "tailwindClass": "flex flex-col flex-1 justify-center h-1/2 lg:h-full",
+                "isEntering": true,
+                "exit": "animate__fadeOutLeft"
+            }
+        }
+    ],
+    "props": {
+        "tailwindClasses": "h-full flex flex-col lg:flex-row-reverse bg-white"
+    }
+}

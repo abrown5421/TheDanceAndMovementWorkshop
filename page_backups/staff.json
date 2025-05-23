@@ -1,0 +1,69 @@
+{
+    "type": "Block",
+    "children": [
+        {
+            "type": "Block",
+            "props": {
+                "tailwindClasses": "text-black text-3xl lg:text-6xl font-secondary mb-5",
+                "children": "Staff"
+            }
+        },
+        {
+            "type": "Block",
+            "children": [
+                {
+                    "type": "function",
+                    "args": [
+                        {
+                            "props": {
+                                "tailwindClasses": "rounded shadow lg:shadow-lg"
+                            },
+                            "children": [
+                                {
+                                    "type": "Block",
+                                    "props": {
+                                        "tailwindClasses": "w-full object-fit rounded",
+                                        "alt": "{{StaffName}}",
+                                        "src": "{{StaffImage}}",
+                                        "type": "Block",
+                                        "as": "img"
+                                    }
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Block",
+                                            "props": {
+                                                "tailwindClasses": "text-xl font-bold",
+                                                "children": "{{StaffName}}"
+                                            }
+                                        },
+                                        {
+                                            "type": "Block",
+                                            "props": {
+                                                "children": "{{StaffTitle}}",
+                                                "tailwindClasses": "text-sm text-gray-600"
+                                            }
+                                        }
+                                    ],
+                                    "type": "Block",
+                                    "props": {
+                                        "tailwindClasses": "h-auto p-4 box-border"
+                                    }
+                                }
+                            ],
+                            "type": "Block"
+                        }
+                    ],
+                    "name": "renderStaffCards"
+                }
+            ],
+            "props": {
+                "tailwindClasses": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            }
+        }
+    ],
+    "props": {
+        "tailwindClasses": "bg-white flex h-auto flex-col p-5 sm:p-8"
+    }
+}
