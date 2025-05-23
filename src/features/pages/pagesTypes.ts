@@ -1,4 +1,5 @@
 export interface PagesState {
+  PageActive: boolean;
   PageID: string;
   PageName: string;
   PageSlug: string;

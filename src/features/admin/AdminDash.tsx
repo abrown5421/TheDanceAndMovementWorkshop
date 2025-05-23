@@ -6,7 +6,7 @@ import PageManager from './features/pageManager/PageManager';
  
     return (
         <Block tailwindClasses="h-full w-full flex flex-col lg:flex-row bg-white p-5">
-            Admin page
+            <PageManager />
         </Block>
     );
  };

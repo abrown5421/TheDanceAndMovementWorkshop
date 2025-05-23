@@ -9,9 +9,9 @@ const PageManager: React.FC = () => {
   const [loadingPageId, setLoadingPageId] = useState<string | null>(null);
   const [editedNames, setEditedNames] = useState<Record<string, string>>({});
 
-  const sortedPages = [...pages].sort(
-    (a, b) => a.PageNavConfig.Order - b.PageNavConfig.Order
-  );
+  const sortedPages = [...pages]
+  .filter((page) => page.PageName !== 'PageNotFound')
+  .sort((a, b) => a.PageNavConfig.Order - b.PageNavConfig.Order);
 
   const handleInputChange = (pageId: string, value: string) => {
     setEditedNames((prev) => ({ ...prev, [pageId]: value }));
@@ -35,7 +35,7 @@ const PageManager: React.FC = () => {
     setLoadingPageId(PageID);
     try {
       await updateDataInCollection('Pages', PageID, {
-        'PageNavConfig.Show': newShowValue
+        'PageActive': newShowValue
       });
     } catch (error) {
       console.error('Error updating page visibility:', error);
@@ -82,7 +82,7 @@ const PageManager: React.FC = () => {
                   <input
                     type="checkbox"
                     className="w-5 h-5 accent-primary text-primary rounded cursor-pointer transition duration-200 ease-in-out"
-                    checked={page.PageNavConfig.Show}
+                    checked={page.PageActive}
                     onChange={(e) => handleToggleShow(page.PageID, e.target.checked)}
                   />
                 )}
