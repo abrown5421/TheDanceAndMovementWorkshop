@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Menu from '../navbar/Menu';
 import './footer.css'
 import { getCurrentYear } from '../../utils/getCurrentYear';
