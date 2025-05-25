@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Input from '../input/Input';
 import type { MarginValues, MarginEditorProps } from './marginEditortypes';
-import Text from '../text/Text';
 
 const suffixes = [
   '0', '1', '2', '3', '4', '5', '6', '7', '8',
@@ -22,14 +21,14 @@ const getMarginClass = (side: keyof MarginValues, value: number): string => {
   return `${sign}${prefixMap[side]}${suffix}`;
 };
 
-const MarginEditor: React.FC<MarginEditorProps> = ({ margins, setTextStyles }) => {
+const MarginEditor: React.FC<MarginEditorProps> = ({ margins, setStyles }) => {
   const handleInputChange = (side: keyof MarginValues) => (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = parseInt(event.target.value, 10) || 0;
     const clampedValue = Math.max(-18, Math.min(18, value));
 
-    setTextStyles(prev => ({
+    setStyles(prev => ({
       ...prev,
       margins: {
         ...prev.margins,
@@ -48,7 +47,7 @@ const MarginEditor: React.FC<MarginEditorProps> = ({ margins, setTextStyles }) =
     .join(' ');
 
     useEffect(()=>{
-      setTextStyles(prev => ({
+      setStyles(prev => ({
         ...prev,
         marginClass: finalClass
       }));
@@ -60,7 +59,6 @@ const MarginEditor: React.FC<MarginEditorProps> = ({ margins, setTextStyles }) =
       <div className="flex gap-4 w-full">
         {(['top', 'right', 'bottom', 'left'] as const).map((side) => (
           <div key={side} className="flex flex-col flex-1">
-            <Text tailwindClasses="text-xs capitalize">{side}</Text>
             <Input
               type="number"
               value={margins[side]}

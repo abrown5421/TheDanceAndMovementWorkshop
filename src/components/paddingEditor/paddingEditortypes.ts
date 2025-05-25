@@ -1,5 +1,3 @@
-import type { TextStyles } from "../text/textTypes";
-
 export type PaddingValues = {
   top: number;
   right: number;
@@ -7,7 +5,10 @@ export type PaddingValues = {
   left: number;
 };
 
-export interface PaddingEditorProps {
+export type PaddingEditorProps = {
   paddings: PaddingValues;
-  setTextStyles: React.Dispatch<React.SetStateAction<TextStyles>>;
-}
+  setStyles: React.Dispatch<React.SetStateAction<{
+    paddings: PaddingValues;
+    paddingClass: string;
+  }>>;
+};

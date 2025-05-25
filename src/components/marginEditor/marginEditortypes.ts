@@ -1,5 +1,3 @@
-import type { TextStyles } from "../text/textTypes";
-
 export type MarginValues = {
   top: number;
   right: number;
@@ -7,7 +5,10 @@ export type MarginValues = {
   left: number;
 };
 
-export interface MarginEditorProps {
+export type MarginEditorProps = {
   margins: MarginValues;
-  setTextStyles: React.Dispatch<React.SetStateAction<TextStyles>>;
-}
+  setStyles: React.Dispatch<React.SetStateAction<{
+    margins: MarginValues;
+    marginClass: string;
+  }>>;
+};

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Input from '../input/Input';
 import type { PaddingValues, PaddingEditorProps } from './paddingEditortypes';
-import Text from '../text/Text';
 
 const suffixes = [
   '0', '1', '2', '3', '4', '5', '6', '7', '8',
@@ -22,14 +21,14 @@ const getPaddingClass = (side: keyof PaddingValues, value: number): string => {
   return `${sign}${prefixMap[side]}${suffix}`;
 };
 
-const PaddingEditor: React.FC<PaddingEditorProps> = ({ paddings, setTextStyles }) => {
+const PaddingEditor: React.FC<PaddingEditorProps> = ({ paddings, setStyles }) => {
   const handleInputChange = (side: keyof PaddingValues) => (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = parseInt(event.target.value, 10) || 0;
     const clamped = Math.max(-18, Math.min(18, value));
 
-    setTextStyles(prev => ({
+    setStyles(prev => ({
       ...prev,
       paddings: {
         ...prev.paddings,
@@ -48,7 +47,7 @@ const PaddingEditor: React.FC<PaddingEditorProps> = ({ paddings, setTextStyles }
     .join(' ');
 
     useEffect(()=>{
-      setTextStyles(prev => ({
+      setStyles(prev => ({
       ...prev,
       paddingClass: finalClass
     }));
@@ -60,7 +59,6 @@ const PaddingEditor: React.FC<PaddingEditorProps> = ({ paddings, setTextStyles }
       <div className="flex gap-4 w-full">
         {(['top', 'right', 'bottom', 'left'] as const).map((side) => (
           <div key={side} className="flex flex-col flex-1">
-            <Text tailwindClasses="text-xs capitalize">{side}</Text>
             <Input
               type="number"
               value={paddings[side]}
