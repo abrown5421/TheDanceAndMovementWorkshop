@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Input from '../input/Input';
+import Input from '../../../../components/input/Input';
 import type { PaddingValues, PaddingEditorProps } from './paddingEditortypes';
 
 const suffixes = [

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import type { MarginValues } from '../../../../components/marginEditor/marginEditortypes';
-import type { PaddingValues } from '../../../../components/paddingEditor/paddingEditortypes';
-import MarginEditor from '../../../../components/marginEditor/MarginEditor';
-import PaddingEditor from '../../../../components/paddingEditor/PaddingEditor';
+import type { MarginValues } from '../marginEditor/marginEditortypes';
+import type { PaddingValues } from '../paddingEditor/paddingEditortypes';
+import MarginEditor from '../marginEditor/MarginEditor';
+import PaddingEditor from '../paddingEditor/PaddingEditor';
+import TextEditor from '../textEditor/textEditor';
 
 const BlockEditor: React.FC = () => {
   const [selectedType, setSelectedType] = useState<string>('text');
@@ -152,6 +153,13 @@ const BlockEditor: React.FC = () => {
         </select>
       </label>
 
+      {selectedType === 'text' && (
+        <TextEditor
+          tailwindClassArr={tailwindClassArr}
+          setTailwindClassArr={setTailwindClassArr}
+        />
+      )}
+      
       {Object.keys(blockProps).length > 0 && (
         <div className="w-full">
           <h2 className="text-lg font-semibold mb-2">Props</h2>
