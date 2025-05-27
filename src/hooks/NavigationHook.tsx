@@ -15,7 +15,9 @@ export const useNavigationHook = () => {
       dispatch(setActivePage({ key: "activePageName", value: pageName }));
       dispatch(setActivePage({ key: "activePageIn", value: true }));
       dispatch(setActivePage({ key: "activePageId", value: pageId }));
-      navigate(path);
+      
+      const cleanPath = path.startsWith('/') ? path : `/${path}`;
+      navigate(cleanPath)
     }, 500);
   };
 
