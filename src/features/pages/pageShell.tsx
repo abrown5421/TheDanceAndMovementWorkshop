@@ -19,6 +19,7 @@ function PageShell() {
   const handleNavigation = useNavigationHook();
   const activePage = useAppSelector((state) => state.activePage);
   const pages = useAppSelector((state) => state.pages);
+  const admin = useAppSelector((state) => state.admin);
   const loader = useAppSelector((state) => state.loader);
   const currentPage = pages.pages.find(page => page.PageID === activePage.activePageId);
   const PageNotFound = pages.pages.find(page => page.PageName === "PageNotFound");
@@ -120,7 +121,7 @@ function PageShell() {
           ) : (
             <PageRenderer node={addUIDsToTree(PageNotFound!.PageContent)} functionMap={functionMap} /> 
           )}
-          <Footer />
+          {!admin.adminMode && (<Footer />)}
         </Transition>
       )}
     </div>

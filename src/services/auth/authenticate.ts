@@ -1,6 +1,6 @@
 import { auth } from "../../app/configs/firebase";
 import firebase from "firebase/compat/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 export async function authenticate(email: string, password: string): Promise<firebase.auth.UserCredential> {
   return await auth.signInWithEmailAndPassword(email, password);
@@ -19,3 +19,9 @@ export async function getAuthUID(): Promise<string> {
 export async function deauthenticate(): Promise<void> {
   return await auth.signOut();
 }
+
+export async function sendPasswordReset(email: string): Promise<void> {
+  const authInstance = getAuth();
+  await sendPasswordResetEmail(authInstance, email);
+}
+

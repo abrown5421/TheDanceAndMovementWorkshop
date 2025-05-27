@@ -10,9 +10,9 @@ import Cookies from 'js-cookie';
 import { initializeAdmin } from '../admin/adminSlice';
 import { useNavigationHook } from '../../hooks/NavigationHook';
 import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
-import { deauthenticate } from '../../services/auth/authenticate';
+import { deauthenticate, sendPasswordReset } from '../../services/auth/authenticate';
 import Block from '../../components/block/Block';
-import { getTimeOfDay } from '../../utils/getTimeOfDay';
+import { setEntireNotification } from '../../components/notification/notificationSlice';
 
 const Navbar: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -49,6 +49,24 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
+  const handlePasswordReset = async () => {
+    try {
+      await sendPasswordReset(admin.adminUser.UserEmail);
+      dispatch(setEntireNotification({
+          notificationOpen: true,
+          notificationSeverity: 'success',
+          notificationMessage: 'Password reset email sent.'
+      }));
+    } catch (error) {
+      console.error('Error sending reset email:', error);
+      dispatch(setEntireNotification({
+          notificationOpen: true,
+          notificationSeverity: 'success',
+          notificationMessage: 'Failed to send password reset email.'
+      }));
+    }
+  };
+
   return (
     <div className="bg-white flex flex-row justify-between items-center py-2 px-4 min-h-14 relative navbar z-30">
       <div className="flex flex-col max-h-full">
@@ -82,11 +100,17 @@ const Navbar: React.FC = () => {
 
           {dropdownOpen && (
             <div className="absolute mt-13 bg-white border border-gray-200 rounded-lg shadow-xl z-50 w-65 p-4">
-              <Block tailwindClasses='font-primary text-xl'>Good {getTimeOfDay()}!</Block>
+              <Block
+                as="button"
+                children="Reset Password"
+                tailwindClasses="w-full px-4 rounded cursor-pointer transition flex justify-end"
+                onClick={handlePasswordReset}
+              />
+              <hr className="my-4 border-t border-gray-300" />
               <Block
                   as="button"
                   children="Logout"
-                  tailwindClasses="mt-5 w-full bg-primary text-white px-4 py-2 rounded cursor-pointer hover:bg-secondary transition"
+                  tailwindClasses="w-full bg-primary text-white px-4 py-2 rounded cursor-pointer hover:bg-secondary transition"
                   onClick={handleLogout}
               />
             </div>

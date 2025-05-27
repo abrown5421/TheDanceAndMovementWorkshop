@@ -9,9 +9,7 @@ import Cookies from 'js-cookie';
 import type { AdminUser, AdminUserStaffDoc } from './adminTypes';
 import { getDocumentById } from '../../services/db/getData';
 import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
-import AdminEmployeeManager from './features/adminEmployeeManager/AdminEmployeeManager';
-import AdminSiteSettings from './features/adminSiteSettings/AdminSiteSettings';
-import AdminPageEditor from './features/adminPageEditor/AdminPageEditor';
+import Sidebar from './components/sidebar/Sidebar';
 
  const AdminPage: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -51,19 +49,19 @@ import AdminPageEditor from './features/adminPageEditor/AdminPageEditor';
     }, [])
     
     return (
-        <div className='admin-shell'>
+        <div className='admin-shell flex flex-row'>
+            {admin.AdminPageState.activePageName !== 'Auth' && (
+                <Sidebar />
+            )}
             <Transition 
                 entry={admin.AdminPageState.activePageName === 'Auth' ? "animate__fadeInUp" : "animate__fadeIn"} 
                 exit={admin.AdminPageState.activePageName === 'Auth' ? "animate__fadeOutDown" : "animate__fadeOut"}
                 speed="fast" 
                 isEntering={admin.AdminPageState.activePageIn} 
-                tailwindClass='h-full flex flex-col justify-center items-center'
+                tailwindClass='h-full flex flex-col flex-3/4 justify-center items-center'
             >
                 {admin.AdminPageState.activePageName === 'Auth' && (<AdminAuth />)}
                 {admin.AdminPageState.activePageName === 'Dash' && (<AdminDash />)}
-                {admin.AdminPageState.activePageName === 'Settings' && (<AdminSiteSettings />)}
-                {admin.AdminPageState.activePageName === 'PageEditor' && (<AdminPageEditor />)}
-                {admin.AdminPageState.activePageName === 'EmployeeManager' && (<AdminEmployeeManager />)}
             </Transition>
         </div>
     );
