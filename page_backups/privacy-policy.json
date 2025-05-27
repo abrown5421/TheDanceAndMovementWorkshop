@@ -1,364 +1,412 @@
 {
-    "type": "Block",
-    "props": {
-        "tailwindClasses": "h-auto flex flex-col lg:flex-row bg-white"
-    },
     "children": [
         {
             "children": [
                 {
                     "props": {
-                        "tailwindClasses": "text-3xl lg:text-6xl font-secondary",
-                        "children": "Privacy Policy"
+                        "children": "Privacy Policy",
+                        "tailwindClasses": "text-3xl lg:text-6xl font-secondary"
                     },
-                    "type": "Block"
+                    "type": "Block",
+                    "uid": "792ea33c-fc27-46ce-a8c0-5faa46faae5e"
                 },
                 {
-                    "type": "Block",
                     "props": {
-                        "tailwindClasses": "mb-5 text-sm md:text-base",
-                        "children": "The Dance & Movement Workshop is committed to protecting your privacy. This Privacy Policy describes how we collect, use, and protect the personal information you provide through our website, thedanceandmovementworkshop.com"
-                    }
+                        "children": "The Dance & Movement Workshop is committed to protecting your privacy. This Privacy Policy describes how we collect, use, and protect the personal information you provide through our website, thedanceandmovementworkshop.com",
+                        "tailwindClasses": "mb-5 text-sm md:text-base"
+                    },
+                    "type": "Block",
+                    "uid": "c88f9cb6-3efd-47b3-a4ee-cb2e210f0ac8"
                 },
                 {
-                    "type": "Block",
                     "props": {
-                        "tailwindClasses": "font-text-xl lg:text-2xl font-primary",
-                        "children": "1. Information We Collect"
-                    }
+                        "children": "1. Information We Collect",
+                        "tailwindClasses": "font-text-xl lg:text-2xl font-primary"
+                    },
+                    "type": "Block",
+                    "uid": "29cec2d1-a17d-4ef7-b927-f74e9175e0f3"
                 },
                 {
                     "props": {
                         "tailwindClasses": "text-sm md:text-base mb-5",
                         "children": "We may collect the following types of information:"
                     },
-                    "type": "Block"
+                    "type": "Block",
+                    "uid": "68160c2f-7a37-4e54-86ee-285ef8f04904"
                 },
                 {
+                    "type": "Block",
                     "props": {
-                        "children": "a. Personal Information You Provide",
-                        "tailwindClasses": "text-sm md:text-base font-bold ml-3"
+                        "tailwindClasses": "text-sm md:text-base font-bold ml-3",
+                        "children": "a. Personal Information You Provide"
                     },
-                    "type": "Block"
+                    "uid": "66228139-9598-4560-aab0-bc6991eef12e"
                 },
                 {
                     "props": {
-                        "children": "When you use our Site, register for classes, contact us, or subscribe to our newsletters, we may collect personal information such as:",
-                        "tailwindClasses": "text-sm md:text-base ml-3 mb-5"
+                        "tailwindClasses": "text-sm md:text-base ml-3 mb-5",
+                        "children": "When you use our Site, register for classes, contact us, or subscribe to our newsletters, we may collect personal information such as:"
                     },
-                    "type": "Block"
+                    "type": "Block",
+                    "uid": "61152697-5fe3-4082-8849-db496b50dfb0"
                 },
                 {
+                    "type": "Block",
                     "props": {
-                        "tailwindClasses": "text-sm md:text-base list-disc pl-5 mb-5 ml-5",
-                        "as": "ul"
+                        "as": "ul",
+                        "tailwindClasses": "text-sm md:text-base list-disc pl-5 mb-5 ml-5"
                     },
                     "children": [
                         {
+                            "type": "Block",
                             "props": {
-                                "as": "li",
                                 "tailwindClasses": "text-sm md:text-base",
+                                "as": "li",
                                 "children": "Name"
                             },
-                            "type": "Block"
+                            "uid": "ecc715e3-b09b-4736-a0b6-ceab666e2e30"
+                        },
+                        {
+                            "props": {
+                                "as": "li",
+                                "tailwindClasses": "text-sm md:text-base",
+                                "children": "Email address"
+                            },
+                            "type": "Block",
+                            "uid": "23989d54-ecd9-4a04-9c40-e88e0709a65b"
                         },
                         {
                             "type": "Block",
                             "props": {
-                                "children": "Email address",
-                                "as": "li",
-                                "tailwindClasses": "text-sm md:text-base"
-                            }
-                        },
-                        {
-                            "props": {
-                                "children": "Phone number",
                                 "tailwindClasses": "text-sm md:text-base",
+                                "children": "Phone number",
                                 "as": "li"
                             },
-                            "type": "Block"
+                            "uid": "6dc7ae9b-3c3a-4c47-84b3-3e62a4e1ba7d"
+                        },
+                        {
+                            "props": {
+                                "tailwindClasses": "text-sm md:text-base",
+                                "children": "Mailing address",
+                                "as": "li"
+                            },
+                            "type": "Block",
+                            "uid": "33d0caee-8541-4425-94da-df4da2497868"
                         },
                         {
                             "type": "Block",
-                            "props": {
-                                "children": "Mailing address",
-                                "as": "li",
-                                "tailwindClasses": "text-sm md:text-base"
-                            }
-                        },
-                        {
                             "props": {
                                 "tailwindClasses": "text-sm md:text-base",
                                 "as": "li",
                                 "children": "Childâ€™s name and age (if applicable)"
                             },
-                            "type": "Block"
+                            "uid": "cdaf9fe5-b8ab-4bc0-bcaf-a61f6b4f2163"
                         },
                         {
                             "type": "Block",
                             "props": {
+                                "as": "li",
                                 "children": "Payment information (processed securely via third-party providers)",
-                                "tailwindClasses": "text-sm md:text-base",
-                                "as": "li"
-                            }
+                                "tailwindClasses": "text-sm md:text-base"
+                            },
+                            "uid": "e437a118-744f-4f81-bc72-3027d9991c17"
                         }
                     ],
-                    "type": "Block"
+                    "uid": "5e46bf52-5cbe-40b4-a09f-fcee82bcf5f9"
                 },
                 {
-                    "type": "Block",
                     "props": {
                         "tailwindClasses": "text-sm md:text-base font-bold",
                         "children": "b. Automatically Collected Information"
-                    }
-                },
-                {
-                    "props": {
-                        "children": "We may collect information about your visit, including:",
-                        "tailwindClasses": "text-sm md:text-base"
-                    },
-                    "type": "Block"
-                },
-                {
-                    "props": {
-                        "tailwindClasses": "text-sm md:text-base list-disc pl-5 mb-5 ml-5",
-                        "as": "ul"
                     },
                     "type": "Block",
+                    "uid": "19005ae2-82de-4906-876f-3855ede37838"
+                },
+                {
+                    "props": {
+                        "tailwindClasses": "text-sm md:text-base",
+                        "children": "We may collect information about your visit, including:"
+                    },
+                    "type": "Block",
+                    "uid": "bac51a04-3141-47b2-8e99-dccff4ee3094"
+                },
+                {
                     "children": [
                         {
+                            "type": "Block",
                             "props": {
-                                "tailwindClasses": "text-sm md:text-base",
                                 "as": "li",
+                                "tailwindClasses": "text-sm md:text-base",
                                 "children": "IP address"
                             },
-                            "type": "Block"
+                            "uid": "7f98cc6f-2296-4b12-8587-92ec3f916cc4"
                         },
                         {
                             "type": "Block",
                             "props": {
-                                "tailwindClasses": "text-sm md:text-base",
                                 "children": "Browser type",
-                                "as": "li"
-                            }
-                        },
-                        {
-                            "props": {
-                                "children": "Device information",
                                 "as": "li",
                                 "tailwindClasses": "text-sm md:text-base"
                             },
-                            "type": "Block"
+                            "uid": "8ec44ae2-4cd5-43cb-a134-f98084fb9913"
                         },
                         {
                             "type": "Block",
                             "props": {
-                                "as": "li",
                                 "tailwindClasses": "text-sm md:text-base",
-                                "children": "Pages visited"
-                            }
+                                "children": "Device information",
+                                "as": "li"
+                            },
+                            "uid": "f3e894ab-3a31-4b23-953e-05db9cb5129a"
                         },
                         {
+                            "props": {
+                                "children": "Pages visited",
+                                "tailwindClasses": "text-sm md:text-base",
+                                "as": "li"
+                            },
+                            "type": "Block",
+                            "uid": "5ad43751-9256-430d-9a76-09ec07ca6d80"
+                        },
+                        {
+                            "type": "Block",
                             "props": {
                                 "children": "Time spent on the Site",
                                 "as": "li",
                                 "tailwindClasses": "text-sm md:text-base"
                             },
-                            "type": "Block"
+                            "uid": "147550c7-1a58-4bbd-b0cb-d91fc3c7ed34"
                         },
                         {
-                            "type": "Block",
                             "props": {
+                                "tailwindClasses": "text-sm md:text-base",
                                 "children": "Referral URLs",
-                                "as": "li",
-                                "tailwindClasses": "text-sm md:text-base"
-                            }
+                                "as": "li"
+                            },
+                            "type": "Block",
+                            "uid": "80f7399d-7bc1-419c-b16c-1a7c671a98bd"
                         }
-                    ]
+                    ],
+                    "type": "Block",
+                    "props": {
+                        "as": "ul",
+                        "tailwindClasses": "text-sm md:text-base list-disc pl-5 mb-5 ml-5"
+                    },
+                    "uid": "caa07147-4d45-433b-87a2-231e859590d3"
                 },
                 {
                     "props": {
                         "children": "3. Sharing of Information",
                         "tailwindClasses": "font-text-xl lg:text-2xl font-primary"
                     },
-                    "type": "Block"
+                    "type": "Block",
+                    "uid": "1a68806e-292e-44b2-ad98-ab19c934fc0e"
                 },
                 {
-                    "type": "Block",
                     "props": {
                         "children": "We do not sell or rent your personal information. We may share your information with:",
                         "tailwindClasses": "text-sm md:text-base mb-2"
-                    }
+                    },
+                    "type": "Block",
+                    "uid": "7fd974dd-da82-4f84-b8b2-f6c7eff39e1c"
                 },
                 {
+                    "props": {
+                        "as": "ul",
+                        "tailwindClasses": "text-sm md:text-base list-disc pl-5 mb-5 ml-5"
+                    },
                     "type": "Block",
                     "children": [
                         {
-                            "type": "Block",
                             "props": {
                                 "as": "li",
                                 "tailwindClasses": "text-sm md:text-base",
                                 "children": "Service providers who assist with our operations (e.g., payment processors, email service providers)"
-                            }
+                            },
+                            "type": "Block",
+                            "uid": "5a78dd68-e947-4f6f-a5c5-6d0dfea52345"
                         },
                         {
-                            "type": "Block",
                             "props": {
-                                "tailwindClasses": "text-sm md:text-base",
+                                "as": "li",
                                 "children": "Legal authorities when required to comply with legal obligations or to protect our rights",
-                                "as": "li"
-                            }
+                                "tailwindClasses": "text-sm md:text-base"
+                            },
+                            "type": "Block",
+                            "uid": "9919468d-403e-4b9f-8367-6fbc9a16cc82"
                         }
                     ],
-                    "props": {
-                        "as": "ul",
-                        "tailwindClasses": "text-sm md:text-base list-disc pl-5 mb-5 ml-5"
-                    }
+                    "uid": "e7f898a2-4614-4bd1-b110-4ad1db3094e0"
                 },
                 {
-                    "type": "Block",
                     "props": {
-                        "tailwindClasses": "text-sm md:text-base mb-5",
-                        "children": "All third parties are obligated to protect your information and only use it for intended purposes."
-                    }
+                        "children": "All third parties are obligated to protect your information and only use it for intended purposes.",
+                        "tailwindClasses": "text-sm md:text-base mb-5"
+                    },
+                    "type": "Block",
+                    "uid": "243c6a57-7b3b-415c-8c90-15276f03fe28"
                 },
                 {
                     "type": "Block",
                     "props": {
                         "tailwindClasses": "font-text-xl lg:text-2xl font-primary",
                         "children": "4. Cookies & Tracking Technologies"
-                    }
+                    },
+                    "uid": "59ca1c0e-58f3-433f-bed3-48797c12076b"
                 },
                 {
                     "type": "Block",
                     "props": {
                         "children": "We use cookies and similar tracking technologies to enhance your experience on our Site. You can control cookie settings through your browser preferences.",
                         "tailwindClasses": "text-sm md:text-base mb-5"
-                    }
+                    },
+                    "uid": "feb36b5b-fc8d-453a-94bc-ce69e8b5ed01"
                 },
                 {
                     "props": {
                         "tailwindClasses": "font-text-xl lg:text-2xl font-primary",
                         "children": "5. Your Choices & Rights"
                     },
-                    "type": "Block"
+                    "type": "Block",
+                    "uid": "3cb737f0-695d-49ce-b714-5d8bfcaadf91"
                 },
                 {
+                    "type": "Block",
                     "props": {
                         "tailwindClasses": "text-sm md:text-base mb-2",
                         "children": "Depending on your location, you may have the right to:"
                     },
-                    "type": "Block"
+                    "uid": "91c17162-bcda-41a8-bf5d-016e7c79cb68"
                 },
                 {
                     "type": "Block",
                     "props": {
-                        "tailwindClasses": "text-sm md:text-base list-disc pl-5 mb-5 ml-5",
-                        "as": "ul"
+                        "as": "ul",
+                        "tailwindClasses": "text-sm md:text-base list-disc pl-5 mb-5 ml-5"
                     },
                     "children": [
                         {
                             "props": {
-                                "as": "li",
                                 "children": "Access, correct, or delete your personal data",
+                                "as": "li",
                                 "tailwindClasses": "text-sm md:text-base"
                             },
-                            "type": "Block"
+                            "type": "Block",
+                            "uid": "32476120-c67a-4e1d-b3b5-2092e39f677a"
                         },
                         {
-                            "type": "Block",
                             "props": {
-                                "as": "li",
                                 "children": "Withdraw consent to marketing communications",
-                                "tailwindClasses": "text-sm md:text-base"
-                            }
-                        },
-                        {
-                            "props": {
-                                "as": "li",
-                                "children": "Object to or restrict certain data processing",
-                                "tailwindClasses": "text-sm md:text-base"
+                                "tailwindClasses": "text-sm md:text-base",
+                                "as": "li"
                             },
-                            "type": "Block"
+                            "type": "Block",
+                            "uid": "9068f8ca-f12a-4f91-8fd2-7cc7c1073600"
                         },
                         {
                             "type": "Block",
                             "props": {
+                                "children": "Object to or restrict certain data processing",
                                 "as": "li",
-                                "tailwindClasses": "text-sm md:text-base",
-                                "children": "Lodge a complaint with a data protection authority"
-                            }
+                                "tailwindClasses": "text-sm md:text-base"
+                            },
+                            "uid": "3b036c26-bdc6-4bad-801f-699f0bfa2f8d"
+                        },
+                        {
+                            "props": {
+                                "as": "li",
+                                "children": "Lodge a complaint with a data protection authority",
+                                "tailwindClasses": "text-sm md:text-base"
+                            },
+                            "type": "Block",
+                            "uid": "91869444-7ab0-4a5d-ac4b-a4cc0b5be390"
                         }
-                    ]
-                },
-                {
-                    "props": {
-                        "tailwindClasses": "text-sm md:text-base mb-5",
-                        "children": "To exercise your rights, contact us at: [Insert email address]"
-                    },
-                    "type": "Block"
+                    ],
+                    "uid": "81af1d2e-118d-46ab-a16e-6b2a0158bd79"
                 },
                 {
                     "type": "Block",
                     "props": {
+                        "tailwindClasses": "text-sm md:text-base mb-5",
+                        "children": "To exercise your rights, contact us at: [Insert email address]"
+                    },
+                    "uid": "8cf58c66-1e88-4845-9005-8bdbd720b1d2"
+                },
+                {
+                    "props": {
                         "tailwindClasses": "font-text-xl lg:text-2xl font-primary",
                         "children": "6. Security"
-                    }
+                    },
+                    "type": "Block",
+                    "uid": "c1634dba-38c9-4b1b-8f9d-53f1f17ae8c1"
                 },
                 {
                     "props": {
                         "tailwindClasses": "text-sm md:text-base mb-5",
                         "children": "We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, use, or disclosure."
                     },
-                    "type": "Block"
+                    "type": "Block",
+                    "uid": "a74cc638-dd82-4600-9e53-f3b63b4d49f7"
                 },
                 {
-                    "type": "Block",
                     "props": {
                         "children": "7. Childrenâ€™s Privacy",
                         "tailwindClasses": "font-text-xl lg:text-2xl font-primary"
-                    }
+                    },
+                    "type": "Block",
+                    "uid": "e928a499-32e1-41da-84f6-bf51a31aa407"
                 },
                 {
                     "type": "Block",
                     "props": {
-                        "tailwindClasses": "text-sm md:text-base mb-5",
-                        "children": "We do not knowingly collect personal information from children under 13 without parental consent. If you believe we have collected such information, please contact us immediately."
-                    }
+                        "children": "We do not knowingly collect personal information from children under 13 without parental consent. If you believe we have collected such information, please contact us immediately.",
+                        "tailwindClasses": "text-sm md:text-base mb-5"
+                    },
+                    "uid": "98516a0b-e13a-4cdb-9351-cc24ae3e15ab"
                 },
                 {
                     "type": "Block",
                     "props": {
-                        "tailwindClasses": "font-text-xl lg:text-2xl font-primary",
-                        "children": "8. Third-Party Links"
-                    }
+                        "children": "8. Third-Party Links",
+                        "tailwindClasses": "font-text-xl lg:text-2xl font-primary"
+                    },
+                    "uid": "aafa4c56-97bb-4548-9519-72e782ea81b2"
                 },
                 {
-                    "type": "Block",
                     "props": {
                         "children": "Our Site may contain links to other websites. We are not responsible for the privacy practices of those sites. Please review their policies separately.",
                         "tailwindClasses": "text-sm md:text-base mb-5"
-                    }
+                    },
+                    "type": "Block",
+                    "uid": "366e0366-543a-428a-969f-42f6bd58fff2"
                 },
                 {
                     "type": "Block",
                     "props": {
                         "tailwindClasses": "font-text-xl lg:text-2xl font-primary",
                         "children": "9. Changes to This Policy"
-                    }
+                    },
+                    "uid": "9f521b34-0ba9-4a50-b1c7-ae38acb02827"
                 },
                 {
                     "type": "Block",
                     "props": {
-                        "tailwindClasses": "text-sm md:text-base mb-5",
-                        "children": "We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on our Site with a revised effective date."
-                    }
+                        "children": "We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on our Site with a revised effective date.",
+                        "tailwindClasses": "text-sm md:text-base mb-5"
+                    },
+                    "uid": "75cffa83-34ca-4f93-b612-5ed163195c96"
                 }
             ],
+            "type": "Block",
             "props": {
                 "tailwindClasses": "flex flex-col p-5 md:p-16"
             },
-            "type": "Block"
+            "uid": "e960a1e5-ecd0-4590-94c2-55164375aa5b"
         }
-    ]
+    ],
+    "props": {
+        "tailwindClasses": "h-auto flex flex-col lg:flex-row bg-white"
+    },
+    "type": "Block",
+    "uid": "d7ccdcde-dfaa-4dd5-8637-9739448a6324"
 }

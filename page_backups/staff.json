@@ -1,20 +1,25 @@
 {
     "type": "Block",
+    "props": {
+        "tailwindClasses": "bg-white flex h-auto flex-col p-5 sm:p-8"
+    },
     "children": [
         {
-            "type": "Block",
             "props": {
                 "tailwindClasses": "text-black text-3xl lg:text-6xl font-secondary mb-5",
-                "children": "Staff"
-            }
+                "children": "We're pleased to meet you!"
+            },
+            "type": "Block",
+            "uid": "cc2839f2-616f-4bdc-bf59-ca3302a19e0c"
         },
         {
-            "type": "Block",
             "children": [
                 {
+                    "name": "renderStaffCards",
                     "type": "function",
                     "args": [
                         {
+                            "type": "Block",
                             "props": {
                                 "tailwindClasses": "rounded shadow lg:shadow-lg"
                             },
@@ -23,9 +28,9 @@
                                     "type": "Block",
                                     "props": {
                                         "tailwindClasses": "w-full object-fit rounded",
+                                        "type": "Block",
                                         "alt": "{{StaffName}}",
                                         "src": "{{StaffImage}}",
-                                        "type": "Block",
                                         "as": "img"
                                     }
                                 },
@@ -34,15 +39,15 @@
                                         {
                                             "type": "Block",
                                             "props": {
-                                                "tailwindClasses": "text-xl font-bold",
-                                                "children": "{{StaffName}}"
+                                                "children": "{{StaffName}}",
+                                                "tailwindClasses": "text-xl font-bold"
                                             }
                                         },
                                         {
                                             "type": "Block",
                                             "props": {
-                                                "children": "{{StaffTitle}}",
-                                                "tailwindClasses": "text-sm text-gray-600"
+                                                "tailwindClasses": "text-sm text-gray-600",
+                                                "children": "{{StaffTitle}}"
                                             }
                                         }
                                     ],
@@ -51,19 +56,18 @@
                                         "tailwindClasses": "h-auto p-4 box-border"
                                     }
                                 }
-                            ],
-                            "type": "Block"
+                            ]
                         }
                     ],
-                    "name": "renderStaffCards"
+                    "uid": "2f686525-4389-4915-8eea-5a9e88d01148"
                 }
             ],
+            "type": "Block",
             "props": {
                 "tailwindClasses": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            }
+            },
+            "uid": "82869f84-ed28-4079-8d9f-346caf9330b0"
         }
     ],
-    "props": {
-        "tailwindClasses": "bg-white flex h-auto flex-col p-5 sm:p-8"
-    }
+    "uid": "56c28953-fa6e-4688-88f0-28add77acb70"
 }

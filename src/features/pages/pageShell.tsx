@@ -12,6 +12,7 @@ import { useDynamicFormState } from '../../hooks/DynamicFormHook';
 import Footer from '../footer/Footer';
 import { setModalContent, setModalTitle, setModalImageUrl, setModalOpen } from '../../components/modal/modalSlice';
 import type { GalleryState } from '../gallery/galleryTypes';
+import { addUIDsToTree } from '../../utils/addUIDsToTree';
 
 function PageShell() {
   const dispatch = useAppDispatch();
@@ -104,6 +105,9 @@ function PageShell() {
     if (PageNotFound && currentPage) {
       dispatch(setEntireLoaderLoadState({loaderLoad: false, loaderIdentify: ''}))
     }
+    if (currentPage) { 
+      console.log(addUIDsToTree(currentPage.PageContent))
+    }
   }, [currentPage, PageNotFound])
 
   return (
@@ -115,9 +119,9 @@ function PageShell() {
       ) : (
         <Transition tailwindClass="h-full bg-white overflow-scroll" isEntering={activePage.activePageIn}>
           {currentPage?.PageContent ? (
-            <PageRenderer node={currentPage.PageContent} functionMap={functionMap} /> 
+            <PageRenderer node={addUIDsToTree(currentPage.PageContent)} functionMap={functionMap} /> 
           ) : (
-            <PageRenderer node={PageNotFound!.PageContent} functionMap={functionMap} /> 
+            <PageRenderer node={addUIDsToTree(PageNotFound!.PageContent)} functionMap={functionMap} /> 
           )}
           <Footer />
         </Transition>

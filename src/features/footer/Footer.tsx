@@ -32,7 +32,9 @@ const Footer: React.FC = () => {
                     <Transition key={page.PageID} delay={100 * page.PageNavConfig.Order} isEntering={true} tailwindClass='cursor-pointer'>
                         <div
                             className={clsx(page.PageActive ? "hover:text-primary text-black" : "display-none")}
-                            onClick={() => handleNavigation(page.PageSlug, page.PageName, page.PageID)}
+                            onClick={() => {
+                                handleNavigation(page.PageSlug, page.PageName, page.PageID)()}
+                            }
                         >
                             {page.PageName}
                         </div>
@@ -49,7 +51,7 @@ const Footer: React.FC = () => {
                     <Transition key={page.PageID} delay={100 * page.PageNavConfig.Order} isEntering={true} tailwindClass='cursor-pointer'>
                         <div
                             className={clsx(page.PageActive ? "hover:text-primary text-black" : "display-none")}
-                            onClick={() => handleNavigation(page.PageSlug, page.PageName, page.PageID)}
+                            onClick={() => handleNavigation(page.PageSlug, page.PageName, page.PageID)()}
                         >
                             {page.PageName}
                         </div>

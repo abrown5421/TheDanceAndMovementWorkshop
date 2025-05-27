@@ -1,39 +1,43 @@
 {
-    "props": {
-        "tailwindClasses": "bg-white flex h-auto flex-col p-5 sm:p-8 min-h-full"
-    },
     "children": [
         {
-            "type": "Block",
             "props": {
-                "children": "Gallery",
-                "tailwindClasses": "text-black text-3xl lg:text-6xl font-secondary mb-5"
-            }
+                "tailwindClasses": "text-black text-3xl lg:text-6xl font-secondary mb-5",
+                "children": "Gallery"
+            },
+            "type": "Block",
+            "uid": "e01270a7-6569-44dc-b3ca-3f303f2fc445"
         },
         {
+            "props": {
+                "tailwindClasses": "columns-1 sm:columns-2 lg:columns-4 gap-4"
+            },
+            "type": "Block",
             "children": [
                 {
                     "args": [
                         {
+                            "type": "Block",
                             "props": {
-                                "tailwindClasses": "mb-4 w-full break-inside-avoid rounded object-contain cursor-pointer",
-                                "alt": "{{ImageDescription}}",
-                                "type": "Block",
                                 "as": "img",
-                                "src": "{{ImageLink}}"
-                            },
-                            "type": "Block"
+                                "type": "Block",
+                                "tailwindClasses": "mb-4 w-full break-inside-avoid rounded object-contain cursor-pointer",
+                                "src": "{{ImageLink}}",
+                                "alt": "{{ImageDescription}}"
+                            }
                         }
                     ],
+                    "name": "renderGalleryImages",
                     "type": "function",
-                    "name": "renderGalleryImages"
+                    "uid": "16fa4fb8-c90f-400b-b767-8907016f48d0"
                 }
             ],
-            "type": "Block",
-            "props": {
-                "tailwindClasses": "columns-1 sm:columns-2 lg:columns-4 gap-4"
-            }
+            "uid": "3123f114-b9a7-448e-b643-b1349bde9539"
         }
     ],
-    "type": "Block"
+    "props": {
+        "tailwindClasses": "bg-white flex h-auto flex-col p-5 sm:p-8 min-h-full"
+    },
+    "type": "Block",
+    "uid": "5eec7909-c4ce-4441-822c-81dc9edd845a"
 }

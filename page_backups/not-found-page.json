@@ -1,39 +1,43 @@
 {
-    "props": {
-        "tailwindClasses": "bg-white flex flex-col h-full justify-center items-center"
-    },
     "type": "Block",
     "children": [
         {
             "type": "Block",
             "props": {
-                "tailwindClasses": "text-primary text-9xl font-primary",
-                "children": "404"
-            }
+                "children": "404",
+                "tailwindClasses": "text-primary text-9xl font-primary"
+            },
+            "uid": "d9b87daf-86f6-4024-8472-7cb147feaed6"
         },
         {
+            "type": "Block",
             "props": {
                 "tailwindClasses": "text-black font-primary",
                 "children": "Looks like you took a wrong turn on the dancefloor."
             },
-            "type": "Block"
+            "uid": "8e222b0e-12d9-4f82-a364-c61b79f04af4"
         },
         {
             "props": {
-                "as": "button",
                 "onClick": {
                     "args": [
                         "/",
                         "Home",
                         "KFPPkE3kWYrsWUSpHqF6"
                     ],
-                    "name": "handleNavigation",
-                    "type": "function"
+                    "type": "function",
+                    "name": "handleNavigation"
                 },
                 "tailwindClasses": "bg-primary text-white px-4 py-2 mt-5 rounded-xl cursor-pointer hover:bg-secondary transition",
+                "as": "button",
                 "children": "Back Home"
             },
-            "type": "Block"
+            "type": "Block",
+            "uid": "f8db6cca-2500-44c6-aada-2537e310e44a"
         }
-    ]
+    ],
+    "props": {
+        "tailwindClasses": "bg-white flex flex-col h-full justify-center items-center"
+    },
+    "uid": "1f5ed59b-b7f0-4bfa-96cb-80618aeb2a71"
 }

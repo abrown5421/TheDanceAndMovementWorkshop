@@ -1,175 +1,187 @@
 {
+    "props": {
+        "tailwindClasses": "h-full flex flex-col lg:flex-row-reverse bg-white"
+    },
     "type": "Block",
     "children": [
         {
             "props": {
                 "tailwindClasses": "flex flex-col flex-1 justify-center box-border h-1/2 lg:h-full p-5 lg:p-16"
             },
-            "type": "Block",
             "children": [
                 {
+                    "type": "Block",
                     "props": {
                         "children": "We'd Love To Hear From You!",
                         "tailwindClasses": "text-black text-3xl lg:text-6xl font-secondary mb-5"
                     },
-                    "type": "Block"
+                    "uid": "db51cf0a-bee1-4541-a4f4-a840dab63c8e"
                 },
                 {
                     "props": {
+                        "label": "Name",
+                        "onChange": {
+                            "name": "handleFormChange",
+                            "args": [
+                                "name"
+                            ],
+                            "type": "function"
+                        },
+                        "helperText": {
+                            "type": "function",
+                            "args": [
+                                "name"
+                            ],
+                            "name": "getFormHelperText"
+                        },
+                        "error": {
+                            "name": "getFormError",
+                            "type": "function",
+                            "args": [
+                                "name"
+                            ]
+                        },
                         "value": {
                             "args": [
                                 "name"
                             ],
                             "name": "getFormValue",
                             "type": "function"
-                        },
-                        "helperText": {
-                            "args": [
-                                "name"
-                            ],
-                            "type": "function",
-                            "name": "getFormHelperText"
-                        },
-                        "error": {
-                            "args": [
-                                "name"
-                            ],
-                            "name": "getFormError",
-                            "type": "function"
-                        },
-                        "onChange": {
-                            "name": "handleFormChange",
-                            "type": "function",
-                            "args": [
-                                "name"
-                            ]
-                        },
-                        "label": "Name"
+                        }
                     },
-                    "type": "Input"
+                    "type": "Input",
+                    "uid": "665d6b04-28ca-4d82-80dd-932a8bf39905"
                 },
                 {
-                    "type": "Input",
                     "props": {
+                        "onChange": {
+                            "type": "function",
+                            "args": [
+                                "email"
+                            ],
+                            "name": "handleFormChange"
+                        },
+                        "value": {
+                            "type": "function",
+                            "name": "getFormValue",
+                            "args": [
+                                "email"
+                            ]
+                        },
                         "helperText": {
+                            "type": "function",
                             "name": "getFormHelperText",
                             "args": [
                                 "email"
-                            ],
-                            "type": "function"
+                            ]
                         },
                         "error": {
-                            "type": "function",
                             "name": "getFormError",
+                            "type": "function",
                             "args": [
                                 "email"
                             ]
                         },
+                        "label": "Email"
+                    },
+                    "type": "Input",
+                    "uid": "9423f7d3-bd23-4c1f-865b-db38b95d0e37"
+                },
+                {
+                    "props": {
+                        "error": {
+                            "name": "getFormError",
+                            "type": "function",
+                            "args": [
+                                "message"
+                            ]
+                        },
+                        "helperText": {
+                            "type": "function",
+                            "name": "getFormHelperText",
+                            "args": [
+                                "message"
+                            ]
+                        },
+                        "value": {
+                            "name": "getFormValue",
+                            "args": [
+                                "message"
+                            ],
+                            "type": "function"
+                        },
                         "onChange": {
                             "args": [
-                                "email"
+                                "message"
                             ],
                             "type": "function",
                             "name": "handleFormChange"
                         },
-                        "value": {
-                            "name": "getFormValue",
-                            "args": [
-                                "email"
-                            ],
-                            "type": "function"
-                        },
-                        "label": "Email"
-                    }
+                        "label": "Message",
+                        "fillSpace": true
+                    },
+                    "type": "Input",
+                    "uid": "d6e84102-6575-4dce-80a1-d7be88e4559e"
                 },
                 {
                     "props": {
-                        "fillSpace": true,
-                        "error": {
-                            "args": [
-                                "message"
-                            ],
-                            "name": "getFormError",
-                            "type": "function"
-                        },
-                        "value": {
-                            "name": "getFormValue",
-                            "args": [
-                                "message"
-                            ],
-                            "type": "function"
-                        },
-                        "helperText": {
-                            "name": "getFormHelperText",
-                            "type": "function",
-                            "args": [
-                                "message"
-                            ]
-                        },
-                        "onChange": {
-                            "name": "handleFormChange",
-                            "args": [
-                                "message"
-                            ],
-                            "type": "function"
-                        },
-                        "label": "Message"
+                        "tailwindClasses": "flex flex-col lg:flex-row w-full"
                     },
-                    "type": "Input"
-                },
-                {
+                    "type": "Block",
                     "children": [
                         {
+                            "type": "Block",
                             "props": {
                                 "tailwindClasses": "flex flex-col flex-1/2flex flex-col flex-1/2"
                             },
                             "children": [
                                 {
-                                    "type": "Block",
                                     "props": {
                                         "as": "button",
-                                        "children": "Submit",
-                                        "tailwindClasses": "mt-5 bg-primary text-white px-4 py-2 rounded-xl cursor-pointer hover:bg-secondary transition"
-                                    }
+                                        "tailwindClasses": "mt-5 bg-primary text-white px-4 py-2 rounded-xl cursor-pointer hover:bg-secondary transition",
+                                        "children": "Submit"
+                                    },
+                                    "type": "Block",
+                                    "uid": "139526de-3f6b-459c-a35e-b5fb9334e8cb"
                                 }
                             ],
-                            "type": "Block"
+                            "uid": "b734b73b-e1ae-46db-9952-d8dd749223c2"
                         },
                         {
                             "props": {},
-                            "type": "SocialBar"
+                            "type": "SocialBar",
+                            "uid": "678846c6-64b1-4041-bea1-af825289da25"
                         }
                     ],
-                    "props": {
-                        "tailwindClasses": "flex flex-col lg:flex-row w-full"
-                    },
-                    "type": "Block"
+                    "uid": "0b03cf2d-1748-4ba5-9492-c2c6c5ff3204"
                 }
-            ]
+            ],
+            "type": "Block",
+            "uid": "08eefdb5-50f0-4b1b-9eb8-f61abc669913"
         },
         {
             "children": [
                 {
+                    "type": "Block",
                     "props": {
                         "alt": "Owner Julia Watkins",
+                        "tailwindClasses": "h-full w-auto object-contain",
                         "as": "img",
-                        "src": "https://firebasestorage.googleapis.com/v0/b/thedanceandmovementstudio.firebasestorage.app/o/images%2Fcontact-page-image.png?alt=media&token=4791807e-1bfc-4167-a3dd-0d58260f5cfa",
-                        "tailwindClasses": "h-full w-auto object-contain"
+                        "src": "https://firebasestorage.googleapis.com/v0/b/thedanceandmovementstudio.firebasestorage.app/o/images%2Fcontact-page-image.png?alt=media&token=4791807e-1bfc-4167-a3dd-0d58260f5cfa"
                     },
-                    "type": "Block"
+                    "uid": "da0e2048-9b9d-4bae-a11d-392c82b8a659"
                 }
             ],
             "type": "Transition",
             "props": {
-                "entry": "animate__fadeInLeft",
-                "speed": "overlay-duration",
                 "tailwindClass": "flex flex-col flex-1 justify-center h-1/2 lg:h-full",
+                "entry": "animate__fadeInLeft",
                 "isEntering": true,
-                "exit": "animate__fadeOutLeft"
-            }
+                "exit": "animate__fadeOutLeft",
+                "speed": "overlay-duration"
+            },
+            "uid": "89c513c9-96d1-4fce-97fc-24b66220ed33"
         }
     ],
-    "props": {
-        "tailwindClasses": "h-full flex flex-col lg:flex-row-reverse bg-white"
-    }
+    "uid": "0adbc48c-3ac8-4d9b-a327-207e85ce9ce0"
 }

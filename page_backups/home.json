@@ -1,21 +1,22 @@
 {
     "children": [
         {
-            "type": "Block",
             "children": [
                 {
                     "props": {
                         "children": "The Dance & Movement Workshop",
                         "tailwindClasses": "text-3xl lg:text-6xl font-secondary"
                     },
-                    "type": "Block"
+                    "type": "Block",
+                    "uid": "51a1339e-69eb-4fd8-96d6-849ba7089ae4"
                 },
                 {
                     "props": {
                         "children": "The Dance and Movement Workshop is a community-focused studio offering classes for all ages. We foster a love of dance while building strong technical foundations—and on weekends, we host inclusive workshops that welcome students from all studios, creating a shared space for growth, connection, and collaboration.",
                         "tailwindClasses": "mb-5 text-sm md:text-base"
                     },
-                    "type": "Block"
+                    "type": "Block",
+                    "uid": "f087c14f-d8f9-4d1a-b86d-2aa245eca3ba"
                 },
                 {
                     "props": {
@@ -23,74 +24,84 @@
                     },
                     "children": [
                         {
-                            "props": {
-                                "tailwindClasses": "flex flex-col flex-1/2"
-                            },
-                            "type": "Block",
                             "children": [
                                 {
-                                    "type": "Block",
                                     "props": {
+                                        "as": "button",
                                         "children": "Contact",
+                                        "tailwindClasses": "bg-primary text-white px-4 py-2 rounded-xl cursor-pointer hover:bg-secondary transition",
                                         "onClick": {
                                             "args": [
                                                 "/Contact",
                                                 "Contact",
                                                 "3nXwEr7eW6Jl38Ks1ZCw"
                                             ],
-                                            "name": "handleNavigation",
-                                            "type": "function"
-                                        },
-                                        "tailwindClasses": "bg-primary text-white px-4 py-2 rounded-xl cursor-pointer hover:bg-secondary transition",
-                                        "as": "button"
-                                    }
+                                            "type": "function",
+                                            "name": "handleNavigation"
+                                        }
+                                    },
+                                    "type": "Block",
+                                    "uid": "37559339-70ce-4fdf-836b-c1e4b3ce116d"
                                 }
-                            ]
+                            ],
+                            "props": {
+                                "tailwindClasses": "flex flex-col flex-1/2"
+                            },
+                            "type": "Block",
+                            "uid": "148de258-95e8-4536-9d7a-4d61be632df1"
                         },
                         {
+                            "props": {},
                             "type": "SocialBar",
-                            "props": {}
+                            "uid": "279ee248-6c50-4182-ae9c-c82cfa7e86b7"
                         }
                     ],
-                    "type": "Block"
+                    "type": "Block",
+                    "uid": "3b7759c6-fc6c-43f7-ba2b-fc2b0adf61e4"
                 }
             ],
+            "type": "Block",
             "props": {
                 "tailwindClasses": "flex flex-col flex-1 justify-center h-1/2 lg:h-full box-border p-5 md:p-16 lg:p-32"
-            }
+            },
+            "uid": "1b841fa1-e60a-4333-ba42-7c79f3221798"
         },
         {
-            "type": "Block",
             "props": {
                 "tailwindClasses": "flex flex-col flex-1 justify-center h-1/2 lg:h-full"
             },
             "children": [
                 {
+                    "props": {
+                        "isEntering": true,
+                        "speed": "overlay-duration",
+                        "entry": "animate__fadeInRight",
+                        "exit": "animate__fadeOutRight",
+                        "tailwindClass": "flex flex-col flex-1 justify-center h-1/2 lg:h-full"
+                    },
+                    "type": "Transition",
                     "children": [
                         {
-                            "type": "Block",
                             "props": {
-                                "src": "https://firebasestorage.googleapis.com/v0/b/thedanceandmovementstudio.firebasestorage.app/o/images%2Fhome-page-image.png?alt=media&token=79086b93-04a4-4696-b238-8c834ad82abd\n",
-                                "alt": "Owner Julia Watkins",
                                 "tailwindClasses": "h-full w-auto object-contain",
-                                "as": "img"
-                            }
+                                "alt": "Owner Julia Watkins",
+                                "as": "img",
+                                "src": "https://firebasestorage.googleapis.com/v0/b/thedanceandmovementstudio.firebasestorage.app/o/images%2Fhome-page-image.png?alt=media&token=79086b93-04a4-4696-b238-8c834ad82abd\n"
+                            },
+                            "type": "Block",
+                            "uid": "72aa871a-0e1e-42b5-9337-f685442324fc"
                         }
                     ],
-                    "type": "Transition",
-                    "props": {
-                        "entry": "animate__fadeInRight",
-                        "speed": "overlay-duration",
-                        "tailwindClass": "flex flex-col flex-1 justify-center h-1/2 lg:h-full",
-                        "isEntering": true,
-                        "exit": "animate__fadeOutRight"
-                    }
+                    "uid": "8d89b037-f89f-46ca-b208-67515e44a5d7"
                 }
-            ]
+            ],
+            "type": "Block",
+            "uid": "f4698a3f-0a1e-4be1-8905-51899e3be404"
         }
     ],
+    "type": "Block",
     "props": {
         "tailwindClasses": "h-full flex flex-col lg:flex-row bg-white"
     },
-    "type": "Block"
+    "uid": "30bf0e99-072f-4cb7-b72e-16dfcefcdc9f"
 }
