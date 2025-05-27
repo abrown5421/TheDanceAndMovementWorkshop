@@ -14,14 +14,12 @@ import CircularLoader from "./components/circularLoader/CircularLoader";
 import Drawer from "./components/drawer/Drawer";
 import AdminPage from "./features/admin/AdminPage";
 import { setAdminMode } from "./features/admin/adminSlice";
-import AdminMenu from "./features/admin/features/adminMenu/AdminMenu";
 import { useInitializeAppData } from "./hooks/InitializeAppData";
 
 function App() {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const pages = useAppSelector((state) => state.pages);
-  const admin = useAppSelector((state) => state.admin);
   const loadingPages = useInitializeAppData();
 
   useEffect(()=>{console.log(pages)}, [pages])
@@ -63,11 +61,7 @@ function App() {
           </Routes>
           
           <Drawer>
-            {admin.adminMode ? (
-              <AdminMenu />
-            ) : (
-              <Menu />
-            )}
+            <Menu />
           </Drawer>
           <Notification />
         </div>
