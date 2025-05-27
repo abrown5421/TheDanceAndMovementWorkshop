@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import Block from '../../components/block/Block';
-import Input from '../../components/input/Input';
-import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
-import { authenticate, getAuthUID } from '../../services/auth/authenticate';
+import Block from '../../../../components/block/Block';
+import Input from '../../../../components/input/Input';
+import { useAdminNavigationHook } from '../../../../hooks/AdminNavigationHook';
+import { authenticate, getAuthUID } from '../../../../services/auth/authenticate';
 import { Eye, EyeClosed } from 'lucide-react';
-import { setEntireNotification } from '../../components/notification/notificationSlice';
-import { useAppDispatch } from '../../app/store/hooks';
-import { setAdminAuth, setAdminUser, setAdminUserStaffDoc } from './adminSlice';
-import { getDocumentById } from '../../services/db/getData';
-import type { AdminUser, AdminUserStaffDoc } from './adminTypes';
+import { setEntireNotification } from '../../../../components/notification/notificationSlice';
+import { useAppDispatch } from '../../../../app/store/hooks';
+import { setAdminAuth, setAdminUser, setAdminUserStaffDoc } from '../../adminSlice';
+import { getDocumentById } from '../../../../services/db/getData';
+import type { AdminUser, AdminUserStaffDoc } from '../../adminTypes';
 import Cookies from 'js-cookie';
 
 const AdminAuth: React.FC = () => {

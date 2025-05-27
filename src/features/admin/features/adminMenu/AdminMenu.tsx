@@ -7,9 +7,7 @@ import { setDrawerState } from '../../../../components/drawer/drawerSlice';
 import { initializeAdmin } from '../../adminSlice';
 import { useNavigationHook } from '../../../../hooks/NavigationHook';
 import { useAdminNavigationHook } from '../../../../hooks/AdminNavigationHook';
-
-// Lucide Icons
-import { LayoutDashboard, Image, Menu, FileText, Users } from 'lucide-react';
+import { LayoutDashboard, Image, Settings, FileText, Users } from 'lucide-react';
 
 const AdminMenu: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -26,18 +24,22 @@ const AdminMenu: React.FC = () => {
     };
 
     const pages = [
-        { label: 'Dashboard', icon: <LayoutDashboard size={20} /> },
-        { label: 'Gallery Images', icon: <Image size={20} /> },
-        { label: 'Navigation', icon: <Menu size={20} /> },
-        { label: 'Pages', icon: <FileText size={20} /> },
-        { label: 'Employee Management', icon: <Users size={20} /> },
+        { label: 'Dashboard', icon: <LayoutDashboard size={20} />, path: "Dash" },
+        { label: 'Site Settings', icon: <Settings size={20} />, path: "Settings" },
+        { label: 'Page Editor', icon: <FileText size={20} />, path: "PageEditor" },
+        { label: 'Employee Management', icon: <Users size={20} />, path: "EmployeeManager" },
     ];
+
+    const handleAdminNav = (path: string) => {
+        dispatch(setDrawerState({ key: 'drawerOpen', value: false }));
+        handleAdminNavigation(path)
+    }
 
     return (
         <div className='flex flex-col justify-between flex-1'>
             <div className='flex flex-col flex-1'>
-                {pages.map(({ label, icon }) => (
-                    <div className="flex items-center gap-3 pb-8 px-4 text-gray-800 hover:text-primary cursor-pointer transition" key={label}>
+                {pages.map(({ label, icon, path }) => (
+                    <div onClick={() => handleAdminNav(path)} className="flex items-center gap-3 pb-8 px-4 text-gray-800 hover:text-primary cursor-pointer transition" key={label}>
                         {icon}
                         <span>{label}</span>
                     </div>

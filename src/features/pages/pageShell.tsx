@@ -105,9 +105,6 @@ function PageShell() {
     if (PageNotFound && currentPage) {
       dispatch(setEntireLoaderLoadState({loaderLoad: false, loaderIdentify: ''}))
     }
-    if (currentPage) { 
-      console.log(addUIDsToTree(currentPage.PageContent))
-    }
   }, [currentPage, PageNotFound])
 
   return (
