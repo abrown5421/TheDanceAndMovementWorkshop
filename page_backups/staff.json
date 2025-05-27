@@ -21,43 +21,80 @@
                         {
                             "type": "Block",
                             "props": {
-                                "tailwindClasses": "rounded shadow lg:shadow-lg"
+                                "tailwindClasses": "relative rounded shadow lg:shadow-lg overflow-hidden group"
                             },
                             "children": [
                                 {
-                                    "type": "Block",
-                                    "props": {
-                                        "tailwindClasses": "w-full object-fit rounded",
-                                        "type": "Block",
-                                        "alt": "{{StaffName}}",
-                                        "src": "{{StaffImage}}",
-                                        "as": "img"
-                                    }
+                                "type": "Block",
+                                "props": {
+                                    "tailwindClasses": "w-full object-fit rounded",
+                                    "alt": "{{StaffName}}",
+                                    "src": "{{StaffImage}}",
+                                    "as": "img"
+                                }
                                 },
                                 {
-                                    "children": [
-                                        {
-                                            "type": "Block",
-                                            "props": {
-                                                "children": "{{StaffName}}",
-                                                "tailwindClasses": "text-xl font-bold"
-                                            }
-                                        },
-                                        {
-                                            "type": "Block",
-                                            "props": {
-                                                "tailwindClasses": "text-sm text-gray-600",
-                                                "children": "{{StaffTitle}}"
-                                            }
-                                        }
-                                    ],
+                                "children": [
+                                    {
                                     "type": "Block",
                                     "props": {
-                                        "tailwindClasses": "h-auto p-4 box-border"
+                                        "children": "{{StaffName}}",
+                                        "tailwindClasses": "text-xl font-bold"
                                     }
+                                    },
+                                    {
+                                    "type": "Block",
+                                    "props": {
+                                        "tailwindClasses": "text-sm text-gray-600",
+                                        "children": "{{StaffTitle}}"
+                                    }
+                                    }
+                                ],
+                                "type": "Block",
+                                "props": {
+                                    "tailwindClasses": "h-auto p-4 box-border"
+                                }
+                                },
+                                {
+                                "type": "Block",
+                                "children": [
+                                    {
+                                    "type": "Block",
+                                    "props": {
+                                        "tailwindClasses": "w-full flex flex-row justify-start items-center"
+                                    },
+                                    "children": [
+                                      {
+                                      "type": "Block",
+                                      "props": {
+                                          "children": "{{StaffName}}:",
+                                          "tailwindClasses": "text-xl font-bold"
+                                      }
+                                      },
+                                      {
+                                      "type": "Block",
+                                      "props": {
+                                          "tailwindClasses": "text-sm pl-3",
+                                          "children": " {{StaffTitle}}"
+                                      }
+                                      }
+                                    ]
+                                    },
+                                    {
+                                    "type": "Block",
+                                    "props": {
+                                        "tailwindClasses": "text-sm",
+                                        "children": "{{StaffBio}}"
+                                      }
+                                    }
+                                ],
+                                "props": {
+                                    "tailwindClasses": "text-white p-4 absolute top-0 bottom-0 left-0 right-0 dis bg-black opacity-0 hover:opacity-[.90] flex flex-col items-center justify-center"
+                                  }
                                 }
                             ]
                         }
+
                     ],
                     "uid": "2f686525-4389-4915-8eea-5a9e88d01148"
                 }

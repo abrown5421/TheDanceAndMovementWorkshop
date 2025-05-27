@@ -9,7 +9,8 @@ columns-1
 sm:columns-2 
 lg:columns-4 gap-4
 min-h-full
-
+opacity-0 
+hover:opacity-[.90]
 flex-row
 lg:flex-row
 md:flex-row

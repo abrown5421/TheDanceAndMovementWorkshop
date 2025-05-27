@@ -14,7 +14,7 @@ import CircularLoader from "./components/circularLoader/CircularLoader";
 import Drawer from "./components/drawer/Drawer";
 import AdminPage from "./features/admin/AdminPage";
 import { setAdminMode } from "./features/admin/adminSlice";
-import AdminMenu from "./features/navbar/AdminMenu";
+import AdminMenu from "./features/admin/features/adminMenu/AdminMenu";
 import { useInitializeAppData } from "./hooks/InitializeAppData";
 
 function App() {

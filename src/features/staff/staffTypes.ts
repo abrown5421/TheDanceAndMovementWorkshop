@@ -7,4 +7,5 @@ export interface StaffState {
   StaffName: string; 
   StaffTitle: string; 
   StaffImage: string; 
+  StaffBio: string;
 }
