@@ -80,7 +80,7 @@ const AdminAuth: React.FC = () => {
         }
 
         dispatch(setAdminAuth(true));
-        handleAdminNavigation('Dash');
+        handleAdminNavigation('Dashboard');
     } catch (err: any) {
         console.log(err)
         dispatch(setEntireNotification({

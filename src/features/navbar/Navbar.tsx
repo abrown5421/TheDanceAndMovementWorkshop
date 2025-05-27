@@ -13,6 +13,7 @@ import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
 import { deauthenticate, sendPasswordReset } from '../../services/auth/authenticate';
 import Block from '../../components/block/Block';
 import { setEntireNotification } from '../../components/notification/notificationSlice';
+import clsx from 'clsx';
 
 const Navbar: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -86,35 +87,42 @@ const Navbar: React.FC = () => {
           )}
         </div>
       ) : admin.adminUser.UserEmail !== '' ? (
-        <div className="relative flex flex-col items-end" ref={dropdownRef}>
-          <button
-            onClick={handleAvatarClick}
-            className="rounded-full overflow-hidden w-10 h-10 border border-gray-300 hover:ring-2 ring-primary focus:outline-none cursor-pointer"
-          >
-            <img
-              src={admin.adminUserStaffDoc?.StaffImage || "../../../public/assets/images/placeholder-headshot.jpg"}
-              alt="User Avatar"
-              className="w-full h-full object-cover"
-            />
-          </button>
+        <div className='flex flex-row items-center'>
+          {['Dashboard','Page Editor','Site Settings','Employee Management'].map((page) => (
+            <div onClick={() => handleAdminNavigation(page.replace(" ", ""))} className={clsx(
+              admin.AdminPageState.activePageName === page.replace(" ", "") ? 'text-primary' : 'text-black',
+              'h-full px-5 cursor-pointer')}>{page}</div>
+          ))}
+          <div className="relative flex flex-col items-end" ref={dropdownRef}>
+            <button
+              onClick={handleAvatarClick}
+              className="rounded-full overflow-hidden w-10 h-10 border border-gray-300 hover:ring-2 ring-primary focus:outline-none cursor-pointer"
+            >
+              <img
+                src={admin.adminUserStaffDoc?.StaffImage || "../../../public/assets/images/placeholder-headshot.jpg"}
+                alt="User Avatar"
+                className="w-full h-full object-cover"
+              />
+            </button>
 
-          {dropdownOpen && (
-            <div className="absolute mt-13 bg-white border border-gray-200 rounded-lg shadow-xl z-50 w-65 p-4">
-              <Block
-                as="button"
-                children="Reset Password"
-                tailwindClasses="w-full px-4 rounded cursor-pointer transition flex justify-end"
-                onClick={handlePasswordReset}
-              />
-              <hr className="my-4 border-t border-gray-300" />
-              <Block
+            {dropdownOpen && (
+              <div className="absolute mt-13 bg-white border border-gray-200 rounded-lg shadow-xl z-50 w-65 p-4">
+                <Block
                   as="button"
-                  children="Logout"
-                  tailwindClasses="w-full bg-primary text-white px-4 py-2 rounded cursor-pointer hover:bg-secondary transition"
-                  onClick={handleLogout}
-              />
-            </div>
-          )}
+                  children="Reset Password"
+                  tailwindClasses="w-full px-4 rounded cursor-pointer transition flex justify-end"
+                  onClick={handlePasswordReset}
+                />
+                <hr className="my-4 border-t border-gray-300" />
+                <Block
+                    as="button"
+                    children="Logout"
+                    tailwindClasses="w-full bg-primary text-white px-4 py-2 rounded cursor-pointer hover:bg-secondary transition"
+                    onClick={handleLogout}
+                />
+              </div>
+            )}
+          </div>
         </div>
       ) : null}
     </div>

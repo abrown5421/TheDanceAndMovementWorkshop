@@ -10,6 +10,9 @@ import type { AdminUser, AdminUserStaffDoc } from './adminTypes';
 import { getDocumentById } from '../../services/db/getData';
 import { useAdminNavigationHook } from '../../hooks/AdminNavigationHook';
 import Sidebar from './components/sidebar/Sidebar';
+import AdminPageEditor from './features/adminPageEditor/AdminPageEditor';
+import AdminSiteSettings from './features/adminSiteSettings/AdminSiteSettings';
+import AdminEmployeeManagement from './features/adminEmployeeManagement/AdminEmployeeManagement';
 
  const AdminPage: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -61,7 +64,10 @@ import Sidebar from './components/sidebar/Sidebar';
                 tailwindClass='h-full flex flex-col flex-3/4 justify-center items-center'
             >
                 {admin.AdminPageState.activePageName === 'Auth' && (<AdminAuth />)}
-                {admin.AdminPageState.activePageName === 'Dash' && (<AdminDash />)}
+                {admin.AdminPageState.activePageName === 'Dashboard' && (<AdminDash />)}
+                {admin.AdminPageState.activePageName === 'PageEditor' && (<AdminPageEditor />)}
+                {admin.AdminPageState.activePageName === 'SiteSettings' && (<AdminSiteSettings />)}
+                {admin.AdminPageState.activePageName === 'EmployeeManagement' && (<AdminEmployeeManagement />)}
             </Transition>
         </div>
     );
