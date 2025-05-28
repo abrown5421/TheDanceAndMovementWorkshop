@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../app/store/hooks';
 import { setActivePage } from '../../../pages/activePageSlice';
-import BlockEditor from '../../features/blockEditor/BlockEditor';
 
 const Sidebar: React.FC = () => {
     const dispatch = useAppDispatch();
     const pages = useAppSelector((state) => state.pages);
     const activePage = useAppSelector((state) => state.activePage);
     const sortedPages = [...pages.pages].sort((a, b) => a.PageNavConfig.Order - b.PageNavConfig.Order);
+    const pageContent = pages.pages.filter((page) => page.PageID === activePage.activePageId)
+
+    useEffect(()=>{console.log(pageContent)}, [pageContent])
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedPage = sortedPages.find(page => page.PageName === e.target.value);
@@ -33,7 +35,7 @@ const Sidebar: React.FC = () => {
                     </option>
                 ))}
             </select>
-            <BlockEditor />
+            
         </div>
     );
 };
