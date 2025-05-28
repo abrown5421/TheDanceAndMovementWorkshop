@@ -18,6 +18,7 @@ export interface AdminUserStaffDoc {
   StaffName: string;
   StaffTitle: string;
   StaffRate: number;
+  StaffBio: string;
 }
 
 export interface AdminPageState {

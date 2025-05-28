@@ -41,7 +41,7 @@ import AdminEmployeeManagement from './features/adminEmployeeManagement/AdminEmp
             }
 
             dispatch(setAdminAuth(true));
-            handleAdminNavigation('Dash');
+            handleAdminNavigation('Dashboard');
         } catch (error) {
             console.error("Error fetching documents:", error);
         }
@@ -53,9 +53,6 @@ import AdminEmployeeManagement from './features/adminEmployeeManagement/AdminEmp
     
     return (
         <div className='admin-shell flex flex-row'>
-            {admin.AdminPageState.activePageName !== 'Auth' && (
-                <Sidebar />
-            )}
             <Transition 
                 entry={admin.AdminPageState.activePageName === 'Auth' ? "animate__fadeInUp" : "animate__fadeIn"} 
                 exit={admin.AdminPageState.activePageName === 'Auth' ? "animate__fadeOutDown" : "animate__fadeOut"}

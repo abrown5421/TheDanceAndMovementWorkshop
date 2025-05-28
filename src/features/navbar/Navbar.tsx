@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
     deauthenticate();
     dispatch(initializeAdmin());
     Cookies.remove('authentication');
-    handleAdminNavigation('Dash');
+    handleAdminNavigation('Dashboard');
   };
 
   useEffect(() => {
