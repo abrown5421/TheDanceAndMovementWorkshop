@@ -22,8 +22,7 @@ const Block = <T extends React.ElementType = 'div'>({
     return acc;
   }, {});
 
-  const baseBorderClasses = 'border-2 border-transparent';
-  const adminHoverClass = admin ? 'hover:border-primary cursor-pointer' : '';
+  const adminHoverClass = admin ? 'border-2 border-transparent hover:border-primary cursor-pointer' : '';
 
   return (
     <Component
@@ -31,7 +30,7 @@ const Block = <T extends React.ElementType = 'div'>({
       id={id}
       name={name}
       onClick={onClick}
-      className={clsx(baseBorderClasses, adminHoverClass, tailwindClasses)}
+      className={clsx(adminHoverClass, tailwindClasses)}
       {...rest}
       {...dataProps}
     >
